@@ -1,11 +1,15 @@
 import React from "react";
 import "./ContentPage.scss";
 
-function ContentPage() {
+function ContentPage(props) {
   return (
     <div>
-      <div></div>
-      <div></div>
+      <div>Content Page</div>
+      <div>
+        <button onClick={props.previousStep}>Previous Step</button>
+        <button onClick={() => props.goToStep(3)}>add new goal</button>
+        <button onClick={props.nextStep}>Summary</button>
+      </div>
     </div>
   );
 }

@@ -1,11 +1,14 @@
 import React from "react";
 import "./CreateCoursePage.scss";
 
-function CreateCoursePage() {
+function CreateCoursePage(props) {
   return (
     <div>
-      <div></div>
-      <div></div>
+      <div>Create Course</div>
+      <div>
+        <button onClick={props.previousStep}>Previous Step</button>
+        <button onClick={props.nextStep}>Next Step</button>
+      </div>
     </div>
   );
 }
