@@ -1,7 +1,11 @@
 import React from "react";
+import "./App.css";
+import NavigationWizard from "./Pages/Navigation/NavigationWizard";
 
-function App() {
-  return <div></div>;
-}
-
+const App = () => (
+  <div>
+    Static navbar
+    <NavigationWizard />
+  </div>
+);
 export default App;
