@@ -1,4 +1,5 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React from "react";
+// import { Fragment, useState, useEffect } from "react";
 import StepWizard from "react-step-wizard";
 import CreateCoursePage from "../CreateCoursePage/CreateCoursePage";
 import CourseNamePage from "../CourseNamePage/CourseNamePage";
