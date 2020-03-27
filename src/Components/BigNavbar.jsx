@@ -5,7 +5,6 @@ import "./BigNavbar.css";
 import Logo from "./Images/Logo.svg";
 import GreyCorner from "./Images/GreyCorner.svg";
 
-
 const BigNavbar = () => {
   return (
     <div>
