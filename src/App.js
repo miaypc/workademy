@@ -1,10 +1,12 @@
 import React from "react";
-import BigNavbar from "./Components/BigNavbar";
 
-function App() {
-  return <div>
+import "./App.css";
+import NavigationWizard from "./Pages/Navigation/NavigationWizard";
 
-  </div>;
-}
+const App = () => (
+  <div>
+    <NavigationWizard />
+  </div>
+);
 
 export default App;
