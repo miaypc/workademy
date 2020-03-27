@@ -1,0 +1,19 @@
+.pageContainer {
+  background-color: pink;
+  display: flex;
+  height: 100%;
+
+  .leftBar {
+    background-color: rgb(215, 250, 215);
+    width: 20%;
+  }
+  .rightSection {
+    background-color: rgb(245, 199, 214);
+    width: 80%;
+    .bottomButtons {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 10px;
+    }
+  }
+}

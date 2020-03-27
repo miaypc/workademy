@@ -4,7 +4,6 @@ import NavigationWizard from "./Pages/Navigation/NavigationWizard";
 
 const App = () => (
   <div>
-    Static navbar
     <NavigationWizard />
   </div>
 );
