@@ -1,13 +1,15 @@
 import React from "react";
 import "./CreateCoursePage.scss";
+import "../PageStyles.scss";
 
 function CreateCoursePage(props) {
   return (
-    <div>
-      <div>Create Course</div>
-      <div>
-        <button onClick={props.previousStep}>Previous Step</button>
-        <button onClick={props.nextStep}>Next Step</button>
+    <div className="pageContainer">
+      <div className="leftBar">Create Course</div>
+      <div className="rightSection">
+        <div className="bottomButtons">
+          <button onClick={props.nextStep}>Create your course</button>
+        </div>
       </div>
     </div>
   );
