@@ -1,14 +1,9 @@
 .logo {
-  float: left;
-  width: 25%;
-  height: 8em;
-  align-self: center;
+  height: 20%;
   margin: 0em;
 }
 
 .grey-corner {
-  align-self: flex-end;
-  width: 25%;
   margin: 0em;
-  height: 10em;
+  height: 20%;
 }
