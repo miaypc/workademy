@@ -48,9 +48,9 @@ const RightCorner = styled.div`
   float: right;
   margin: 0em;
   padding: 0em;
-  margin-left: 50px;
+  margin-left: 40px;
   min-height: 150px;
-  width: 150px;
+  width: 200px;
   background-image: url(${require(`./Images/GreyCorner.svg`)});
   background-size: cover;
   background-repeat: no-repeat;

@@ -1,7 +1,7 @@
 import React from "react";
 import "../PageStyles.scss";
 import BigNavbar from "../../Components/BigNavbar";
-import CreateCourseWrapper from "./CreateCourseStyle";
+import CreateCourseWrapper from "./styleCreateCoursePage";
 
 function CreateCoursePage(props) {
   return (
