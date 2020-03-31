@@ -31,12 +31,12 @@ const LogoContainer = styled.div`
   }
 `;
 const LogoBig = styled.img`
-  min-width: 70px;
+  min-width: 60px;
   margin: 0em;
   justify-self: flex-start;
   padding: 0.5em;
 
-  @media ${Device.laptop} {
+  @media ${Device.tablet} {
     min-height: 80px;
   }
 `;
