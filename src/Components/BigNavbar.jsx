@@ -13,7 +13,7 @@ const BigNavContainer = styled.div`
   align-items: center;
   margin: 0;
   width: 100%;
-  max-height: 30%;
+  max-height: 25%;
   background-color: #ffffff;
 `;
 const LogoContainer = styled.div`
