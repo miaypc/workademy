@@ -1,16 +1,16 @@
 import React from "react";
-import "./CreateCoursePage.scss";
 import "../PageStyles.scss";
 import BigNavbar from "../../Components/BigNavbar";
+import CreateCourseWrapper from "./CreateCourseStyle";
 
 function CreateCoursePage(props) {
   return (
-    <div className="pageContainer">
+    <CreateCourseWrapper>
       <BigNavbar />
       <div className="bottomButtons">
         <button onClick={props.nextStep}>Create your course</button>
       </div>
-    </div>
+    </CreateCourseWrapper>
   );
 }
 

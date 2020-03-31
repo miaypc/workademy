@@ -1,7 +1,5 @@
 import React from "react";
-// import "./BigNavbar.css";
 import Logo from "./Images/Logo.svg";
-import GreyCorner from "./Images/GreyCorner.svg";
 import styled from "styled-components";
 import { Device } from "../Utils/Device";
 
@@ -12,8 +10,8 @@ const BigNavContainer = styled.div`
   flex-flow: row nowrap;
   align-items: center;
   margin: 0;
-  width: 100%;
-  max-height: 30%;
+  max-width: 100%;
+  max-height: 25%;
   background-color: #ffffff;
 `;
 const LogoContainer = styled.div`
@@ -22,7 +20,7 @@ const LogoContainer = styled.div`
   flex-grow: 1;
   flex-direction: column;
   min-width: 200px;
-  margin: 0;
+  margin: 0.5em;
 
   @media ${Device.tablet} {
     min-width: 300px;
