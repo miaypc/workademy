@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.js";
 
-// imporrting styled components
+// importing styled components for page setup
 import {
   PageContainer,
   LeftBar,
