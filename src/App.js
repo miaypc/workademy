@@ -1,12 +1,11 @@
 import React from "react";
-import VerbContainer from "./Components/VerbContainer/VerbContainer";
+import "./App.css";
+import NavigationWizard from "./Pages/Navigation/NavigationWizard";
 
-function App() {
-  return (
-    <div>
-      <VerbContainer />
-    </div>
-  );
-}
+const App = () => (
+  <div>
+    <NavigationWizard />
+  </div>
+);
 
 export default App;
