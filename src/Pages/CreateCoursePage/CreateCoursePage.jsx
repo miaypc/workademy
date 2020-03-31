@@ -1,5 +1,4 @@
 import React from "react";
-import "../PageStyles.scss";
 import BigNavbar from "../../Components/BigNavbar";
 import CreateCourseWrapper from "./styleCreateCoursePage";
 
