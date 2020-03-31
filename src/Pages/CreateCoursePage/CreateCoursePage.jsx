@@ -5,9 +5,9 @@ import "../PageStyles.scss";
 function CreateCoursePage(props) {
   return (
     <div className="pageContainer">
-      <div className="leftBar">Create Course</div>
-      <div className="rightSection">
-        <div className="bottomButtons">
+      <div>Create Course</div>
+      <div>
+        <div>
           <button onClick={props.nextStep}>Create your course</button>
         </div>
       </div>

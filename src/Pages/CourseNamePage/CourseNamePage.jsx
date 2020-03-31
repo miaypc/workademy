@@ -1,6 +1,7 @@
 import React from "react";
 import "./CourseNamePage.scss";
 import "../PageStyles.scss";
+import styled from "styled-components";
 
 function CourseNamePage(props) {
   return (
