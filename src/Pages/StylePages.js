@@ -5,11 +5,6 @@ export const PageContainer = styled.div`
   display: flex;
 `;
 
-// .leftBar {
-//     background-color: rgb(215, 250, 215);
-//     width: 20%;
-//   }
-
 export const LeftBar = styled.div`
   background-color: rgb(215, 250, 215);
   width: 20%;
