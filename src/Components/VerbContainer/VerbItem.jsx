@@ -5,27 +5,22 @@ import { makeStyles } from "@material-ui/core/styles";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Color from "../../Utils/Color";
-import { flexbox } from "@material-ui/system";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    paddingBottom: 0
-  },
   cardheader: {
     background: `${Color.mainNavy}`,
-    color: `${Color.mainWhite}`
+    color: `${Color.mainWhite}`,
+    textAlign: "center"
   },
   cardcontent: {
     width: 250,
-    // padding: 0,
-    // alignItems: "center",
     display: "flex",
-    justifyContent: "space-around"
-    // display: "flex",
-    // justify: "space-evenly"
-    // "&:last-child": {
-    //   paddingBottom: 0
-    // }
+    justifyContent: "space-around",
+    flexWrap: "wrap",
+    margin: 10
+  },
+  button: {
+    margin: 8
   }
 }));
 function VerbItem({ title, verbs }) {
@@ -33,13 +28,9 @@ function VerbItem({ title, verbs }) {
   return (
     <Card>
       <CardHeader className={classes.cardheader} title={title} />
-      <CardContent
-        style={{ display: "flex", justifyContent: "space-arround" }}
-        classes={{ root: classes.root }}
-        className={classes.cardcontent}
-      >
+      <CardContent className={classes.cardcontent}>
         {verbs.map(verb => {
-          return <VerbsButton>{verb}</VerbsButton>;
+          return <VerbsButton className={classes.button}>{verb}</VerbsButton>;
         })}
       </CardContent>
     </Card>
