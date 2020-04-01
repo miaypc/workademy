@@ -17,7 +17,9 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "space-around",
     flexWrap: "wrap",
-    margin: 10
+    margin: 3,
+    height: 250,
+    overflow: "auto"
   },
   button: {
     margin: 8

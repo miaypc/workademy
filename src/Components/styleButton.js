@@ -16,7 +16,7 @@ const Button = styled.button`
 const VerbsButton = styled(Button)`
   color: ${Color.mainNavy};
   background: ${Color.mainWhiteGrey};
-  font-size: 1em;
+  font-size: 0.9em;
   padding: 0.5em 1em;
   border-radius: 25px;
 `;
