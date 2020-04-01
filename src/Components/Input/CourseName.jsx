@@ -4,6 +4,7 @@ import React from "react";
 import _TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
 
+// styles
 const TextField = styled(_TextField)`
   > div {
     background-color: #e8e8e8;
@@ -17,7 +18,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-function CourseName() {
+function CourseName({ onChange }) {
   return (
     <Container>
       <TextField
@@ -26,6 +27,7 @@ function CourseName() {
         placeholder=""
         multiline
         variant="outlined"
+        onChange={onChange}
       />
     </Container>
   );

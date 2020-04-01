@@ -17,7 +17,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-function CourseDescription() {
+function CourseDescription({ onChange }) {
   return (
     <Container>
       <TextField
@@ -27,6 +27,7 @@ function CourseDescription() {
         multiline
         rows="4"
         variant="outlined"
+        onChange={onChange}
       />
     </Container>
   );
