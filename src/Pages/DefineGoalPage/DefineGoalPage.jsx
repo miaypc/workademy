@@ -1,4 +1,5 @@
 import React from "react";
+import VerbContainer from "../../Components/VerbContainer/VerbContainer";
 import GoalInput from "../../Components/Input/GoalInput";
 import { SmallParagraph } from "./styleDefineGoalPage";
 
@@ -44,16 +45,18 @@ function DefineGoalPage(props) {
     <PageContainer>
       <LeftBar>Define Goals</LeftBar>
       <RightSection>
+        <VerbContainer />
+
         <Header>Goal</Header>
         <GoalInput checkIsGoalEmpty={checkIsGoalEmpty} />
         {showErrorMessage()}
         <ButtonsContainer>
           <button onClick={props.previousStep}>Previous Step</button>
+
           <button onClick={goToNextStep}>Next Step</button>
         </ButtonsContainer>
       </RightSection>
     </PageContainer>
   );
 }
-
 export default DefineGoalPage;
