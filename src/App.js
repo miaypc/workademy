@@ -1,5 +1,5 @@
 import React from "react";
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import "./App.css";
 import NavigationWizard from "./Pages/Navigation/NavigationWizard";
 
@@ -10,11 +10,19 @@ const theme = createMuiTheme({
     action: {
       disabledBackground: "#7D8799",
       disabled: "#7D8799"
+
     },
+
+    typography: {
+      fontSize: "0.7rem"
+    },
+
+
     text: {
       secondary: "#7D8799",
       disabled: "#7D8799"
-    }
+    },
+
 
 
   },

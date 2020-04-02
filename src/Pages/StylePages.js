@@ -20,3 +20,8 @@ export const ButtonsContainer = styled.div`
   justify-content: space-between;
   margin: 5px 10px;
 `;
+
+export const Header = styled.div`
+  font-size: 30px;
+  text-align: center;
+`;

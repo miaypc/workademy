@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { withStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
@@ -8,10 +7,19 @@ import StepContent from "@material-ui/core/StepContent";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import styled from "styled-components";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: "#f0f0f0"
+    backgroundColor: "#f0f0f0",
+    padding: "0",
+    display: "flex",
+    flexDirection: "column",
+    flexShrink: "1",
+    position: "relative",
+    justifyContent: "center",
+    minWidth: "50px",
+    fontSize: "0.7em"
   },
   button: {
     marginTop: theme.spacing(1),

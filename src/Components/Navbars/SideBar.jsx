@@ -6,11 +6,14 @@ import ProgressBar from "./ProgressBar";
 
 const SideBarContainer = styled.div`
   display: flex;
+  flex-shrink: 1;
   flex-direction: column;
   position: relative;
-  flex-shrink: 1;
   min-width: 150px;
   background-color: #f0f0f0;
+  @media only screen and (max-width: 500px) {
+    min-width: 100px;
+  }
 `;
 
 const LogoSmall = styled.img`
@@ -18,10 +21,6 @@ const LogoSmall = styled.img`
   margin: 0.5em;
   justify-self: flex-start;
   padding: 0;
-
-  /* @media ${Device.mobileL} {
-    display: none;
-  } */
 `;
 
 const SideBar = () => (
