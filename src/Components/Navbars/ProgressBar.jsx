@@ -7,19 +7,21 @@ import StepContent from "@material-ui/core/StepContent";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import styled from "styled-components";
 
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: "#f0f0f0",
-    padding: "0",
+    padding: "0.1em",
     display: "flex",
     flexDirection: "column",
     flexShrink: "1",
     position: "relative",
     justifyContent: "center",
     minWidth: "50px",
-    fontSize: "0.7em"
+
+    "& .MuiStepLabel-label": {
+      fontSize: "0.77rem"
+    }
   },
   button: {
     marginTop: theme.spacing(1),
@@ -28,7 +30,7 @@ const useStyles = makeStyles(theme => ({
       color: "#253858"
     },
     step: {
-      backgroundColor: "yellow"
+      fontSize: 2
     }
   },
 
@@ -37,6 +39,9 @@ const useStyles = makeStyles(theme => ({
   },
   resetContainer: {
     padding: theme.spacing(3)
+  },
+  stepLabel: {
+    fontSize: "1px"
   }
 }));
 
@@ -70,7 +75,7 @@ export default function ProgressBar() {
       >
         {steps.map((label, index) => (
           <Step key={label}>
-            <StepLabel>{label}</StepLabel>
+            <StepLabel classes={classes.stepLabel}>{label}</StepLabel>
             <StepContent>
               <div className={classes.actionsContainer}></div>
             </StepContent>
