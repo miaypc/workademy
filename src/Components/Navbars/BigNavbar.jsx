@@ -1,7 +1,7 @@
 import React from "react";
-import Logo from "./Images/Logo.svg";
+import Logo from "../Images/Logo.svg";
 import styled from "styled-components";
-import { Device } from "../Utils/Device";
+import { Device } from "../../Utils/Device";
 
 const BigNavContainer = styled.div`
   display: flex;
@@ -34,7 +34,6 @@ const LogoBig = styled.img`
   min-width: 60px;
   margin: 0em;
   justify-self: flex-start;
-  padding: 0.5em;
 
   @media ${Device.tablet} {
     min-height: 80px;
@@ -51,7 +50,7 @@ const RightCorner = styled.div`
   margin-left: 40px;
   min-height: 150px;
   width: 200px;
-  background-image: url(${require(`./Images/GreyCorner.svg`)});
+  background-image: url(${require(`../Images/GreyCorner.svg`)});
   background-size: cover;
   background-repeat: no-repeat;
 

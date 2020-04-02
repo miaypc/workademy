@@ -1,5 +1,6 @@
 import React from "react";
 import "./CourseNamePage.scss";
+import SideBar from "../../Components/Navbars/SideBar";
 
 // importing styled components for page setup
 import {
@@ -12,7 +13,9 @@ import {
 function CourseNamePage(props) {
   return (
     <PageContainer>
-      <LeftBar>Course Name Page</LeftBar>
+      <LeftBar>
+        <SideBar />
+      </LeftBar>
       <RightSection>
         <ButtonsContainer>
           <button onClick={props.previousStep}>Previous Step</button>
