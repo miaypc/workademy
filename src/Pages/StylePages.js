@@ -7,12 +7,14 @@ export const PageContainer = styled.div`
 
 export const LeftBar = styled.div`
   background-color: rgb(215, 250, 215);
-  width: 20%;
+  flex-basis: 150px;
+  flex-grow: 1;
+  flex-shrink: 0;
 `;
 
 export const RightSection = styled.div`
   background-color: rgb(245, 199, 214);
-  width: 80%;
+  flex-grow: 10;
 `;
 
 export const ButtonsContainer = styled.div`

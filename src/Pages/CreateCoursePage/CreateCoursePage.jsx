@@ -9,7 +9,6 @@ function CreateCoursePage(props) {
       <BigNavbar />
       <div className="bottomButtons">
         <NewClassButton onClick={props.nextStep} />
-        <button onClick={props.nextStep}>Create your course</button>
       </div>
     </CreateCourseWrapper>
   );
