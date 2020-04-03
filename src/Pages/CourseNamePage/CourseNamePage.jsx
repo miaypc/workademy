@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./CourseNamePage.scss";
+import SideBar from "../../Components/Navbars/SideBar";
 
 // importing styled components for page setup
 import {
@@ -45,7 +47,9 @@ function CourseNamePage(props) {
 
   return (
     <PageContainer>
-      <LeftBar>Course Name Page</LeftBar>
+      <LeftBar>
+        <SideBar />
+      </LeftBar>
       <RightSection>
         <CourseName onChange={event => setCourseName(event.target.value)} />
         <CourseDescription
