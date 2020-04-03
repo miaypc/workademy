@@ -15,7 +15,7 @@ const Button = styled.button`
   font-size: 2em;
 `;
 
-const NewClassButton = () => {
-  return <Button>Create New Class</Button>;
+const NewClassButton = ({ onClick }) => {
+  return <Button onClick={onClick}>Create New Class</Button>;
 };
 export default NewClassButton;

@@ -43,7 +43,7 @@ function CourseNamePage(props) {
     if (courseName && courseDescription) {
       setIsErrorVisible(false);
     }
-  }, [courseName, CourseDescription]);
+  }, [courseName, courseDescription]);
 
   return (
     <PageContainer>

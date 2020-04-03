@@ -22,8 +22,7 @@ function GoalInput({ checkIsGoalEmpty }) {
       <Verb>Define</Verb>
       <TextField
         required
-        id="standard-required"
-        id="outlined-basic"
+        id="standard-required outlined-basic"
         label="Goal name"
         variant="outlined"
         style={{ width: "50%" }}
