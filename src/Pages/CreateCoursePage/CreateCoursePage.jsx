@@ -21,8 +21,9 @@ function CreateCoursePage(props) {
           To start creating your class, click on the button below
         </CreateCourseH2>
         <NewClassButtonContainer>
-          <NewClassButton onClick={props.nextStep} />
-          <button onClick={props.nextStep}>Create your course</button>
+          <div className="bottomButtons">
+            <NewClassButton onClick={props.nextStep} />
+          </div>
         </NewClassButtonContainer>
       </CreateCourseHeader>
     </CreateCourseWrapper>

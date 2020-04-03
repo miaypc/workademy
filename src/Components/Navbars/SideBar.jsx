@@ -21,6 +21,7 @@ const LogoSmall = styled.img`
   margin: 0.5em;
   justify-self: flex-start;
   padding: 0;
+  max-width: 100%;
 `;
 
 const SideBar = () => (

@@ -7,7 +7,8 @@ import {
   PageContainer,
   LeftBar,
   RightSection,
-  ButtonsContainer
+  ButtonsContainer,
+  TextHeader
 } from "../StylePages";
 import CourseName from "../../Components/Input/CourseName";
 import CourseDescription from "../../Components/Input/CourseDescription";
@@ -43,7 +44,7 @@ function CourseNamePage(props) {
     if (courseName && courseDescription) {
       setIsErrorVisible(false);
     }
-  }, [courseName, CourseDescription]);
+  }, [courseName, courseDescription]);
 
   return (
     <PageContainer>
@@ -51,11 +52,18 @@ function CourseNamePage(props) {
         <SideBar />
       </LeftBar>
       <RightSection>
+        <TextHeader>
+          Hey Olga! 👋
+          <br />
+          What's the name of your course?
+        </TextHeader>
+
         <CourseName onChange={event => setCourseName(event.target.value)} />
         <CourseDescription
           onChange={event => setCourseDescription(event.target.value)}
         />
         {showErrorMessage()}
+
         <ButtonsContainer>
           <button onClick={props.previousStep}>Previous Step</button>
           <button onClick={goToNextStep}>Next Step</button>

@@ -9,13 +9,18 @@ import {
   LeftBar,
   RightSection,
   ButtonsContainer,
-  Header
+  Header,
+  TextHeader,
+  TextSmallHeader
 } from "../StylePages";
+
 import { useState } from "react";
 
 function DefineGoalPage(props) {
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [isGoalEmpty, setIsGoalEmpty] = useState(true);
+
+  const [verbsSelected, setVerbsSelected] = useState(["define"]);
 
   //check if input is empty or not. If the goal isn't provided,
   //we won't give user to access the next page and show error message
@@ -45,6 +50,11 @@ function DefineGoalPage(props) {
     <PageContainer>
       <LeftBar>Define Goals</LeftBar>
       <RightSection>
+        <TextHeader>Let's define the new goal 🎯</TextHeader>
+        <TextSmallHeader>
+          Please type here the name of your goal and the type of goal. For
+          example: Learn HTML - Define
+        </TextSmallHeader>
         <VerbContainer />
 
         <Header>Goal</Header>

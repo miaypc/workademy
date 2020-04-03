@@ -11,18 +11,14 @@ import CourseSummaryPage from "../CourseSummaryPage/CourseSummaryPage";
 // import transitions from "./transitions.less";
 
 function NavigationWizard() {
-  // const [state, updateState] = useState({
-  //   form: {},
-  //   transitions: {
-  //     enterRight: `${transitions.animated} ${transitions.enterRight}`,
-  //     enterLeft: `${transitions.animated} ${transitions.enterLeft}`,
-  //     exitRight: `${transitions.animated} ${transitions.exitRight}`,
-  //     exitLeft: `${transitions.animated} ${transitions.exitLeft}`,
-  //     intro: `${transitions.animated} ${transitions.intro}`
-  //   }
-  // });
+  let noTransitions = {
+    enterRight: "",
+    enterLeft: "",
+    exitRight: "",
+    exitLeft: ""
+  };
   return (
-    <StepWizard>
+    <StepWizard transitions={noTransitions}>
       <CreateCoursePage />
       <CourseNamePage />
       <NewGoalPage />
