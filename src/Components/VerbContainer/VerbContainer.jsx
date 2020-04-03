@@ -13,7 +13,6 @@ const skills = [
       "Recognize",
       "Cite",
       "Read",
-
       "Study"
     ]
   },

@@ -23,9 +23,9 @@ function NavigationWizard() {
   // });
   return (
     <StepWizard>
-      <CreateCoursePage />
+      {/* <CreateCoursePage />
       <CourseNamePage />
-      <NewGoalPage />
+      <NewGoalPage /> */}
       <DefineGoalPage />
       <EvaluationPage />
       <ContentPage />

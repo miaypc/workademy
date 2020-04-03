@@ -6,7 +6,8 @@ import {
   PageContainer,
   LeftBar,
   RightSection,
-  ButtonsContainer
+  ButtonsContainer,
+  TextHeader
 } from "../StylePages";
 
 function CourseNamePage(props) {
@@ -14,6 +15,11 @@ function CourseNamePage(props) {
     <PageContainer>
       <LeftBar>Course Name Page</LeftBar>
       <RightSection>
+        <TextHeader>
+          Hey Olga! 👋
+          <br />
+          What's the name of your course?
+        </TextHeader>
         <ButtonsContainer>
           <button onClick={props.previousStep}>Previous Step</button>
           <button onClick={props.nextStep}>Next Step</button>
