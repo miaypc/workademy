@@ -2,7 +2,7 @@ import React from "react";
 import { ThemeProvider } from '@material-ui/core/styles';
 import "./App.css";
 import NavigationWizard from "./Pages/Navigation/NavigationWizard";
-import { theme } from "./Utils/MyTheme"
+import { theme } from "./Utils/MUIThemePersonalized"
 
 
 const App = () => (

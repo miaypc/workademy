@@ -7,6 +7,7 @@ function CreateCoursePage(props) {
   return (
     <CreateCourseWrapper>
       <BigNavbar />
+      {/* <Header /> */}
       <div className="bottomButtons">
         <NewClassButton onClick={props.nextStep} />
         <button onClick={props.nextStep}>Create your course</button>

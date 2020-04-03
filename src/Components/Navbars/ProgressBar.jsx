@@ -17,7 +17,6 @@ const useStyles = makeStyles(theme => ({
     flexShrink: "1",
     position: "relative",
     justifyContent: "center",
-    minWidth: "50px",
 
     "& .MuiStepLabel-label": {
       fontSize: "0.77rem"
