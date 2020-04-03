@@ -6,26 +6,26 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Color from "../../Utils/Color";
 
-const useStyles = makeStyles(theme => ({
-  cardheader: {
-    background: `${Color.mainNavy}`,
-    color: `${Color.mainWhite}`,
-    textAlign: "center"
-  },
-  cardcontent: {
-    width: 250,
-    display: "flex",
-    justifyContent: "space-around",
-    flexWrap: "wrap",
-    margin: 3,
-    height: 250,
-    overflow: "auto"
-  },
-  button: {
-    margin: 8
-  }
-}));
 function VerbItem({ title, verbs }) {
+  const useStyles = makeStyles(theme => ({
+    cardheader: {
+      background: `${Color.mainNavy}`,
+      color: `${Color.mainWhite}`,
+      textAlign: "center"
+    },
+    cardcontent: {
+      width: 250,
+      display: "flex",
+      justifyContent: "space-around",
+      flexWrap: "wrap",
+      margin: 3,
+      height: 250,
+      overflow: "auto"
+    },
+    button: {
+      margin: 8
+    }
+  }));
   const classes = useStyles();
   return (
     <Card>
