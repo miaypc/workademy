@@ -1,6 +1,6 @@
 import React from "react";
 import NewClassButton from "../../Components/NewClassButton";
-import BigNavbar from "../../Components/BigNavbar";
+import BigNavbar from "../../Components/Navbars/BigNavbar";
 import CreateCourseWrapper from "./styleCreateCoursePage";
 
 function CreateCoursePage(props) {
@@ -9,7 +9,6 @@ function CreateCoursePage(props) {
       <BigNavbar />
       <div className="bottomButtons">
         <NewClassButton onClick={props.nextStep} />
-        <button onClick={props.nextStep}>Create your course</button>
       </div>
     </CreateCourseWrapper>
   );
