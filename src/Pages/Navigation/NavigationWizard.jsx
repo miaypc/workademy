@@ -15,7 +15,7 @@ function NavigationWizard() {
     enterRight: "",
     enterLeft: "",
     exitRight: "",
-    exitLeft: ""
+    exitLeft: "",
   };
   return (
     <StepWizard transitions={noTransitions}>
