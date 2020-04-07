@@ -1,57 +1,20 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import VerbItem from "./VerbItem";
-const skills = [
-  {
-    title: "knowledge ⚛️",
-    verbs: [
-      "Define",
-      "Describ",
-      "Identify",
-      "Match",
-      "Name",
-      "Recognize",
-      "Cite",
-      "Read",
-      "Study"
-    ]
-  },
-  {
-    title: "Comprehension 🎓",
-    verbs: [
-      "Clarify",
-      "Detail",
-      "Estimate",
-      "Estimate",
-      "Factor",
-      "Interact",
-      "Observe",
-      "Rewrite",
-      "Summarize"
-    ]
-  },
-  {
-    title: "Application 🏂",
-    verbs: [
-      "Manage",
-      "Explain",
-      "Diagnose",
-      "Confirm",
-      "Analyze",
-      "Characterize",
-      "Figure out",
-      "Order",
-      "Prioritize",
-      "Select"
-    ]
-  }
-];
+import skills from "./Verbs";
 
-function VerbContainer() {
+function VerbContainer({ handleSelectVerb, selectedVerbs }) {
   return (
     <Grid container direction="row" justify="space-evenly">
-      {skills.map(skill => {
-        return <VerbItem title={skill.title} verbs={skill.verbs} />;
+      {skills.map((skill) => {
+        return (
+          <VerbItem
+            title={skill.title}
+            verbs={skill.verbs}
+            handleSelectVerb={handleSelectVerb}
+            selectedVerbs={selectedVerbs}
+          />
+        );
       })}
     </Grid>
   );
