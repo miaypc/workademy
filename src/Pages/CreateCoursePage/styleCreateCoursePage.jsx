@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Color from "../../Utils/Color";
 
 export const CreateCourseWrapper = styled.div`
   display: flex;
@@ -13,9 +14,6 @@ export const CreateCourseHeader = styled.div`
   flex-direction: column;
   max-width: 100%;
   max-height: 70%;
-`;
-
-export const CreateCourseH1 = styled.h1`
   font-family: sans-serif;
   text-align: center;
   text-decoration: none;
@@ -23,6 +21,9 @@ export const CreateCourseH1 = styled.h1`
   font-weight: normal;
   color: #253858;
   margin-top: 2em;
+`;
+export const CreateCourseH1 = styled.h2`
+  font-size: 2.5em;
 `;
 
 export const CreateCourseH2 = styled.h2`

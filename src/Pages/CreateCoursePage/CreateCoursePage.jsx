@@ -1,12 +1,14 @@
 import React from "react";
 import NewClassButton from "../../Components/NewClassButton";
 import BigNavbar from "../../Components/Navbars/BigNavbar";
+import LightTheme from "../../Utils/LightTheme";
+import styled from "styled-components";
+
 import {
   CreateCourseWrapper,
   CreateCourseHeader,
   CreateCourseH1,
   CreateCourseH2,
-  NewClassButtonContainer
 } from "./styleCreateCoursePage";
 
 function CreateCoursePage(props) {
@@ -20,11 +22,9 @@ function CreateCoursePage(props) {
         <CreateCourseH2>
           To start creating your class, click on the button below
         </CreateCourseH2>
-        <NewClassButtonContainer>
-          <div className="bottomButtons">
-            <NewClassButton onClick={props.nextStep} />
-          </div>
-        </NewClassButtonContainer>
+        <div className="bottomButtons">
+          <NewClassButton onClick={props.nextStep} />
+        </div>
       </CreateCourseHeader>
     </CreateCourseWrapper>
   );
