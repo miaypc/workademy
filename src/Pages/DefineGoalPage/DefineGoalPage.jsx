@@ -9,7 +9,6 @@ import {
   LeftBar,
   RightSection,
   ButtonsContainer,
-  Header,
   TextHeader,
   TextSmallHeader
 } from "../StylePages";
@@ -57,7 +56,7 @@ function DefineGoalPage(props) {
         </TextSmallHeader>
         <VerbContainer />
 
-        <Header>Goal</Header>
+        <TextHeader>Goal</TextHeader>
         <GoalInput checkIsGoalEmpty={checkIsGoalEmpty} />
         {showErrorMessage()}
         <ButtonsContainer>
