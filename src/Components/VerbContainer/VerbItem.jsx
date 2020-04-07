@@ -6,12 +6,12 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Color from "../../Utils/Color";
 
-function VerbItem({ title, verbs }) {
-  const useStyles = makeStyles(theme => ({
+function VerbItem({ title, verbs, handleSelectVerb, selectedVerbs }) {
+  const useStyles = makeStyles((theme) => ({
     cardheader: {
       background: `${Color.mainNavy}`,
       color: `${Color.mainWhite}`,
-      textAlign: "center"
+      textAlign: "center",
     },
     cardcontent: {
       width: 250,
@@ -20,19 +20,31 @@ function VerbItem({ title, verbs }) {
       flexWrap: "wrap",
       margin: 3,
       height: 250,
-      overflow: "auto"
+      overflow: "auto",
     },
     button: {
-      margin: 8
-    }
+      margin: 8,
+    },
   }));
   const classes = useStyles();
   return (
     <Card>
       <CardHeader className={classes.cardheader} title={title} />
       <CardContent className={classes.cardcontent}>
-        {verbs.map(verb => {
-          return <VerbsButton className={classes.button}>{verb}</VerbsButton>;
+        {verbs.map((verb) => {
+          return (
+            <VerbsButton
+              style={{
+                backgroundColor: selectedVerbs.includes(verb)
+                  ? `${Color.mainYellow}`
+                  : `${Color.mainWhiteGrey}`,
+              }}
+              className={classes.button}
+              onClick={() => handleSelectVerb(verb)}
+            >
+              {verb}
+            </VerbsButton>
+          );
         })}
       </CardContent>
     </Card>
