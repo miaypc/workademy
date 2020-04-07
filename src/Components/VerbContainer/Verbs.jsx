@@ -3,7 +3,7 @@ const skills = [
     title: "knowledge ⚛️",
     verbs: [
       "Define",
-      "Describ",
+      "Describe",
       "Identify",
       "Match",
       "Name",
@@ -19,7 +19,7 @@ const skills = [
       "Clarify",
       "Detail",
       "Estimate",
-      "Estimate",
+      "Predict",
       "Factor",
       "Interact",
       "Observe",
