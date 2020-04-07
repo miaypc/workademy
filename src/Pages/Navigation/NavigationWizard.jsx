@@ -15,17 +15,17 @@ function NavigationWizard() {
     enterRight: "",
     enterLeft: "",
     exitRight: "",
-    exitLeft: ""
+    exitLeft: "",
   };
   return (
-    <StepWizard transitions={noTransitions}>
-      <CreateCoursePage />
-      <CourseNamePage />
-      <NewGoalPage />
-      <DefineGoalPage />
-      <EvaluationPage />
-      <ContentPage />
-      <CourseSummaryPage />
+    <StepWizard transitions={noTransitions} isHashEnabled>
+      <CreateCoursePage hashKey={"create-course"} />
+      <CourseNamePage hashKey={"course-parameters"} />
+      <NewGoalPage hashKey={"course-goals"} />
+      <DefineGoalPage hashKey={"goal-definition"} />
+      <EvaluationPage hashKey={"evaluation"} />
+      <ContentPage hashKey={"goal-content"} />
+      <CourseSummaryPage hashKey={"course-summary"} />
     </StepWizard>
   );
 }
