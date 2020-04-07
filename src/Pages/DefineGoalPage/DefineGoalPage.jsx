@@ -19,6 +19,7 @@ function DefineGoalPage(props) {
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [isGoalEmpty, setIsGoalEmpty] = useState(true);
   const [selectedVerbs, setSelectedVerbs] = useState([]);
+  const [disable, setDisable] = useState(false);
 
   //check if input is empty or not. If the goal isn't provided,
   //we won't give user to access the next page and show error message
