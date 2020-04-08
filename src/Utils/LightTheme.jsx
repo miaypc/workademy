@@ -2,7 +2,7 @@ import React from "react";
 import Color from "./Color";
 import { createMuiTheme } from "@material-ui/core/styles";
 import "typeface-roboto";
-
+//this theme is created to apply just by material UI components. it contains colors and typography. It can of course be extended/modified.
 export const lightTheme = createMuiTheme({
   palette: {
     primary: {

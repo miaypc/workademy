@@ -35,9 +35,10 @@ function VerbItem({ title, verbs, handleSelectVerb, selectedVerbs }) {
           return (
             <VerbsButton
               style={{
-                backgroundColor: selectedVerbs.includes(verb)
-                  ? `${Color.mainYellow}`
-                  : `${Color.mainWhiteGrey}`,
+                backgroundColor:
+                  selectedVerbs === verb
+                    ? `${Color.mainYellow}`
+                    : `${Color.mainWhiteGrey}`,
               }}
               className={classes.button}
               onClick={() => handleSelectVerb(verb)}

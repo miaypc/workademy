@@ -18,10 +18,10 @@ const Verb = styled.div`
   color: ${Color.mainNavy};
 `;
 
-function GoalInput({ checkIsGoalEmpty }) {
+function GoalInput({ checkIsGoalEmpty, selectedVerbs }) {
   return (
     <Form>
-      <Verb>Define</Verb>
+      <Verb>{selectedVerbs ? selectedVerbs : ""}</Verb>
       <TextField
         required
         id="standard-required outlined-basic"

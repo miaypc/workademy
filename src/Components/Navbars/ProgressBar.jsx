@@ -10,7 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
-  // this is a theme that comes from material UI, I modified it, and I am using it just to style this component.
+  // I modified this theme here that comes originally from Material UI.
   palette: {
     primary: { main: "#253858" },
     secondary: { main: "#FCB536" },
