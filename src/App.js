@@ -2,16 +2,16 @@ import React from "react";
 import { ThemeProvider } from '@material-ui/core/styles';
 import "./App.css";
 import NavigationWizard from "./Pages/Navigation/NavigationWizard";
-import { theme } from "./Utils/MUIThemePersonalized";
 import { lightTheme } from "./Utils/LightTheme"
+import Button from '@material-ui/core/Button';
 
 
 const App = () => (
 
   <div>
-    <ThemeProvider theme={theme}>
-      <NavigationWizard />
-    </ThemeProvider>
+    {/* <ThemeProvider theme={lightTheme}> */}
+    <NavigationWizard />
+    {/* </ThemeProvider> */}
   </div>
 );
 

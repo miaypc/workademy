@@ -1,32 +1,59 @@
 import React from "react";
-import { ThemeProvider } from "styled-components";
 import Color from "./Color";
+import { createMuiTheme } from "@material-ui/core/styles";
+import "typeface-roboto";
 
-export const lightTheme = {
+export const lightTheme = createMuiTheme({
   palette: {
     primary: {
-      background: `${Color.mainWhite}`,
-      secondary: {
-        background: `${Color.mainWhiteGrey}`,
+      main: `${Color.mainNavy}`,
+      light: `${Color.mainWhite}`,
+      dark: `${Color.mainNavy}`,
+    },
+    secondary: {
+      main: `${Color.mainYellow}`,
+      light: `${Color.mainWhiteGrey}`,
+      dark: `${Color.mainNavy}`,
+    },
 
-        text: {
-          primary: `${Color.mainNavy}`,
-          secondary: `${Color.mainWhite}`,
-        },
-      },
+    text: {
+      primary: `${Color.mainNavy}`,
+      secondary: `${Color.mainWhite}`,
+    },
 
-      fonts: ["sans-serif", "Roboto"],
-      fontSizes: {
-        h1: "2.5em",
-        h2: "2em",
-        h3: "1.5em",
-        p: "1em",
-      },
+    background: { default: `${Color.mainWhite}` },
+  },
 
-      fontStyles: {
-        fontWeight: "normal",
-        textDecoration: "none",
-      },
+  status: {
+    danger: "orange",
+  },
+
+  typography: {
+    fontFamily: "roboto, sans-serif",
+    fontSize: "1em",
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700,
+
+    h1: {
+      fontSize: "3em",
+      fontWeight: 400,
+    },
+
+    h2: {
+      fontSize: "2em",
+      fontWeight: 400,
+    },
+
+    h3: {
+      fontSize: "1.5em",
+      fontWeight: 400,
+    },
+
+    h4: {
+      fontSize: "1em",
+      fontWeight: 300,
     },
   },
-};
+});
