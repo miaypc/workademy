@@ -19,9 +19,9 @@ function NavigationWizard() {
   };
   return (
     <StepWizard transitions={noTransitions}>
-      <CreateCoursePage />
+      {/* <CreateCoursePage />
       <CourseNamePage />
-      <NewGoalPage />
+      <NewGoalPage /> */}
       <DefineGoalPage />
       <EvaluationPage />
       <ContentPage />

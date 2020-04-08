@@ -9,7 +9,6 @@ import {
   LeftBar,
   RightSection,
   ButtonsContainer,
-  Header,
   TextHeader,
   TextSmallHeader,
 } from "../StylePages";
@@ -19,7 +18,7 @@ import { useState } from "react";
 function DefineGoalPage(props) {
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [isGoalEmpty, setIsGoalEmpty] = useState(true);
-  const [selectedVerbs, setSelectedVerbs] = useState([]);
+  const [selectedVerbs, setSelectedVerbs] = useState();
 
   //check if input is empty or not. If the goal isn't provided,
   //we won't give user to access the next page and show error message
@@ -46,11 +45,7 @@ function DefineGoalPage(props) {
   }
 
   function handleSelectVerb(verb) {
-    if (selectedVerbs.includes(verb)) {
-      setSelectedVerbs(selectedVerbs.filter((v) => v !== verb));
-    } else {
-      setSelectedVerbs([...selectedVerbs, verb]);
-    }
+    setSelectedVerbs(verb);
   }
 
   return (
@@ -67,8 +62,11 @@ function DefineGoalPage(props) {
           selectedVerbs={selectedVerbs}
         />
 
-        <Header>Goal</Header>
-        <GoalInput checkIsGoalEmpty={checkIsGoalEmpty} />
+        <TextHeader>Goal</TextHeader>
+        <GoalInput
+          checkIsGoalEmpty={checkIsGoalEmpty}
+          selectedVerbs={selectedVerbs}
+        />
         {showErrorMessage()}
         <ButtonsContainer>
           <button onClick={props.previousStep}>Previous Step</button>
@@ -79,4 +77,5 @@ function DefineGoalPage(props) {
     </PageContainer>
   );
 }
+
 export default DefineGoalPage;

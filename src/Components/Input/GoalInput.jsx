@@ -16,10 +16,10 @@ const Verb = styled.div`
   align-items: center;
 `;
 
-function GoalInput({ checkIsGoalEmpty }) {
+function GoalInput({ checkIsGoalEmpty, selectedVerbs }) {
   return (
     <Form>
-      <Verb>Define</Verb>
+      <Verb>{selectedVerbs ? selectedVerbs : ""}</Verb>
       <TextField
         required
         id="standard-required outlined-basic"
