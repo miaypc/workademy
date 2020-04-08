@@ -63,10 +63,12 @@ function DefineGoalPage(props) {
         />
 
         <TextHeader>Goal</TextHeader>
+
         <GoalInput
           checkIsGoalEmpty={checkIsGoalEmpty}
           selectedVerbs={selectedVerbs}
         />
+
         {showErrorMessage()}
         <ButtonsContainer>
           <button onClick={props.previousStep}>Previous Step</button>
