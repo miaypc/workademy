@@ -1,45 +1,18 @@
 import React from "react";
-import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import "./App.css";
 import NavigationWizard from "./Pages/Navigation/NavigationWizard";
-
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: "#253858" },
-    secondary: { main: "#FCB536" },
-    action: {
-      disabledBackground: "#7D8799",
-      disabled: "#7D8799"
-
-    },
-
-    typography: {
-      fontSize: "0.7rem"
-    },
-
-
-    text: {
-      secondary: "#7D8799",
-      disabled: "#7D8799"
-    },
-
-
-
-  },
-  status: {
-    danger: 'orange',
-  },
-});
-
+import { lightTheme } from "./Utils/LightTheme"
+import Button from '@material-ui/core/Button';
 
 
 const App = () => (
-  <ThemeProvider theme={theme}>
 
-    <div>
-      <NavigationWizard />
-    </div>
-  </ThemeProvider>
+  <div>
+    {/* <ThemeProvider theme={lightTheme}> */}
+    <NavigationWizard />
+    {/* </ThemeProvider> */}
+  </div>
 );
 
 export default App;
