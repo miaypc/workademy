@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import "./style.js";
 import { SmallParagraph } from "../DefineGoalPage/styleDefineGoalPage";
 import ContentContainer from "../../Components/ContentContainer/ContentContainer";
-import {
-  PageContainer,
-  LeftBar,
-  RightSection,
-  ButtonsContainer,
-} from "../StylePages";
+import { RightSection, ButtonsContainer } from "../StylePages";
 
 function ContentPage(props) {
   const [isErrorVisible, setIsErrorVisible] = useState(false);
@@ -34,21 +29,18 @@ function ContentPage(props) {
     }
   }
   return (
-    <PageContainer>
-      <LeftBar>Content Page</LeftBar>
-      <RightSection>
-        <ContentContainer
-          toSave={toSave}
-          showErrorMessage={showErrorMessage}
-          checkIsGoalEmpty={checkIsGoalEmpty}
-        />
-        <ButtonsContainer>
-          <button onClick={props.previousStep}>Previous Step</button>
-          <button onClick={() => props.goToStep(3)}>add new goal</button>
-          <button onClick={props.nextStep}>Summary</button>
-        </ButtonsContainer>
-      </RightSection>
-    </PageContainer>
+    <RightSection>
+      <ContentContainer
+        toSave={toSave}
+        showErrorMessage={showErrorMessage}
+        checkIsGoalEmpty={checkIsGoalEmpty}
+      />
+      <ButtonsContainer>
+        <button onClick={props.previousStep}>Previous Step</button>
+        <button onClick={() => props.goToStep(3)}>add new goal</button>
+        <button onClick={props.nextStep}>Summary</button>
+      </ButtonsContainer>
+    </RightSection>
   );
 }
 

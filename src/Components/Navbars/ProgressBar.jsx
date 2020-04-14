@@ -63,21 +63,22 @@ function getSteps() {
   return ["Course parameters", "Goals", "Evaluation", "Content", "Publish"];
 }
 
-export default function ProgressBar() {
+export default function ProgressBar({ currentStep }) {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
+  // const [activeStep, setActiveStep] = React.useState(currentStep);
+  const activeStep = currentStep - 1;
   const steps = getSteps();
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+  // const handleNext = () => {
+  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  // };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  // const handleBack = () => {
+  //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  // };
 
   const handleReset = () => {
-    setActiveStep(0);
+    // setActiveStep(0);
   };
 
   return (

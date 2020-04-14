@@ -8,8 +8,10 @@ import {
 } from "./styleCreateCoursePage";
 
 import { TextHeader, TextSmallHeader } from "../StylePages";
+import { useHistory } from "react-router-dom";
 
-function CreateCoursePage(props) {
+function CreateCoursePage() {
+  const history = useHistory();
   return (
     <CreateCourseWrapper>
       <BigNavbar />
@@ -21,7 +23,7 @@ function CreateCoursePage(props) {
           </TextSmallHeader>
         </TextHeader>
         <div className="bottomButtons">
-          <NewClassButton onClick={props.nextStep} />
+          <NewClassButton onClick={() => history.push("/wizard")} />
         </div>
       </CreateCourseHeader>
     </CreateCourseWrapper>

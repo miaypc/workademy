@@ -1,15 +1,8 @@
 import React, { useState } from "react";
 import "./CourseNamePage.scss";
-import SideBar from "../../Components/Navbars/SideBar";
 
 // importing styled components for page setup
-import {
-  PageContainer,
-  LeftBar,
-  RightSection,
-  ButtonsContainer,
-  TextHeader,
-} from "../StylePages";
+import { RightSection, ButtonsContainer, TextHeader } from "../StylePages";
 import CourseName from "../../Components/Input/CourseName";
 import CourseDescription from "../../Components/Input/CourseDescription";
 import styled from "styled-components";
@@ -47,28 +40,23 @@ function CourseNamePage(props) {
   }, [courseName, courseDescription]);
 
   return (
-    <PageContainer>
-      <LeftBar>
-        <SideBar />
-      </LeftBar>
-      <RightSection>
-        <TextHeader>
-          Hey Olga! 👋
-          <br />
-          What's the name of your course?
-        </TextHeader>
+    <RightSection>
+      <TextHeader>
+        Hey Olga! 👋
+        <br />
+        What's the name of your course?
+      </TextHeader>
 
-        <CourseName onChange={(event) => setCourseName(event.target.value)} />
-        <CourseDescription
-          onChange={(event) => setCourseDescription(event.target.value)}
-        />
-        {showErrorMessage()}
+      <CourseName onChange={(event) => setCourseName(event.target.value)} />
+      <CourseDescription
+        onChange={(event) => setCourseDescription(event.target.value)}
+      />
+      {showErrorMessage()}
 
-        <ButtonsContainer>
-          <button onClick={goToNextStep}>Next Step</button>
-        </ButtonsContainer>
-      </RightSection>
-    </PageContainer>
+      <ButtonsContainer>
+        <button onClick={goToNextStep}>Next Step</button>
+      </ButtonsContainer>
+    </RightSection>
   );
 }
 
