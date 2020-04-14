@@ -49,10 +49,6 @@ const useStyles = makeStyles((theme) => ({
     completed: {
       color: "#253858",
     },
-
-    step: {
-      backgroundColor: "yellow",
-    },
   },
 
   actionsContainer: {
