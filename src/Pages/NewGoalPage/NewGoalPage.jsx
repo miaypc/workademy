@@ -1,22 +1,26 @@
 import React from "react";
 import "./NewGoalPage.scss";
+import AddNewGoalButton from "../../Components/AddNewGoalButton";
+import SideBar from "../../Components/Navbars/SideBar";
+import styled from "styled-components";
 
 // importing styled components for page setup
 import {
   PageContainer,
   LeftBar,
   RightSection,
-  ButtonsContainer
+  ButtonsContainer,
 } from "../StylePages";
 
 function NewGoalPage(props) {
   return (
     <PageContainer>
-      <LeftBar>New Goal Page</LeftBar>
+      <LeftBar>
+        <SideBar />
+      </LeftBar>
       <RightSection>
         <ButtonsContainer>
-          <button onClick={props.previousStep}>Previous Step</button>
-          <button onClick={props.nextStep}>Next Step</button>
+          <AddNewGoalButton onClick={props.nextStep}></AddNewGoalButton>
         </ButtonsContainer>
       </RightSection>
     </PageContainer>
