@@ -27,7 +27,7 @@ function ContentPage(props) {
       return <SmallParagraph>Please provide a link </SmallParagraph>;
     }
   }
-  function toSave() {
+  function toSave(event) {
     if (isGoalEmpty) {
       setIsErrorVisible(true);
     } else {
