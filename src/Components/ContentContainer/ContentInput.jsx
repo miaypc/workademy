@@ -12,7 +12,7 @@ const Form = styled.form`
 const Text = styled.div`
   display: flex;
   padding: 3px;
-  margin-right: 1em;
+  margin-right: 1%;
   font-size: 1.5em;
   align-items: center;
   color: ${Color.mainNavy};
@@ -24,11 +24,16 @@ const ButtonField = styled.div`
   padding-right: 10%;
   padding-top: 5px;
 `;
-function ContentInput({ toSave, showErrorMessage, checkIsGoalEmpty }) {
+function ContentInput({
+  toSave,
+  showErrorMessage,
+  checkIsGoalEmpty,
+  selectedType,
+}) {
   return (
     <div>
       <Form>
-        <Text>Link to article:</Text>
+        <Text>Link to {selectedType ? selectedType : ""}</Text>
         {showErrorMessage()}
         <TextField
           required
