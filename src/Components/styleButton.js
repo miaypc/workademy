@@ -45,4 +45,16 @@ const YellowButton = styled(Button)`
   border-radius: 7px;
 `;
 
-export { Button, VerbsButton, NavigationButton, SignButton, YellowButton };
+const SaveButton = styled(YellowButton)`
+  font-size: 0.9em;
+  padding: 0.7em 0.7em;
+`;
+
+export {
+  Button,
+  VerbsButton,
+  NavigationButton,
+  SignButton,
+  YellowButton,
+  SaveButton,
+};
