@@ -63,11 +63,13 @@ function getSteps() {
   return ["Course parameters", "Goals", "Evaluation", "Content", "Publish"];
 }
 
-export default function ProgressBar() {
+export default function ProgressBar({ onStepChange, currentStep }) {
+  console.log(currentStep);
+  const actualStep = currentStep - 2;
+  console.log(actualStep);
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
-
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -84,7 +86,7 @@ export default function ProgressBar() {
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <Stepper
-          activeStep={activeStep}
+          activeStep={actualStep}
           orientation="vertical"
           className={classes.root}
         >
@@ -97,7 +99,7 @@ export default function ProgressBar() {
             </Step>
           ))}
         </Stepper>
-        {activeStep === steps.length && (
+        {actualStep === steps.length && (
           <Paper square elevation={0} className={classes.resetContainer}>
             <Typography>All steps completed - you&apos;re finished</Typography>
             <Button onClick={handleReset} className={classes.button}>
