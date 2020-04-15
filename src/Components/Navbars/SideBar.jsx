@@ -3,6 +3,7 @@ import Logo from "../Images/Logo.svg";
 import styled from "styled-components";
 import { Device } from "../../Utils/Device";
 import ProgressBar from "./ProgressBar";
+import { LeftBar } from "../../Pages/StylePages";
 
 const SideBarContainer = styled.div`
   display: flex;
@@ -24,11 +25,13 @@ const LogoSmall = styled.img`
   max-width: 100%;
 `;
 
-const SideBar = () => (
-  <SideBarContainer>
-    <LogoSmall src={Logo} />
-    <ProgressBar />
-  </SideBarContainer>
+const SideBar = ({ currentStep }) => (
+  <LeftBar>
+    <SideBarContainer>
+      <LogoSmall src={Logo} />
+      <ProgressBar currentStep={currentStep} />
+    </SideBarContainer>
+  </LeftBar>
 );
 
 export default SideBar;

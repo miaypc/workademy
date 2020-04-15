@@ -5,12 +5,10 @@ import { SmallParagraph } from "./styleDefineGoalPage";
 
 // importing styled components for page setup
 import {
-  PageContainer,
-  LeftBar,
-  RightSection,
   ButtonsContainer,
   TextHeader,
   TextSmallHeader,
+  RightSection,
 } from "../StylePages";
 
 import { useState } from "react";
@@ -49,34 +47,31 @@ function DefineGoalPage(props) {
   }
 
   return (
-    <PageContainer>
-      <LeftBar>Define Goals</LeftBar>
-      <RightSection>
-        <TextHeader>Let's define the new goal 🎯</TextHeader>
-        <TextSmallHeader>
-          Please type here the name of your goal and the type of goal. For
-          example: Learn HTML - Define
-        </TextSmallHeader>
-        <VerbContainer
-          handleSelectVerb={handleSelectVerb}
-          selectedVerbs={selectedVerbs}
-        />
+    <RightSection>
+      <TextHeader>Let's define the new goal 🎯</TextHeader>
+      <TextSmallHeader>
+        Please type here the name of your goal and the type of goal. For
+        example: Learn HTML - Define
+      </TextSmallHeader>
+      <VerbContainer
+        handleSelectVerb={handleSelectVerb}
+        selectedVerbs={selectedVerbs}
+      />
 
-        <TextHeader>Goal</TextHeader>
+      <TextHeader>Goal</TextHeader>
 
-        <GoalInput
-          checkIsGoalEmpty={checkIsGoalEmpty}
-          selectedVerbs={selectedVerbs}
-        />
+      <GoalInput
+        checkIsGoalEmpty={checkIsGoalEmpty}
+        selectedVerbs={selectedVerbs}
+      />
 
-        {showErrorMessage()}
-        <ButtonsContainer>
-          <button onClick={props.previousStep}>Previous Step</button>
+      {showErrorMessage()}
+      <ButtonsContainer>
+        <button onClick={props.previousStep}>Previous Step</button>
 
-          <button onClick={goToNextStep}>Next Step</button>
-        </ButtonsContainer>
-      </RightSection>
-    </PageContainer>
+        <button onClick={goToNextStep}>Next Step</button>
+      </ButtonsContainer>
+    </RightSection>
   );
 }
 
