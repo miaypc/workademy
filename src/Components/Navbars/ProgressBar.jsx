@@ -60,7 +60,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ["Course parameters", "Goals", "Evaluation", "Content", "Publish"];
+  return [
+    "Course parameters",
+    "Goals",
+    "New Goal",
+    "Evaluation",
+    "Content",
+    "Summary",
+  ];
 }
 
 export default function ProgressBar({ currentStep }) {
