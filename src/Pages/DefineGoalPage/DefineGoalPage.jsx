@@ -2,7 +2,6 @@ import React from "react";
 import VerbContainer from "../../Components/VerbContainer/VerbContainer";
 import GoalInput from "../../Components/Input/GoalInput";
 import { SmallParagraph } from "./styleDefineGoalPage";
-
 // importing styled components for page setup
 import {
   ButtonsContainer,
@@ -12,6 +11,7 @@ import {
 } from "../StylePages";
 
 import { useState } from "react";
+import SideBar from "../../Components/Navbars/SideBar";
 
 function DefineGoalPage(props) {
   const [isErrorVisible, setIsErrorVisible] = useState(false);

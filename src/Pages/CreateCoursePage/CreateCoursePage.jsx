@@ -3,6 +3,7 @@ import NewClassButton from "../../Components/NewClassButton";
 import BigNavbar from "../../Components/Navbars/BigNavbar";
 
 import {
+  PageContainer,
   CreateCourseWrapper,
   CreateCourseHeader,
 } from "./styleCreateCoursePage";
