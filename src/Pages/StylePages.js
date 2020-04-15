@@ -2,21 +2,23 @@ import styled from "styled-components";
 import Color from "../Utils/Color";
 
 export const PageContainer = styled.div`
-  background-color: pink;
-  display: flex;
+  > div {
+    flex-direction: row;
+    display: flex;
+    > div:nth-child(2) {
+      flex-grow: 1;
+    }
+  }
 `;
 
 export const LeftBar = styled.div`
-  background-color: rgb(215, 250, 215);
-  flex-basis: 150px;
-  flex-grow: 1;
+  flex-basis: 190px;
+  flex-grow: 0;
   flex-shrink: 0;
 `;
 
-export const RightSection = styled.div`
-  background-color: rgb(245, 199, 214);
-  flex-grow: 10;
-`;
+//I will leave right section here in case we will need to add some theme to it later
+export const RightSection = styled.div``;
 
 export const ButtonsContainer = styled.div`
   display: flex;

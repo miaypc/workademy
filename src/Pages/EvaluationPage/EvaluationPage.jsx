@@ -6,20 +6,17 @@ import {
   PageContainer,
   LeftBar,
   RightSection,
-  ButtonsContainer
+  ButtonsContainer,
 } from "../StylePages";
 
 function EvaluationPage(props) {
   return (
-    <PageContainer>
-      <LeftBar>Evaluation Page</LeftBar>
-      <RightSection>
-        <ButtonsContainer>
-          <button onClick={props.previousStep}>Previous Step</button>
-          <button onClick={props.nextStep}>Next Step</button>
-        </ButtonsContainer>
-      </RightSection>
-    </PageContainer>
+    <RightSection>
+      <ButtonsContainer>
+        <button onClick={props.previousStep}>Previous Step</button>
+        <button onClick={props.nextStep}>Next Step</button>
+      </ButtonsContainer>
+    </RightSection>
   );
 }
 
