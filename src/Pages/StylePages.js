@@ -1,5 +1,15 @@
 import styled from "styled-components";
 import Color from "../Utils/Color";
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalColor = createGlobalStyle`
+ 
+  body {
+    background: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
+    transition: all 0.25s linear;
+  }`;
+
 
 export const PageContainer = styled.div`
   > div {
