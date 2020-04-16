@@ -6,6 +6,8 @@ import styled from "styled-components";
 import Color from "../../Utils/Color";
 import ContentType from "./ContentType";
 import types from "./Type";
+import { ReactTinyLink } from "react-tiny-link";
+import { SmallParagraph } from "../../Pages/DefineGoalPage/styleDefineGoalPage";
 
 const Card = styled(_Card)`
   width: 80%;
@@ -13,13 +15,21 @@ const Card = styled(_Card)`
   margin-left: 1%;
   border: 5px solid ${Color.mainNavy};
 `;
+const LinkField = styled.div`
+  margin: 5%;
+`;
 
-function ContentContainer({ toSave, showErrorMessage, checkIsGoalEmpty }) {
+function ContentContainer() {
   const [selectedType, setSelectedType] = useState();
+  const [articles, setArticles] = useState([]);
 
-  function handleSelectType(type) {
+  const handleSelectType = (type) => {
     setSelectedType(type);
-  }
+  };
+  const handleCreateArticle = (link) => {
+    console.log(link);
+    setArticles([...articles, link]);
+  };
 
   return (
     <div>
@@ -32,12 +42,22 @@ function ContentContainer({ toSave, showErrorMessage, checkIsGoalEmpty }) {
           selectedType={selectedType}
         />
         <ContentInput
-          toSave={toSave}
-          showErrorMessage={showErrorMessage}
-          checkIsGoalEmpty={checkIsGoalEmpty}
           selectedType={selectedType}
+          onCreateArticle={handleCreateArticle}
         />
-        <div>{link}</div>
+        <LinkField>
+          {articles.map((article) => {
+            return (
+              <ReactTinyLink
+                cardSize="small"
+                showGraphic={true}
+                maxLine={2}
+                minLine={1}
+                url={article}
+              />
+            );
+          })}
+        </LinkField>
       </Card>
     </div>
   );
