@@ -2,37 +2,9 @@ import React, { useState } from "react";
 import "./style.js";
 
 import ContentContainer from "../../Components/ContentContainer/ContentContainer";
-import {
-  PageContainer,
-  LeftBar,
-  RightSection,
-  ButtonsContainer,
-} from "../StylePages";
+import { RightSection, ButtonsContainer } from "../StylePages";
 
 function ContentPage(props) {
-  // const [isErrorVisible, setIsErrorVisible] = useState(false);
-  // const [isGoalEmpty, setIsGoalEmpty] = useState(true);
-
-  // function checkIsGoalEmpty(event) {
-  //   if (event.target.value) {
-  //     setIsGoalEmpty(false);
-  //     setIsErrorVisible(false);
-  //   } else {
-  //     setIsGoalEmpty(true);
-  //     setIsErrorVisible(true);
-  //   }
-  // }
-  // function showErrorMessage() {
-  //   if (isErrorVisible) {
-  //     return <SmallParagraph>Please provide a link </SmallParagraph>;
-  //   }
-  // }
-  // function toSave() {
-  //   if (isGoalEmpty) {
-  //     setIsErrorVisible(true);
-  //   } else {
-  //   }
-  // }
   return (
     <PageContainer>
       <LeftBar>Content Page</LeftBar>
