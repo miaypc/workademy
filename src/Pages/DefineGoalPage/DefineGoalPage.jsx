@@ -16,6 +16,7 @@ import SideBar from "../../Components/Navbars/SideBar";
 function DefineGoalPage(props) {
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [isGoalEmpty, setIsGoalEmpty] = useState(true);
+
   const [selectedVerbs, setSelectedVerbs] = useState();
 
   //check if input is empty or not. If the goal isn't provided,
