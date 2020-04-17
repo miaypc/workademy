@@ -50,6 +50,13 @@ const SaveButton = styled(YellowButton)`
   padding: 0.7em 0.7em;
 `;
 
+const ContentButton = styled(VerbsButton)`
+  font-size: 1.2em;
+  border-radius: 1px;
+  margin-left: 3%;
+  padding: 0.8em 0.8em;
+`;
+
 export {
   Button,
   VerbsButton,
@@ -57,4 +64,5 @@ export {
   SignButton,
   YellowButton,
   SaveButton,
+  ContentButton,
 };
