@@ -7,7 +7,6 @@ import Color from "../../Utils/Color";
 import ContentType from "./ContentType";
 import types from "./Type";
 import { ReactTinyLink } from "react-tiny-link";
-import { SmallParagraph } from "../../Pages/DefineGoalPage/styleDefineGoalPage";
 
 const Card = styled(_Card)`
   width: 80%;

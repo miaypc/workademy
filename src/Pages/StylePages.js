@@ -21,9 +21,9 @@ export const LeftBar = styled.div`
 export const RightSection = styled.div``;
 
 export const ButtonsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
   margin: 5px 10px;
+  justify-content: space-between;
+  display: flex;
 `;
 
 export const Header = styled.div`
