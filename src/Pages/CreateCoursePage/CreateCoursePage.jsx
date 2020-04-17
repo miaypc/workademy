@@ -21,7 +21,7 @@ function CreateCoursePage() {
   const history = useHistory();
 
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={themeMode}>
       <GlobalColor />
       <CreateCourseWrapper>
         <BigNavbar />
