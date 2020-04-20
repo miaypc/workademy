@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 // Styled-Components
-import { withTheme } from "styled-components";
 import { ThemeProvider } from "styled-components";
-import styled from "styled-components";
 import {
+  LogoBig,
+  TopGreyCorner,
+  DownGreyCorner,
   CreateCourseWrapper,
   CreateCourseHeader,
 } from "./styleCreateCoursePage";
@@ -18,8 +19,6 @@ import NewClassButton from "../../Components/NewClassButton";
 import Toggle from "../../Components/Toggle/Toggle";
 
 // Images
-import bgcorner from "../../Components/Images/DownGreyCorner.svg";
-import bgcornerTop from "../../Components/Images/GreyCorner.svg";
 import Logo from "../../Components/Images/Logo.svg";
 import WhiteLogo from "../../Components/Images/LogoDark.svg";
 
@@ -30,50 +29,14 @@ import { Device } from "../../Utils/Device";
 
 function CreateCoursePage() {
   const [theme, toggleTheme] = useDarkMode();
-
   const themeMode = theme === "light" ? lightTheme : darkTheme;
   const history = useHistory();
-
-  const LogoBig = styled.img`
-  position:absolute;
-  padding:20px;
-    // min-width: 60px;
-    // margin: 0em;
-    // justify-self: flex-start;
-
-    // @media ${Device.tablet} {
-    //   min-height: 80px;
-    // }
-  `;
-
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalColor />
       <Toggle theme={theme} toggleTheme={toggleTheme} />
-
-      <div
-        style={{
-          backgroundImage: `url(${bgcorner}`,
-          height: "300px",
-          width: "300px",
-          bottom: "0",
-          position: "absolute",
-          zIndex: "-1",
-          left: 0,
-        }}
-      />
-      <div
-        style={{
-          backgroundImage: `url(${bgcornerTop}`,
-          height: "214px",
-          width: "300px",
-          top: 0,
-          right: 0,
-          position: "absolute",
-          zIndex: "-1",
-        }}
-      />
-
+      <TopGreyCorner />
+      <DownGreyCorner />
       <CreateCourseWrapper>
         <LogoBig src={theme === "dark" ? WhiteLogo : Logo} />
         <CreateCourseHeader>
