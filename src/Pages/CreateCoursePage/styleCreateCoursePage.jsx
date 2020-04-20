@@ -39,7 +39,7 @@ export const TopGreyCorner = styled.div`
 
 export const DownGreyCorner = styled.div`
   background-image: url(${require(`../../Components/Images/DownGreyCorner.svg`)});
-  height: 180px;
+  height: 220px;
   width: 150px;
   position: absolute;
   bottom: 0;
