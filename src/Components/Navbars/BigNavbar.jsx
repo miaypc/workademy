@@ -11,8 +11,7 @@ const BigNavContainer = styled.div`
   align-items: center;
   margin: 0;
   max-width: 100%;
-  max-height: 25%;
-  background-color: #ffffff;
+  padding: 0;
 `;
 const LogoContainer = styled.div`
   display: flex;
@@ -45,9 +44,8 @@ const RightCorner = styled.div`
   flex-direction: column;
   position: relative;
   float: right;
-  margin: 0em;
+  margin: 0 auto;
   padding: 0em;
-  margin-left: 40px;
   min-height: 150px;
   width: 200px;
   background-image: url(${require(`../Images/GreyCorner.svg`)});
@@ -63,8 +61,10 @@ const BigNavbar = () => (
   <BigNavContainer>
     <LogoContainer>
       <LogoBig src={Logo} />
+
+      {/* color: ${({ theme }) => theme.text}; */}
     </LogoContainer>
-    <RightCorner />
+    {/* <RightCorner /> */}
   </BigNavContainer>
 );
 
