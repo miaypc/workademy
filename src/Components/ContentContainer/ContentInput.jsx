@@ -3,7 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import Color from "../../Utils/Color";
 import styled from "styled-components";
 import { SaveButton } from "../styleButton";
-import { SmallParagraph } from "../../Pages/DefineGoalPage/styleDefineGoalPage";
+import { ErrorMessage } from "../../Pages/StylePages";
 
 const Form = styled.form`
   margin: 5px;
@@ -27,34 +27,13 @@ const ButtonField = styled.div`
   padding-right: 10%;
   padding-top: 5px;
 `;
-function ContentInput({ selectedType, onCreateArticle }) {
-  // const linkField = React.useRef(null);
-  let [link, setLink] = useState("");
-  const [error, setError] = useState(null);
-
-  const handleValueSubmit = (event) => {
-    event.preventDefault();
-
-    const showErrorMessage = () => {
-      return <SmallParagraph>Please provide a link</SmallParagraph>;
-    };
-
-    if (!link) {
-      setError("Please provide a link");
-    } else if (!link.includes("http")) {
-      setError("Please provide a valid link");
-    } else {
-      onCreateArticle(link);
-      setLink("");
-      setError(null);
-    }
-  };
-
-  const handleValueChange = (event) => {
-    console.log("value of link", event.target.value);
-    setLink(event.target.value);
-  };
-
+function ContentInput({
+  selectedType,
+  link,
+  error,
+  handleValueSubmit,
+  handleValueChange,
+}) {
   return (
     <div>
       <Form onSubmit={handleValueSubmit}>
@@ -72,7 +51,7 @@ function ContentInput({ selectedType, onCreateArticle }) {
         </InputField>
         {/* {error ? <SmallParagraph>{error}</SmallParagraph> : null} */}
         {/* If there is error do something, no Else, just one if  */}
-        {error && <SmallParagraph>{error}</SmallParagraph>}
+        {error && <ErrorMessage>{error}</ErrorMessage>}
         <ButtonField>
           <SaveButton type="submit">Save</SaveButton>
         </ButtonField>

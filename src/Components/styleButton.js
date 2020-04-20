@@ -32,9 +32,12 @@ const NavigationButton = styled(Button)`
 const SignButton = styled(Button)`
   color: ${Color.mainWhite};
   background: ${Color.mainNavy};
-  font-size: 3.5em;
-  padding: 0.02em 1em;
+  font-size: 3em;
+  padding: 0.01em 0.8em 0.08em 0.8em;
   border-radius: 14px;
+  @media (max-width: 800px) {
+    font-size: 2em;
+  }
 `;
 
 const YellowButton = styled(Button)`
@@ -55,6 +58,10 @@ const ContentButton = styled(VerbsButton)`
   border-radius: 1px;
   margin-left: 3%;
   padding: 0.8em 0.8em;
+  @media (max-width: 800px) {
+    font-size: 0.8em;
+    padding: 0.6em 0.6em;
+  }
 `;
 
 export {

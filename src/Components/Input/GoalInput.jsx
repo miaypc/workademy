@@ -18,7 +18,7 @@ const Verb = styled.div`
   color: ${Color.mainNavy};
 `;
 
-function GoalInput({ checkIsGoalEmpty, selectedVerbs }) {
+function GoalInput({ selectedVerbs, value, onChange }) {
   return (
     <Form>
       <Verb>{selectedVerbs ? selectedVerbs : ""}</Verb>
@@ -28,7 +28,8 @@ function GoalInput({ checkIsGoalEmpty, selectedVerbs }) {
         label="Goal name"
         variant="outlined"
         style={{ width: "50%" }}
-        onChange={checkIsGoalEmpty}
+        value={value}
+        onChange={onChange}
       />
     </Form>
   );

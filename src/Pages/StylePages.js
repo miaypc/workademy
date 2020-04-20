@@ -60,3 +60,16 @@ export const TextSmallHeader = styled(TextHeader)`
   font-size: 30px;
   margin: 2em 3em;
 `;
+
+export const HintMessage = styled.div`
+  color: red;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0.5em;
+`;
+
+export const ErrorMessage = styled(HintMessage)`
+  justify-content: flex-end;
+  padding-right: 15px;
+`;
