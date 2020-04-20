@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+
 import VerbContainer from "../../Components/VerbContainer/VerbContainer";
 import GoalInput from "../../Components/Input/GoalInput";
 import { SmallParagraph } from "./styleDefineGoalPage";
+
 // importing styled components for page setup
 import {
   ButtonsContainer,
@@ -10,41 +13,36 @@ import {
   RightSection,
 } from "../StylePages";
 
-import { useState } from "react";
-import SideBar from "../../Components/Navbars/SideBar";
-
 function DefineGoalPage(props) {
   const [isErrorVisible, setIsErrorVisible] = useState(false);
-  const [isGoalEmpty, setIsGoalEmpty] = useState(true);
 
   const [selectedVerbs, setSelectedVerbs] = useState();
+  const [goalName, setGoalName] = useState();
 
-  //check if input is empty or not. If the goal isn't provided,
-  //we won't give user to access the next page and show error message
-  function checkIsGoalEmpty(event) {
-    if (event.target.value) {
-      setIsGoalEmpty(false);
-      setIsErrorVisible(false);
-    } else {
-      setIsGoalEmpty(true);
-      setIsErrorVisible(true);
-    }
-  }
   function showErrorMessage() {
     if (isErrorVisible) {
       return <SmallParagraph>Please provide a goal</SmallParagraph>;
     }
   }
   function goToNextStep() {
-    if (isGoalEmpty) {
+    if (!goalName || !selectedVerbs) {
       setIsErrorVisible(true);
     } else {
+      setIsErrorVisible(false);
+      addGoal();
       props.nextStep();
     }
   }
 
   function handleSelectVerb(verb) {
     setSelectedVerbs(verb);
+  }
+  function addGoal() {
+    props.dispatch({
+      type: "CREATE_GOAL",
+      verb: selectedVerbs,
+      name: goalName,
+    });
   }
 
   return (
@@ -62,8 +60,9 @@ function DefineGoalPage(props) {
       <TextHeader>Goal</TextHeader>
 
       <GoalInput
-        checkIsGoalEmpty={checkIsGoalEmpty}
         selectedVerbs={selectedVerbs}
+        onChange={(event) => setGoalName(event.target.value)}
+        value={goalName}
       />
 
       {showErrorMessage()}
@@ -76,4 +75,4 @@ function DefineGoalPage(props) {
   );
 }
 
-export default DefineGoalPage;
+export default connect()(DefineGoalPage);
