@@ -32,8 +32,8 @@ const NavigationButton = styled(Button)`
 const SignButton = styled(Button)`
   color: ${Color.mainWhite};
   background: ${Color.mainNavy};
-  font-size: 3.5em;
-  padding: 0.02em 1em;
+  font-size: 3em;
+  padding: 0.01em 0.8em 0.08em 0.8em;
   border-radius: 14px;
 `;
 
