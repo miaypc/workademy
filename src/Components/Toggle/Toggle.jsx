@@ -4,10 +4,9 @@ import styled from "styled-components";
 const ToggleContainer = styled.div`
   display: flex;
   background: ${({ theme }) => theme.gradient};
-  border: 1px solid ${({ theme }) => theme.toggleBorder};
+  border: 1.5px solid ${({ theme }) => theme.toggleBorder};
   border-radius: 5px;
   cursor: pointer;
-
   margin: 0;
   padding: 0.2rem;
   position: absolute;
@@ -21,7 +20,6 @@ const ToggleContainer = styled.div`
 `;
 
 const ToggleButton = styled.button`
-  background: ${({ theme }) => theme.gradient};
   border-radius: 5px;
   width: 18px;
   height: 18px;
