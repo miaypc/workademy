@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./CourseNamePage.scss";
 
+//Redux
+import { connect } from "react-redux";
+
 // importing styled components for page setup
 import { RightSection, ButtonsContainer, TextHeader } from "../StylePages";
 import CourseName from "../../Components/Input/CourseName";
@@ -16,10 +19,9 @@ const SmallParagraph = styled.p`
   padding-right: 10px;
 `;
 
-function CourseNamePage(props) {
+function CourseNamePage({ courseName, courseDescription, nextStep, dispatch }) {
+  //info from redux
   const [isErrorVisible, setIsErrorVisible] = useState(false);
-  const [courseName, setCourseName] = useState("");
-  const [courseDescription, setCourseDescription] = useState("");
 
   function showErrorMessage() {
     if (isErrorVisible) {
@@ -28,7 +30,7 @@ function CourseNamePage(props) {
   }
   function goToNextStep() {
     if (courseName && courseDescription) {
-      props.nextStep();
+      nextStep();
     } else {
       setIsErrorVisible(true);
     }
@@ -39,6 +41,15 @@ function CourseNamePage(props) {
     }
   }, [courseName, courseDescription]);
 
+  //redux info
+  function saveCourseData(courseName, courseDescription) {
+    dispatch({
+      type: "CREATE_DESCRIPTION",
+      courseName: courseName,
+      courseDescription: courseDescription,
+    });
+  }
+
   return (
     <RightSection>
       <TextHeader>
@@ -47,9 +58,15 @@ function CourseNamePage(props) {
         What's the name of your course?
       </TextHeader>
 
-      <CourseName onChange={(event) => setCourseName(event.target.value)} />
+      <CourseName
+        onChange={(event) =>
+          saveCourseData(event.target.value, courseDescription)
+        }
+        value={courseName}
+      />
       <CourseDescription
-        onChange={(event) => setCourseDescription(event.target.value)}
+        onChange={(event) => saveCourseData(courseName, event.target.value)}
+        value={courseDescription}
       />
       {showErrorMessage()}
 
@@ -60,4 +77,11 @@ function CourseNamePage(props) {
   );
 }
 
-export default CourseNamePage;
+function mapStateToProps(state) {
+  return {
+    courseName: state.course.courseName,
+    courseDescription: state.course.courseDescription,
+  };
+}
+
+export default connect(mapStateToProps)(CourseNamePage);
