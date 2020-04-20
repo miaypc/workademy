@@ -7,9 +7,10 @@ import Color from "../../Utils/Color";
 import ContentType from "./ContentType";
 import types from "./Type";
 import { ReactTinyLink } from "react-tiny-link";
+import { HintMessage } from "../../Pages/StylePages";
 
 const Card = styled(_Card)`
-  width: 80%;
+  width: 95%;
   margin-top: 5%;
   margin-left: 1%;
   border: 5px solid ${Color.mainNavy};
@@ -18,16 +19,18 @@ const LinkField = styled.div`
   margin: 5%;
 `;
 
-function ContentContainer() {
+function ContentContainer({
+  contents,
+  link,
+  error,
+  handleValueSubmit,
+  handleValueChange,
+  hint,
+}) {
   const [selectedType, setSelectedType] = useState();
-  const [articles, setArticles] = useState([]);
 
   const handleSelectType = (type) => {
     setSelectedType(type);
-  };
-  const handleCreateArticle = (link) => {
-    console.log(link);
-    setArticles([...articles, link]);
   };
 
   return (
@@ -40,19 +43,23 @@ function ContentContainer() {
           handleSelectType={handleSelectType}
           selectedType={selectedType}
         />
+        {hint && <HintMessage>{hint}</HintMessage>}
         <ContentInput
           selectedType={selectedType}
-          onCreateArticle={handleCreateArticle}
+          handleValueSubmit={handleValueSubmit}
+          handleValueChange={handleValueChange}
+          link={link}
+          error={error}
         />
         <LinkField>
-          {articles.map((article) => {
+          {contents.map((content) => {
             return (
               <ReactTinyLink
                 cardSize="small"
                 showGraphic={true}
                 maxLine={2}
                 minLine={1}
-                url={article}
+                url={content}
               />
             );
           })}
