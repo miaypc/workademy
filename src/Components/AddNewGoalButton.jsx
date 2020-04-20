@@ -12,7 +12,6 @@ const Button = styled.button`
   border: 0em;
   border-radius: 5px;
   padding: 1em;
-  /* margin: 0.5; */
   margin: 5em 0em 5em;
   background-color: ${Color.mainNavy};
   color: ${Color.mainWhite};
