@@ -1,26 +1,9 @@
 import styled from "styled-components";
 import Color from "../Utils/Color";
-import { createGlobalStyle } from "styled-components";
-
-export const GlobalColor = createGlobalStyle`
- *,
-  *::after,
-  *::before {
-  }
-
-  body {
-    background: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
-    transition: all 0.25s linear;
-
-  }`;
-
 
 export const PageContainer = styled.div`
   > div {
     flex-direction: row;
-    background: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
     display: flex;
     > div:nth-child(2) {
       flex-grow: 1;
@@ -52,7 +35,7 @@ export const TextHeader = styled.div`
   font-size: 40px;
   text-align: center;
   font-weight: bold;
-  /* color: ${Color.mainNavy}; */
+  color: ${Color.mainNavy};
   margin-top: 2em;
 `;
 
