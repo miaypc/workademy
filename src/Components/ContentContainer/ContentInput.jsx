@@ -33,29 +33,52 @@ function ContentInput({
   error,
   handleValueSubmit,
   handleValueChange,
+  handleTextSubmit,
+  handleTextChange,
+  text,
 }) {
   return (
     <div>
-      <Form onSubmit={handleValueSubmit}>
-        <InputField>
-          <Text>Link to {selectedType ? selectedType : ""}</Text>
-          <TextField
-            required
-            id="standard-required outlined-basic"
-            label="Paste your link here"
-            variant="outlined"
-            style={{ width: "60%" }}
-            onChange={handleValueChange}
-            value={link}
-          />
-        </InputField>
-        {/* {error ? <SmallParagraph>{error}</SmallParagraph> : null} */}
-        {/* If there is error do something, no Else, just one if  */}
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-        <ButtonField>
-          <SaveButton type="submit">Save</SaveButton>
-        </ButtonField>
-      </Form>
+      {selectedType === "Text" ? (
+        <Form onSubmit={handleTextSubmit}>
+          <InputField>
+            <Text>Add your text</Text>
+            <TextField
+              required
+              id="standard-required outlined-basic"
+              label="Add your Text here"
+              variant="outlined"
+              style={{ width: "60%" }}
+              onChange={handleTextChange}
+              value={text}
+            />
+          </InputField>
+          <ButtonField>
+            <SaveButton type="submit">Save</SaveButton>
+          </ButtonField>
+        </Form>
+      ) : (
+        <Form onSubmit={handleValueSubmit}>
+          <InputField>
+            <Text>Link to {selectedType ? selectedType : " "}</Text>
+            <TextField
+              required
+              id="standard-required outlined-basic"
+              label="Paste your link here"
+              variant="outlined"
+              style={{ width: "60%" }}
+              onChange={handleValueChange}
+              value={link}
+            />
+          </InputField>
+          {/* {error ? <SmallParagraph>{error}</SmallParagraph> : null} */}
+          {/* If there is error do something, no Else, just one if  */}
+          {error && <ErrorMessage>{error}</ErrorMessage>}
+          <ButtonField>
+            <SaveButton type="submit">Save</SaveButton>
+          </ButtonField>
+        </Form>
+      )}
     </div>
   );
 }

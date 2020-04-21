@@ -1,3 +1,3 @@
-const types = ["Article", "Text", "Video", "Existent Content"];
+const types = ["Article", "Video", "Text", "Existent Content"];
 
 export default types;
