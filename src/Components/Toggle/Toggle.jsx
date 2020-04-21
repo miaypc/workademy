@@ -1,36 +1,43 @@
 import React from "react";
 import styled from "styled-components";
+import { ReactComponent as SunIcon } from "../Images/SunIcon.svg";
+import { ReactComponent as MoonIcon } from "../Images/MoonIcon.svg";
 
 const ToggleContainer = styled.div`
   display: flex;
-  background: ${({ theme }) => theme.gradient};
-  border: 1.5px solid ${({ theme }) => theme.toggleBorder};
-  border-radius: 5px;
+  flex-direction: row;
+  background-color: #006fb9;
+  border: 1.8px solid ${({ theme }) => theme.toggleBorder};
+  justify-content: space-between;
+  border-radius: 15px;
   cursor: pointer;
-  margin: 0;
-  padding: 0.2rem;
+  margin: 0 auto;
+  font-size: 0.5rem;
+  padding: 0.5rem;
+  position: relative;
   position: absolute;
   right: 0;
   z-index: 1;
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 5rem;
+  height: 2.5rem;
   &:focus {
     outline: none;
   }
-`;
-
-const ToggleButton = styled.button`
-  border-radius: 5px;
-  width: 18px;
-  height: 18px;
+  svg {
+    height: auto;
+    width: 1.5rem;
+    transition: all 0.3s linear;
+    transition: transform 300ms ease-in-out;
+  }
 `;
 
 const Toggle = ({ theme, toggleTheme }) => {
   const isLight = theme === "light";
   return (
     <div>
-      <ToggleContainer>
-        <ToggleButton onClick={toggleTheme} />
+      <ToggleContainer onClick={toggleTheme}>
+        <MoonIcon sr />
+        <SunIcon />
       </ToggleContainer>
     </div>
   );
