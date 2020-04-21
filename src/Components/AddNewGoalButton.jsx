@@ -8,30 +8,27 @@ const Button = styled.button`
   flex-shrink: 1;
   justify-self: center;
   font-family: sans-serif;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   border: none;
   border-radius: 5px;
   padding: 0.7em;
-  margin: 3em 2em;
   background-color: ${Color.mainNavy};
   color: ${Color.mainWhite};
   cursor: pointer;
-  font-size: 1.5em;
+  font-size: 1em;
+  width: 70%;
+  margin: 0 auto;
+  max-width: 600px;
+  font-weight: bold;
 
   @media ${Device.tablet} {
-    padding: 1em;
-    font-size: 2em;
-    margin: 4em;
-  }
-
-  @media ${Device.laptop} {
-    padding: 1em 4em 1em 4em;
+    padding: 1em 1.5em;
+    font-size: 1.5em;
     border-radius: 10px;
-    margin: 5em;
     background-image: url(${require(`../Components/Images/Plus.svg`)});
-    background-position: right 20px top 20px;
-    background-size: 10%;
+    background-position: right 20px top 8px;
+    background-size: 9%;
     background-repeat: no-repeat;
   }
 `;
