@@ -11,8 +11,10 @@ import {
   DownGreyCorner,
   CreateCourseWrapper,
   CreateCourseHeader,
+  TextHeaderMobile,
+  TextSmallHeaderMobile,
 } from "./styleCreateCoursePage";
-import { GlobalColor, TextHeader, TextSmallHeader } from "../StylePages";
+import { GlobalColor } from "../StylePages";
 
 // Components
 import NewClassButton from "../../Components/NewClassButton";
@@ -40,12 +42,13 @@ function CreateCoursePage() {
       <CreateCourseWrapper>
         <LogoBig src={theme === "dark" ? WhiteLogo : Logo} />
         <CreateCourseHeader>
-          <TextHeader>
+          <TextHeaderMobile>
             Welcome to the Workademy Course Builder!
-            <TextSmallHeader>
-              To start creating your class, click on the button below
-            </TextSmallHeader>
-          </TextHeader>
+          </TextHeaderMobile>
+          <TextSmallHeaderMobile>
+            To start creating your class, click on the button below
+          </TextSmallHeaderMobile>
+
           <div className="bottomButtons">
             <NewClassButton onClick={() => history.push("/wizard")} />
           </div>

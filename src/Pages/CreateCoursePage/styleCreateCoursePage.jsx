@@ -1,5 +1,27 @@
 import styled from "styled-components";
 import { Device } from "../../Utils/Device";
+import { TextHeader, TextSmallHeader } from "../StylePages";
+
+export const TextHeaderMobile = styled.div`
+  font-size: 23px;
+  margin: 1.2em;
+  font-weight: bold;
+
+  @media ${Device.tablet} {
+    margin-top: 2em;
+    font-size: 40px;
+  }
+`;
+
+export const TextSmallHeaderMobile = styled.div`
+  font-size: 20px;
+  margin: 2em 1em;
+
+  @media ${Device.tablet} {
+    font-size: 30px;
+    margin: 2em 3em;
+  }
+`;
 
 export const CreateCourseWrapper = styled.div`
   display: flex;
