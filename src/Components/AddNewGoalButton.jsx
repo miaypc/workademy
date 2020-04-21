@@ -7,29 +7,27 @@ const Button = styled.button`
   display: flex;
   justify-self: center;
   font-family: sans-serif;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   border: 0em;
   border-radius: 5px;
-  padding: 1em;
-  margin: 5em 0em 5em;
+  padding: 0.7em;
   background-color: ${Color.mainNavy};
   color: ${Color.mainWhite};
   cursor: pointer;
   font-size: 1em;
+  width: 70%;
+  margin: 0 auto;
+  max-width: 600px;
+  font-weight: bold;
 
   @media ${Device.tablet} {
-    padding: 1.5em;
-    font-size: 2em;
-    margin: 4em;
+    padding: 1em 1.5em;
+    font-size: 1.5em;
     border-radius: 10px;
-  }
-
-  @media ${Device.laptop} {
-    padding: 1em 4em 1em 4em;
     background-image: url(${require(`../Components/Images/Plus.svg`)});
-    background-position: right 20px top 20px;
-    background-size: 10%;
+    background-position: right 20px top 8px;
+    background-size: 9%;
     background-repeat: no-repeat;
   }
 `;
