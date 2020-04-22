@@ -49,6 +49,7 @@ function ContentInput({
               label="Add your Text here"
               variant="outlined"
               style={{ width: "60%" }}
+              multiline={true}
               onChange={handleTextChange}
               value={text}
             />

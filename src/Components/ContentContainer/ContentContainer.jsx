@@ -9,6 +9,7 @@ import types from "./Type";
 import { ReactTinyLink } from "react-tiny-link";
 import { HintMessage } from "../../Pages/StylePages";
 import _Box from "@material-ui/core/Box";
+import _Typography from "@material-ui/core/Typography";
 
 const Card = styled(_Card)`
   width: 95%;
@@ -19,14 +20,19 @@ const Card = styled(_Card)`
 const LinkField = styled.div`
   margin: 5%;
 `;
-
-const TextCard = styled(_Card)`
-  width: 81%;
+const Typography = styled(_Typography)`
   border: 1px solid ${Color.mainWhiteGrey};
-  margin-left: 5%;
-  margin-top: 2%;
-  padding-top: 2%;
+  width: 81%;
+  height: 50px;
+  overflow: scroll;
 `;
+// const TextCard = styled(_Card)`
+//   width: 81%;
+//   border: 1px solid ${Color.mainWhiteGrey};
+//   margin-left: 5%;
+//   margin-top: 2%;
+//   padding-top: 2%;
+// `;
 
 function ContentContainer({
   contents,
@@ -69,7 +75,11 @@ function ContentContainer({
         />
 
         {textContents.map((textContent) => {
-          return <TextCard> {textContent}</TextCard>;
+          return (
+            <LinkField>
+              <Typography> {textContent}</Typography>
+            </LinkField>
+          );
         })}
         <LinkField>
           {contents.map((content) => {
