@@ -15,14 +15,31 @@ const ContentLeft = styled.div`
 `;
 
 function ContentPage(props) {
-  // const [content, setContent]=useState([]);
-  // const handleContentSaveClick=(element)=>{
-  //   setContent(content.concat(element))
-  // }
   const [contents, setContents] = useState([]);
   const [link, setLink] = useState("");
   const [error, setError] = useState(null);
   const [hint, setHint] = useState(null);
+  const [text, setText] = useState("");
+  const [textContents, setTextContents] = useState([]);
+
+  //for Text
+  const handleTextChange = (event) => {
+    setText(event.target.value);
+  };
+  const handleTextSubmit = (event) => {
+    console.log(text);
+    event.preventDefault();
+    handleCreateText(text);
+    setText("");
+  };
+  const handleCreateText = (text) => {
+    setTextContents([...textContents, text]);
+  };
+
+  // for others
+  const handleValueChange = (event) => {
+    setLink(event.target.value);
+  };
 
   const handleValueSubmit = (event) => {
     event.preventDefault();
@@ -37,22 +54,21 @@ function ContentPage(props) {
     }
   };
 
-  const handleValueChange = (event) => {
-    console.log("value of link", event.target.value);
-    setLink(event.target.value);
-  };
-
   const handleCreateContent = (link) => {
     setContents([...contents, link]);
   };
 
+  // for add content on the side
   const handleDeleteContent = (link) => {
-    console.log("test", link);
     setContents(contents.filter((element) => element !== link));
   };
 
+  const handleDeleteTextContent = (text) => {
+    setTextContents(textContents.filter((element) => element !== text));
+  };
+
   const handlePlusSubmit = () => {
-    setHint("Please add a link for the content");
+    setHint("Please add a content");
     setInterval(() => {
       setHint("");
     }, 3000);
@@ -69,6 +85,10 @@ function ContentPage(props) {
             link={link}
             error={error}
             hint={hint}
+            handleTextSubmit={handleTextSubmit}
+            handleTextChange={handleTextChange}
+            text={text}
+            textContents={textContents}
           />
         </ContentLeft>
         <ol>
@@ -77,6 +97,7 @@ function ContentPage(props) {
             handleDeleteContent={handleDeleteContent}
             handlePlusSubmit={handlePlusSubmit}
             ContentText="Content"
+
           />
         </ol>
       </ContentField>
