@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "./EvaluationPage.scss";
+import { NavigationButton } from "../../Components/styleButton";
 
 // importing styled components for page setup
 import { RightSection, ButtonsContainer } from "../StylePages";
@@ -20,8 +21,10 @@ function EvaluationPage(props) {
         <QuestionList></QuestionList>
       </MainContent>
       <ButtonsContainer>
-        <button onClick={props.previousStep}>Previous Step</button>
-        <button onClick={props.nextStep}>Next Step</button>
+        <NavigationButton onClick={props.previousStep}>
+          Previous Step
+        </NavigationButton>
+        <NavigationButton onClick={props.nextStep}>Next Step</NavigationButton>
       </ButtonsContainer>
     </RightSection>
   );

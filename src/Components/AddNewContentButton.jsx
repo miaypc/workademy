@@ -30,6 +30,8 @@ function AddNewContentButton({
   handleDeleteContent,
   handlePlusSubmit,
   ContentText,
+  handleDeleteTextContent,
+  textContents,
 }) {
   return (
     <div>

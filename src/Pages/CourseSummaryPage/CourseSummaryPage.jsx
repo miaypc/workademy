@@ -5,6 +5,7 @@ import { RightSection, ButtonsContainer } from "../StylePages";
 import ModuleSelect from "../../Components/Select/ModuleSelect";
 import "./CourseSummaryPage.scss";
 import Lecture from "../../Components/lectureContainer/Lecture";
+import { NavigationButton } from "../../Components/styleButton";
 
 import styled from "styled-components";
 const LecturesContainer = styled.div`
@@ -27,7 +28,9 @@ function CourseSummaryPage(props) {
         <Lecture></Lecture>
       </LecturesContainer>
       <ButtonsContainer>
-        <button onClick={props.previousStep}>Previous Step</button>
+        <NavigationButton onClick={props.previousStep}>
+          Previous Step
+        </NavigationButton>
         <button onClick={props.nextStep}>Publish</button>
       </ButtonsContainer>
     </RightSection>
