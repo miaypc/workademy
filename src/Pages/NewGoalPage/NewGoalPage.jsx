@@ -8,9 +8,11 @@ import { RightSection, ButtonsContainer } from "../StylePages";
 
 function NewGoalPage(props) {
   return (
-    <ButtonsContainer>
-      <AddNewGoalButton onClick={props.nextStep}></AddNewGoalButton>
-    </ButtonsContainer>
+    <RightSection>
+      <ButtonsContainer>
+        <AddNewGoalButton onClick={props.nextStep}></AddNewGoalButton>
+      </ButtonsContainer>
+    </RightSection>
   );
 }
 

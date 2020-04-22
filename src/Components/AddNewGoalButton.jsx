@@ -5,11 +5,12 @@ import { Device } from "../Utils/Device";
 
 const Button = styled.button`
   display: flex;
+  flex-shrink: 1;
   justify-self: center;
   font-family: sans-serif;
   text-align: center;
   text-decoration: none;
-  border: 0em;
+  border: none;
   border-radius: 5px;
   padding: 0.7em;
   background-color: ${Color.mainNavy};

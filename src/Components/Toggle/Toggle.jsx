@@ -36,7 +36,7 @@ const Toggle = ({ theme, toggleTheme }) => {
   return (
     <div>
       <ToggleContainer onClick={toggleTheme}>
-        <MoonIcon sr />
+        <MoonIcon />
         <SunIcon />
       </ToggleContainer>
     </div>

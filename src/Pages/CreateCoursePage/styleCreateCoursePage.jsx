@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Device } from "../../Utils/Device";
-import { TextHeader, TextSmallHeader } from "../StylePages";
 
 export const TextHeaderMobile = styled.div`
   font-size: 23px;
