@@ -42,6 +42,11 @@ export const ButtonsContainer = styled.div`
   display: flex;
 `;
 
+export const GoalsPage = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Header = styled.div`
   font-size: 30px;
   text-align: center;
