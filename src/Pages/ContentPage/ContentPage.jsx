@@ -96,8 +96,8 @@ function ContentPage(props) {
             contents={contents}
             handleDeleteContent={handleDeleteContent}
             handlePlusSubmit={handlePlusSubmit}
-            textContents={textContents}
-            handleDeleteTextContent={handleDeleteTextContent}
+            ContentText="Content"
+
           />
         </ol>
       </ContentField>
