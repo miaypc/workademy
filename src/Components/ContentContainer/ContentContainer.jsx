@@ -8,6 +8,8 @@ import ContentType from "./ContentType";
 import types from "./Type";
 import { ReactTinyLink } from "react-tiny-link";
 import { HintMessage } from "../../Pages/StylePages";
+import _Box from "@material-ui/core/Box";
+import _Typography from "@material-ui/core/Typography";
 
 const Card = styled(_Card)`
   width: 95%;
@@ -18,6 +20,12 @@ const Card = styled(_Card)`
 const LinkField = styled.div`
   margin: 5%;
 `;
+const Typography = styled(_Typography)`
+  border: 2px solid ${Color.mainWhiteGrey};
+  width: 90%;
+  height: 100px;
+  overflow: auto;
+`;
 
 function ContentContainer({
   contents,
@@ -26,6 +34,10 @@ function ContentContainer({
   handleValueSubmit,
   handleValueChange,
   hint,
+  handleTextSubmit,
+  handleTextChange,
+  text,
+  textContents,
 }) {
   const [selectedType, setSelectedType] = useState();
 
@@ -50,7 +62,18 @@ function ContentContainer({
           handleValueChange={handleValueChange}
           link={link}
           error={error}
+          handleTextSubmit={handleTextSubmit}
+          handleTextChange={handleTextChange}
+          text={text}
         />
+
+        {textContents.map((textContent) => {
+          return (
+            <LinkField>
+              <Typography> {textContent}</Typography>
+            </LinkField>
+          );
+        })}
         <LinkField>
           {contents.map((content) => {
             return (
