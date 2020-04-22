@@ -1,5 +1,6 @@
 import React from "react";
 import "./EvaluationPage.scss";
+import { NavigationButton } from "../../Components/styleButton";
 
 // importing styled components for page setup
 import {
@@ -13,8 +14,10 @@ function EvaluationPage(props) {
   return (
     <RightSection>
       <ButtonsContainer>
-        <button onClick={props.previousStep}>Previous Step</button>
-        <button onClick={props.nextStep}>Next Step</button>
+        <NavigationButton onClick={props.previousStep}>
+          Previous Step
+        </NavigationButton>
+        <NavigationButton onClick={props.nextStep}>Next Step</NavigationButton>
       </ButtonsContainer>
     </RightSection>
   );

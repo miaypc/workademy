@@ -15,7 +15,6 @@ export const GlobalColor = createGlobalStyle`
 
   }`;
 
-
 export const PageContainer = styled.div`
   > div {
     flex-direction: row;
@@ -52,13 +51,19 @@ export const TextHeader = styled.div`
   font-size: 40px;
   text-align: center;
   font-weight: bold;
-  /* color: ${Color.mainNavy}; */
+  color: ${Color.mainNavy};
   margin-top: 2em;
+  @media (max-width: 700px) {
+    font-size: 30px;
+  }
 `;
 
 export const TextSmallHeader = styled(TextHeader)`
   font-size: 30px;
   margin: 2em 3em;
+  @media (max-width: 700px) {
+    font-size: 20px;
+  }
 `;
 
 export const HintMessage = styled.div`

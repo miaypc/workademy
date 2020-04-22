@@ -4,6 +4,7 @@ import styled from "styled-components";
 import AddNewContentButton from "../../Components/AddNewContentButton";
 import ContentContainer from "../../Components/ContentContainer/ContentContainer";
 import { RightSection, ButtonsContainer } from "../StylePages";
+import { NavigationButton } from "../../Components/styleButton";
 
 const ContentField = styled.div`
   display: flex;
@@ -102,9 +103,13 @@ function ContentPage(props) {
         </ol>
       </ContentField>
       <ButtonsContainer>
-        <button onClick={props.previousStep}>Previous Step</button>
-        <button onClick={() => props.goToStep(3)}>add new goal</button>
-        <button onClick={props.nextStep}>Summary</button>
+        <NavigationButton onClick={props.previousStep}>
+          Previous Step
+        </NavigationButton>
+        <NavigationButton onClick={() => props.goToStep(3)}>
+          add new goal
+        </NavigationButton>
+        <NavigationButton onClick={props.nextStep}>Summary</NavigationButton>
       </ButtonsContainer>
     </RightSection>
   );

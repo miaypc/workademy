@@ -24,9 +24,13 @@ const VerbsButton = styled(Button)`
 const NavigationButton = styled(Button)`
   color: ${Color.mainWhite};
   background: ${Color.mainNavy};
-  font-size: 1.2em;
-  padding: 0.3em 1.3em;
+  font-size: 0.9em;
+  padding: 0.7em 0.7em;
   border-radius: 25px;
+  @media (max-width: 800px) {
+    font-size: 0.7em;
+    padding: 0.5em 0.5em;
+  }
 `;
 
 const SignButton = styled(Button)`
@@ -51,6 +55,9 @@ const YellowButton = styled(Button)`
 const SaveButton = styled(YellowButton)`
   font-size: 0.9em;
   padding: 0.7em 0.7em;
+  @media (max-width: 800px) {
+    font-size: 0.8em;
+  }
 `;
 
 const ContentButton = styled(VerbsButton)`

@@ -10,6 +10,7 @@ import CourseName from "../../Components/Input/CourseName";
 import CourseDescription from "../../Components/Input/CourseDescription";
 import styled from "styled-components";
 import { useEffect } from "react";
+import { NavigationButton } from "../../Components/styleButton";
 
 const SmallParagraph = styled.p`
   color: red;
@@ -71,7 +72,7 @@ function CourseNamePage({ courseName, courseDescription, nextStep, dispatch }) {
       {showErrorMessage()}
 
       <ButtonsContainer>
-        <button onClick={goToNextStep}>Next Step</button>
+        <NavigationButton onClick={goToNextStep}>Next Step</NavigationButton>
       </ButtonsContainer>
     </RightSection>
   );
