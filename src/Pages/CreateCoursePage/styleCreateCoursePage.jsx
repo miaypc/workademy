@@ -3,22 +3,22 @@ import { Device } from "../../Utils/Device";
 
 export const TextHeaderMobile = styled.div`
   font-size: 23px;
-  margin: 1.2em;
+  margin: 0.6em;
   font-weight: bold;
 
   @media ${Device.tablet} {
-    margin-top: 2em;
+    margin-top: 1em;
     font-size: 40px;
   }
 `;
 
 export const TextSmallHeaderMobile = styled.div`
   font-size: 20px;
-  margin: 2em 1em;
+  margin: 1em 1em;
 
   @media ${Device.tablet} {
     font-size: 30px;
-    margin: 2em 3em;
+    margin: 1.5em 1.5em;
   }
 `;
 
@@ -78,7 +78,7 @@ export const DownGreyCorner = styled.div`
 export const CreateCourseHeader = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 60%;
   text-align: center;
   justify-content: center;
 `;
