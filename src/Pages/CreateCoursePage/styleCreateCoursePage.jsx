@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Device } from "../../Utils/Device";
 
 export const TextHeaderMobile = styled.div`
-  font-size: 23px;
+  font-size: 30px;
   margin: 0.6em;
   font-weight: bold;
 
