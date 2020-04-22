@@ -46,9 +46,8 @@ function CreateCoursePage() {
             Welcome to the Workademy Course Builder!
           </TextHeaderMobile>
           <TextSmallHeaderMobile>
-            To start creating your class, click on the button below
+            Start by clicking on the button below
           </TextSmallHeaderMobile>
-
           <div className="bottomButtons">
             <NewClassButton onClick={() => history.push("/wizard")} />
           </div>
