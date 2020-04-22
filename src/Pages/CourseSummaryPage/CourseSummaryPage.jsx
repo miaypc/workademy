@@ -4,6 +4,13 @@ import React from "react";
 import { RightSection, ButtonsContainer } from "../StylePages";
 import ModuleSelect from "../../Components/Select/ModuleSelect";
 import "./CourseSummaryPage.scss";
+import Lecture from "../../Components/lectureContainer/Lecture";
+
+import styled from "styled-components";
+const LecturesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 function CourseSummaryPage(props) {
   const [goalId, setGoalId] = React.useState(10);
@@ -14,6 +21,11 @@ function CourseSummaryPage(props) {
   return (
     <RightSection>
       <ModuleSelect handleChange={handleChange} goalId={goalId}></ModuleSelect>
+      <LecturesContainer>
+        <Lecture></Lecture>
+        <Lecture></Lecture>
+        <Lecture></Lecture>
+      </LecturesContainer>
       <ButtonsContainer>
         <button onClick={props.previousStep}>Previous Step</button>
         <button onClick={props.nextStep}>Publish</button>
