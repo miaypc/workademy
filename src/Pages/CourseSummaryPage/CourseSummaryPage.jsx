@@ -12,6 +12,13 @@ const LecturesContainer = styled.div`
   flex-direction: column;
 `;
 
+const CenterButtonContainer = styled.div`
+  text-align: center;
+  width: 40%;
+  margin: 0 auto;
+  padding: 0;
+`;
+
 function CourseSummaryPage(props) {
   const [goalId, setGoalId] = React.useState(10);
 
@@ -26,9 +33,9 @@ function CourseSummaryPage(props) {
         <Lecture></Lecture>
         <Lecture></Lecture>
       </LecturesContainer>
-      <ButtonsContainer>
+      <CenterButtonContainer>
         <PublishCourseButton onClick={props.nextStep}></PublishCourseButton>
-      </ButtonsContainer>
+      </CenterButtonContainer>
     </RightSection>
   );
 }
