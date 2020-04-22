@@ -3,7 +3,7 @@ import "./style.js";
 import styled from "styled-components";
 import AddNewContentButton from "../../Components/AddNewContentButton";
 import ContentContainer from "../../Components/ContentContainer/ContentContainer";
-import { RightSection, ButtonsContainer } from "../StylePages";
+import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
 import { NavigationButton } from "../../Components/styleButton";
 
 const ContentField = styled.div`
@@ -77,6 +77,7 @@ function ContentPage(props) {
 
   return (
     <RightSection>
+      <BlueTobBar>Question 1: Blended Learning is... </BlueTobBar>
       <ContentField>
         <ContentLeft>
           <ContentContainer

@@ -4,7 +4,7 @@ import "./EvaluationPage.scss";
 import { NavigationButton } from "../../Components/styleButton";
 
 // importing styled components for page setup
-import { RightSection, ButtonsContainer } from "../StylePages";
+import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
 import QAContainer from "../../Components/EvaluationContainer/QAContainer";
 import QuestionList from "../../Components/EvaluationContainer/QuestionList";
 
@@ -16,6 +16,7 @@ const MainContent = styled.div`
 function EvaluationPage(props) {
   return (
     <RightSection>
+      <BlueTobBar>Goal 1: Define Blended Learning </BlueTobBar>
       <MainContent>
         <QAContainer></QAContainer>
         <QuestionList></QuestionList>
