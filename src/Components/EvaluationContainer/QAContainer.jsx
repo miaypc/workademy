@@ -16,7 +16,7 @@ const Card = styled(_Card)`
 `;
 const Text = styled.div`
   color: ${Color.mainNavy};
-  font-size: 25px;
+  font-size: 1.5em;
   text-align: center;
   margin: 10px;
 `;

@@ -29,6 +29,7 @@ function AddNewContentButton({
   contents,
   handleDeleteContent,
   handlePlusSubmit,
+  ContentText,
 }) {
   console.log(contents);
   return (
@@ -36,7 +37,7 @@ function AddNewContentButton({
       {contents.map((content) => {
         return (
           <ContentTextField>
-            <Li>Content </Li>
+            <Li>{ContentText} </Li>
             <ContentBin
               onClick={() => handleDeleteContent(content)}
               src={Bin}

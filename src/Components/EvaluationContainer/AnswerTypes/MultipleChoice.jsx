@@ -19,9 +19,10 @@ const Checkbox = styled(_Checkbox)`
 
 export default function MultipleChoice() {
   const [state, setState] = React.useState({
-    gilad: true,
+    gilad: false,
     jason: false,
     antoine: false,
+    jason2: false,
   });
 
   const handleChange = (event) => {
