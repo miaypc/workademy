@@ -4,6 +4,7 @@ import styled from "styled-components";
 import AddNewContentButton from "../../Components/AddNewContentButton";
 import ContentContainer from "../../Components/ContentContainer/ContentContainer";
 import { RightSection, ButtonsContainer } from "../StylePages";
+import CourseSummaryButton from "../../Components/CourseSummaryButton";
 
 const ContentField = styled.div`
   display: flex;
@@ -81,8 +82,8 @@ function ContentPage(props) {
       </ContentField>
       <ButtonsContainer>
         <button onClick={props.previousStep}>Previous Step</button>
+        <CourseSummaryButton onClick={props.nextStep}></CourseSummaryButton>
         <button onClick={() => props.goToStep(3)}>add new goal</button>
-        <button onClick={props.nextStep}>Summary</button>
       </ButtonsContainer>
     </RightSection>
   );
