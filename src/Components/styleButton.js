@@ -52,7 +52,10 @@ const YellowButton = styled(Button)`
   border-radius: 7px;
 `;
 
-const SaveButton = styled(YellowButton)`
+const SaveButton = styled(Button)`
+  color: ${Color.mainNavy};
+  background: ${Color.mainYellow};
+  border-radius: 7px;
   font-size: 0.9em;
   padding: 0.7em 0.7em;
   @media (max-width: 800px) {
