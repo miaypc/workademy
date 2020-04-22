@@ -21,18 +21,11 @@ const LinkField = styled.div`
   margin: 5%;
 `;
 const Typography = styled(_Typography)`
-  border: 1px solid ${Color.mainWhiteGrey};
-  width: 81%;
-  height: 50px;
-  overflow: scroll;
+  border: 2px solid ${Color.mainWhiteGrey};
+  width: 90%;
+  height: 100px;
+  overflow: auto;
 `;
-// const TextCard = styled(_Card)`
-//   width: 81%;
-//   border: 1px solid ${Color.mainWhiteGrey};
-//   margin-left: 5%;
-//   margin-top: 2%;
-//   padding-top: 2%;
-// `;
 
 function ContentContainer({
   contents,
