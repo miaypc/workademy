@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 import Color from "../../Utils/Color";
 import "./NewGoalPage.scss";
 import AddNewGoalButton from "../../Components/AddNewGoalButton";
@@ -7,6 +8,7 @@ import AddNewGoalButton from "../../Components/AddNewGoalButton";
 import { ButtonsContainer, GoalsPage } from "../StylePages";
 import Pensil from "../../Components/Images/Pensil.svg";
 
+//Styles
 const Header = styled.div`
   width: 80%;
   display: flex;
@@ -54,8 +56,8 @@ function NewGoalPage(props) {
       <Header>
         <SmallText>Course name:</SmallText>
         <TextHeader>
-          E-Learning some big text here, not very big but still
-          <Symbol>
+          {props.courseName}
+          <Symbol onClick={props.previousStep}>
             <img src={Pensil}></img>
           </Symbol>
         </TextHeader>
@@ -68,4 +70,10 @@ function NewGoalPage(props) {
   );
 }
 
-export default NewGoalPage;
+function mapStateToProps(state) {
+  return {
+    courseName: state.course.courseName,
+  };
+}
+
+export default connect(mapStateToProps)(NewGoalPage);
