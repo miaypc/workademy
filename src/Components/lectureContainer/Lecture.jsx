@@ -53,6 +53,9 @@ const QuizText = styled.div`
   font-weight: bold;
   font-size: 25px;
   color: ${Color.mainNavy};
+  @media (max-width: 570px) {
+    font-size: 15px;
+  }
 `;
 
 function Lecture() {

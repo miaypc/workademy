@@ -17,6 +17,9 @@ const Container = styled.div`
 const Text = styled.div`
   padding: 3px;
   text-align: center;
+  @media (max-width: 500px) {
+    font-size: 10px;
+  }
 `;
 
 function Content() {
