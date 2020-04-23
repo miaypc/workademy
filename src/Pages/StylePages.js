@@ -35,6 +35,15 @@ export const LeftBar = styled.div`
 
 //I will leave right section here in case we will need to add some theme to it later
 export const RightSection = styled.div``;
+export const BlueTobBar = styled.div`
+  height: 70px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${Color.mainNavy};
+  color: ${Color.mainWhite};
+`;
 
 export const ButtonsContainer = styled.div`
   margin: 5px 10px;

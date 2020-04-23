@@ -1,7 +1,7 @@
 import React from "react";
 
 // importing styled components for page setup
-import { RightSection, ButtonsContainer } from "../StylePages";
+import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
 import ModuleSelect from "../../Components/Select/ModuleSelect";
 import "./CourseSummaryPage.scss";
 import Lecture from "../../Components/lectureContainer/Lecture";
@@ -21,6 +21,7 @@ function CourseSummaryPage(props) {
   };
   return (
     <RightSection>
+      <BlueTobBar>This is how your course can look like</BlueTobBar>
       <ModuleSelect handleChange={handleChange} goalId={goalId}></ModuleSelect>
       <LecturesContainer>
         <Lecture></Lecture>
