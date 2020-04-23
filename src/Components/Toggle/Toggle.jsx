@@ -37,7 +37,6 @@ const ToggleContainer = styled.div`
     height: auto;
     width: 1.5rem;
     transition: all 0.3s linear;
-    transition: transform 300ms ease-in-out;
   }
 `;
 

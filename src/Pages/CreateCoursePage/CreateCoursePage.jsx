@@ -27,7 +27,6 @@ import WhiteLogo from "../../Components/Images/LogoDark.svg";
 // Utils
 import { useDarkMode } from "../../Utils/Themes/UseDarkMode";
 import { lightTheme, darkTheme } from "../../Utils/Themes/Theme";
-import { Device } from "../../Utils/Device";
 
 function CreateCoursePage() {
   const [theme, toggleTheme] = useDarkMode();

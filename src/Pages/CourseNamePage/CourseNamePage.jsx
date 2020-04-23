@@ -71,7 +71,7 @@ function CourseNamePage({ courseName, courseDescription, nextStep, dispatch }) {
       />
       {showErrorMessage()}
 
-      <ButtonsContainer>
+      <ButtonsContainer style={{ float: "right" }}>
         <NavigationButton onClick={goToNextStep}>Next Step</NavigationButton>
       </ButtonsContainer>
     </RightSection>
