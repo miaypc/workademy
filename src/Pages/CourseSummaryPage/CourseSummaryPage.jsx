@@ -31,17 +31,16 @@ function CourseSummaryPage(props) {
         <Lecture></Lecture>
         <Lecture></Lecture>
       </LecturesContainer>
-
-      <ButtonsContainer>
-        <NavigationButton onClick={props.previousStep}>
-          Previous Step
-        </NavigationButton>
-      </ButtonsContainer>
       <CenterButtonContainer>
         <ResponsiveYellowButton onClick={props.nextStep}>
           Publish your course
         </ResponsiveYellowButton>
       </CenterButtonContainer>
+      <ButtonsContainer>
+        <NavigationButton onClick={props.previousStep}>
+          Previous Step
+        </NavigationButton>
+      </ButtonsContainer>
     </RightSection>
   );
 }

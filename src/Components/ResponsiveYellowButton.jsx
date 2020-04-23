@@ -8,6 +8,7 @@ export const CenterButtonContainer = styled.div`
   max-width: 200px;
   max-height: 100px;
   margin: 0 auto;
+  margin-top: 1em;
   padding: 0;
 
   @media ${Device.tablet} {

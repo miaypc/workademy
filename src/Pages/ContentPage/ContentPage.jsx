@@ -109,6 +109,11 @@ function ContentPage(props) {
           />
         </ol>
       </ContentField>
+      <CenterButtonContainer>
+        <ResponsiveYellowButton onClick={props.nextStep}>
+          Summary
+        </ResponsiveYellowButton>
+      </CenterButtonContainer>
       <ButtonsContainer>
         <NavigationButton onClick={props.previousStep}>
           Previous Step
@@ -117,11 +122,6 @@ function ContentPage(props) {
           add new goal
         </NavigationButton>
       </ButtonsContainer>
-      <CenterButtonContainer>
-        <ResponsiveYellowButton onClick={props.nextStep}>
-          Summary
-        </ResponsiveYellowButton>
-      </CenterButtonContainer>
     </RightSection>
   );
 }
