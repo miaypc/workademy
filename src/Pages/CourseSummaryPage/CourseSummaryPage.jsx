@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 // importing styled components for page setup
-import { RightSection, ButtonsContainer } from "../StylePages";
+import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
 import ModuleSelect from "../../Components/Select/ModuleSelect";
 import "./CourseSummaryPage.scss";
 import Lecture from "../../Components/lectureContainer/Lecture";
 import PublishCourseButton from "../../Components/PublishCourseButton";
+import { NavigationButton } from "../../Components/styleButton";
 
 const LecturesContainer = styled.div`
   display: flex;
@@ -27,6 +28,7 @@ function CourseSummaryPage(props) {
   };
   return (
     <RightSection>
+      <BlueTobBar>This is how your course can look like</BlueTobBar>
       <ModuleSelect handleChange={handleChange} goalId={goalId}></ModuleSelect>
       <LecturesContainer>
         <Lecture></Lecture>
@@ -36,6 +38,12 @@ function CourseSummaryPage(props) {
       <CenterButtonContainer>
         <PublishCourseButton onClick={props.nextStep}></PublishCourseButton>
       </CenterButtonContainer>
+      <ButtonsContainer>
+        <NavigationButton onClick={props.previousStep}>
+          Previous Step
+        </NavigationButton>
+        <button onClick={props.nextStep}>Publish</button>
+      </ButtonsContainer>
     </RightSection>
   );
 }

@@ -3,8 +3,9 @@ import "./style.js";
 import styled from "styled-components";
 import AddNewContentButton from "../../Components/AddNewContentButton";
 import ContentContainer from "../../Components/ContentContainer/ContentContainer";
-import { RightSection, ButtonsContainer } from "../StylePages";
 import CourseSummaryButton from "../../Components/CourseSummaryButton";
+import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
+import { NavigationButton } from "../../Components/styleButton";
 
 const ContentField = styled.div`
   display: flex;
@@ -77,6 +78,7 @@ function ContentPage(props) {
 
   return (
     <RightSection>
+      <BlueTobBar>Question 1: Blended Learning is... </BlueTobBar>
       <ContentField>
         <ContentLeft>
           <ContentContainer
@@ -98,14 +100,19 @@ function ContentPage(props) {
             handleDeleteContent={handleDeleteContent}
             handlePlusSubmit={handlePlusSubmit}
             ContentText="Content"
-
+            handleDeleteTextContent={handleDeleteTextContent}
+            textContents={textContents}
           />
         </ol>
       </ContentField>
       <ButtonsContainer>
-        <button onClick={props.previousStep}>Previous Step</button>
-        <CourseSummaryButton onClick={props.nextStep}></CourseSummaryButton>
-        <button onClick={() => props.goToStep(3)}>add new goal</button>
+        <NavigationButton onClick={props.previousStep}>
+          Previous Step
+        </NavigationButton>
+        <NavigationButton onClick={() => props.goToStep(3)}>
+          add new goal
+        </NavigationButton>
+        <NavigationButton onClick={props.nextStep}>Summary</NavigationButton>
       </ButtonsContainer>
     </RightSection>
   );

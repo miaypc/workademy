@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import VerbContainer from "../../Components/VerbContainer/VerbContainer";
 import GoalInput from "../../Components/Input/GoalInput";
 import { SmallParagraph } from "./styleDefineGoalPage";
+import { NavigationButton } from "../../Components/styleButton";
 
 // importing styled components for page setup
 import {
@@ -67,9 +68,11 @@ function DefineGoalPage(props) {
 
       {showErrorMessage()}
       <ButtonsContainer>
-        <button onClick={props.previousStep}>Previous Step</button>
+        <NavigationButton onClick={props.previousStep}>
+          Previous Step
+        </NavigationButton>
 
-        <button onClick={goToNextStep}>Next Step</button>
+        <NavigationButton onClick={goToNextStep}>Next Step</NavigationButton>
       </ButtonsContainer>
     </RightSection>
   );

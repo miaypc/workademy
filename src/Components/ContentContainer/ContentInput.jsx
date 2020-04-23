@@ -15,6 +15,9 @@ const Text = styled.div`
   font-size: 1.5em;
   align-items: center;
   color: ${Color.mainNavy};
+  @media (max-width: 700px) {
+    font-size: 1.2em;
+  }
 `;
 const InputField = styled.div`
   display: flex;
