@@ -3,9 +3,13 @@ import "./style.js";
 import styled from "styled-components";
 import AddNewContentButton from "../../Components/AddNewContentButton";
 import ContentContainer from "../../Components/ContentContainer/ContentContainer";
-import CourseSummaryButton from "../../Components/CourseSummaryButton";
+// import CourseSummaryButton from "../../Components/CourseSummaryButton";
 import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
 import { NavigationButton } from "../../Components/styleButton";
+import {
+  ResponsiveYellowButton,
+  CenterButtonContainer,
+} from "../../Components/ResponsiveYellowButton";
 
 const ContentField = styled.div`
   display: flex;
@@ -112,8 +116,12 @@ function ContentPage(props) {
         <NavigationButton onClick={() => props.goToStep(3)}>
           add new goal
         </NavigationButton>
-        <NavigationButton onClick={props.nextStep}>Summary</NavigationButton>
       </ButtonsContainer>
+      <CenterButtonContainer>
+        <ResponsiveYellowButton onClick={props.nextStep}>
+          Summary
+        </ResponsiveYellowButton>
+      </CenterButtonContainer>
     </RightSection>
   );
 }
