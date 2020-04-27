@@ -49,9 +49,11 @@ function ContentPage(props) {
 
   const handleValueSubmit = (event) => {
     event.preventDefault();
-    if (!link) {
-      setError("Please provide a link");
-    } else if (!link.includes("http")) {
+    if (
+      !link.match(
+        /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/
+      )
+    ) {
       setError("Please provide a valid link");
     } else {
       handleCreateContent(link);
