@@ -1,5 +1,3 @@
-// {courseName:"", courseDescription:"", goals:[{verb:"", name:""},{},{}]}
-
 export default function (state = {}, action) {
   switch (action.type) {
     case "CREATE_DESCRIPTION":
@@ -9,19 +7,23 @@ export default function (state = {}, action) {
         courseDescription: action.courseDescription,
       };
     case "CREATE_GOAL":
+      // create id so we can have unique ids for everything
+      let lastId = (state.lastId || 0) + 1;
+      let addedGoal = { verb: action.verb, name: action.name, id: lastId };
       return {
         ...state,
-        goals: [
-          ...(state.goals || []),
-          { verb: action.verb, name: action.name },
-        ],
+        lastId,
+        goals: [...(state.goals || []), addedGoal],
+        selectedGoal: addedGoal,
       };
+
     case "CREATE_QUESTION":
       return {
         ...state,
         questions: [
           ...(state.questions || []),
           {
+            goalId: action.goalId,
             name: action.name,
             questionType: action.questionType,
             answers: action.answers,

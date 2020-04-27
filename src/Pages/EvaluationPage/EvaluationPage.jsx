@@ -33,6 +33,7 @@ function EvaluationPage(props) {
 
       props.dispatch({
         type: "CREATE_QUESTION",
+        goalId: props.selectedGoal.id,
         name: questionName,
         questionType: qType,
         ...(qType !== "free-text" && {
@@ -48,9 +49,15 @@ function EvaluationPage(props) {
       setCorrectAnswer([]);
     }
   }
+
+  if (!props.selectedGoal) {
+    return ""; // TODO  redirect to new goal page
+  }
   return (
     <RightSection>
-      <BlueTobBar>Goal 1: Define Blended Learning </BlueTobBar>
+      <BlueTobBar>
+        Goal: {props.selectedGoal.verb + " " + props.selectedGoal.name}
+      </BlueTobBar>
       <MainContent>
         <Card>
           <QuestionTypes
@@ -81,5 +88,9 @@ function EvaluationPage(props) {
     </RightSection>
   );
 }
-
-export default connect()(EvaluationPage);
+function mapStateToProps(state) {
+  return {
+    selectedGoal: state.course.selectedGoal,
+  };
+}
+export default connect(mapStateToProps)(EvaluationPage);
