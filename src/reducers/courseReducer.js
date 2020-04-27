@@ -16,6 +16,19 @@ export default function (state = {}, action) {
           { verb: action.verb, name: action.name },
         ],
       };
+    case "CREATE_QUESTION":
+      return {
+        ...state,
+        questions: [
+          ...(state.questions || []),
+          {
+            name: action.name,
+            questionType: action.questionType,
+            answers: action.answers,
+            correct: action.correct,
+          },
+        ],
+      };
     default:
       return state;
   }

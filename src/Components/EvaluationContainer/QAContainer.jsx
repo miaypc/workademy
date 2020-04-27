@@ -21,15 +21,38 @@ const Text = styled.div`
   margin: 10px;
 `;
 
-function QAContainer() {
+function QAContainer({
+  qType,
+  setQType,
+  addQuestion,
+  setQuestionName,
+  answers,
+  setAnswers,
+  setCorrectAnswer,
+  correctAnswer,
+  showErrorMessage,
+  questionName,
+}) {
   //Three question types are possible: single-choice, multiple-choice, free-text
-  const [qType, setQType] = useState();
 
   return (
     <Card>
-      <QuestionTypes qType={qType} setQType={setQType} />
+      <QuestionTypes
+        qType={qType}
+        setQType={setQType}
+        setQuestionName={setQuestionName}
+        questionName={questionName}
+      />
       <Text>Answer Choices</Text>
-      <Answers qType={qType} />
+      <Answers
+        qType={qType}
+        addQuestion={addQuestion}
+        answers={answers}
+        setAnswers={setAnswers}
+        setCorrectAnswer={setCorrectAnswer}
+        correctAnswer={correctAnswer}
+      />
+      {showErrorMessage()}
     </Card>
   );
 }

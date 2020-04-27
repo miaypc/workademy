@@ -35,7 +35,7 @@ const Card = styled(_Card)`
   justify-content: space-around;
 `;
 
-function QuestionTypes({ qType, setQType }) {
+function QuestionTypes({ qType, setQType, setQuestionName, questionName }) {
   return (
     <Card>
       <TextField
@@ -43,6 +43,8 @@ function QuestionTypes({ qType, setQType }) {
         variant="filled"
         multiline
         rows={4}
+        value={questionName}
+        onChange={(event) => setQuestionName(event.target.value)}
       ></TextField>
       <ButtonGroup
         orientation="vertical"
