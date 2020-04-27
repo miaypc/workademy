@@ -11,7 +11,6 @@ export const GlobalColor = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
-    transition: all 0.25s linear;
 
   }`;
 
@@ -43,6 +42,7 @@ export const BlueTobBar = styled.div`
   align-items: center;
   background-color: ${Color.mainNavy};
   color: ${Color.mainWhite};
+ 
 `;
 
 export const ButtonsContainer = styled.div`
@@ -59,13 +59,15 @@ export const GoalsPage = styled.div`
 export const Header = styled.div`
   font-size: 30px;
   text-align: center;
+ 
 `;
 
 export const TextHeader = styled.div`
   font-size: 40px;
   text-align: center;
   font-weight: bold;
-  color: ${Color.mainNavy};
+  background: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
   margin-top: 2em;
   @media (max-width: 700px) {
     font-size: 30px;
@@ -73,6 +75,8 @@ export const TextHeader = styled.div`
 `;
 
 export const TextSmallHeader = styled(TextHeader)`
+ background: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
   font-size: 30px;
   margin: 2em 3em;
   @media (max-width: 700px) {
@@ -91,4 +95,5 @@ export const HintMessage = styled.div`
 export const ErrorMessage = styled(HintMessage)`
   justify-content: flex-end;
   padding-right: 15px;
+  
 `;
