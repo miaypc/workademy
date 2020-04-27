@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     flexShrink: "1",
-    position: "relative",
+    position: "sticky",
     justifyContent: "center",
     minWidth: "50px",
     fontSize: "1em",
