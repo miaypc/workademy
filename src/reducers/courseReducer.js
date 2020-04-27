@@ -16,6 +16,15 @@ export default function (state = {}, action) {
         goals: [...(state.goals || []), addedGoal],
         selectedGoal: addedGoal,
       };
+    case "UPDATE_GOAL":
+      let updatedGoal = { verb: action.verb, name: action.name, id: action.id };
+      return {
+        ...state,
+        goals: state.goals.map((goal) =>
+          goal.id === updatedGoal.id ? updatedGoal : goal
+        ),
+        selectedGoal: updatedGoal,
+      };
 
     case "CREATE_QUESTION":
       return {
