@@ -7,13 +7,14 @@ import { LeftBar } from "../../Pages/StylePages";
 
 const SideBarContainer = styled.div`
   display: flex;
+  margin: 0 auto;
   flex-shrink: 1;
   flex-direction: column;
-  position: relative;
-  min-width: 150px;
+  position: fixed;
+  max-width: 190px;
   background-color: #f0f0f0;
   @media only screen and (max-width: 500px) {
-    min-width: 100px;
+    max-width: 140px;
   }
 `;
 
