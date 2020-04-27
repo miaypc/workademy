@@ -15,7 +15,7 @@ const Verb = styled.div`
   display: flex;
   padding: 3px;
   align-items: center;
-  color: ${Color.mainNavy};
+  color: ${({ theme }) => theme.VerbText};
 `;
 
 function GoalInput({ selectedVerbs, value, onChange }) {

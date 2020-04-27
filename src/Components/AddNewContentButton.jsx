@@ -5,7 +5,7 @@ import { SignButton } from "./styleButton";
 import Bin from "./Images/Bin.svg";
 
 const Li = styled.li`
-  color: ${Color.mainNavy};
+  color: ${({ theme }) => theme.text};
   font-size: 25px;
   text-align: center;
   font-weight: bold;

@@ -10,7 +10,6 @@ import {
   CenterButtonContainer,
 } from "../../Components/ResponsiveYellowButton";
 import { NavigationButton } from "../../Components/styleButton";
-import { Device } from "../../Utils/Device";
 const LecturesContainer = styled.div`
   display: flex;
   flex-direction: column;

@@ -1,5 +1,4 @@
 import React from "react";
-import Color from "../Utils/Color";
 import styled from "styled-components";
 import { Device } from "../Utils/Device";
 
@@ -13,8 +12,8 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   padding: 0.7em;
-  background-color: ${Color.mainNavy};
-  color: ${Color.mainWhite};
+  background: ${({ theme }) => theme.ButtonBody};
+  color: ${({ theme }) => theme.ButtonText};
   cursor: pointer;
   font-size: 1em;
   width: 70%;

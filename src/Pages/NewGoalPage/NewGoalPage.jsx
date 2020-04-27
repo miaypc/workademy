@@ -6,7 +6,7 @@ import "./NewGoalPage.scss";
 import AddNewGoalButton from "../../Components/AddNewGoalButton";
 // importing styled components for page setup
 import { ButtonsContainer, GoalsPage } from "../StylePages";
-import Pensil from "../../Components/Images/Pensil.svg";
+import Pencil from "../../Components/Images/PencilBG.svg";
 
 //Styles
 const Header = styled.div`
@@ -25,7 +25,7 @@ const SmallText = styled.div`
   font-size: 20px;
 
   font-weight: bold;
-  color: ${Color.mainNavy};
+  color: ${({ theme }) => theme.text};
   padding-right: 10px;
   @media (max-width: 650px) {
     font-size: 15px;
@@ -37,7 +37,7 @@ const TextHeader = styled.div`
   // text-align: center;
 
   font-weight: bold;
-  color: ${Color.mainNavy};
+  color: ${({ theme }) => theme.text};
   @media (max-width: 650px) {
     font-size: 30px;
   }
@@ -45,6 +45,7 @@ const TextHeader = styled.div`
 
 const Symbol = styled.span`
   padding: 15px;
+
   > img {
     width: 25px;
   }
@@ -58,7 +59,7 @@ function NewGoalPage(props) {
         <TextHeader>
           {props.courseName}
           <Symbol onClick={props.previousStep}>
-            <img src={Pensil}></img>
+            <img src={Pencil}></img>
           </Symbol>
         </TextHeader>
       </Header>
