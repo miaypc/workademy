@@ -77,7 +77,7 @@ function EvaluationPage(props) {
           />
           {showErrorMessage()}
         </Card>
-        <QuestionList></QuestionList>
+        <QuestionList questions={props.questions}></QuestionList>
       </MainContent>
       <ButtonsContainer>
         <NavigationButton onClick={props.previousStep}>
@@ -89,8 +89,13 @@ function EvaluationPage(props) {
   );
 }
 function mapStateToProps(state) {
+  const { selectedGoal, questions } = state.course;
   return {
-    selectedGoal: state.course.selectedGoal,
+    selectedGoal: selectedGoal,
+    questions:
+      selectedGoal && questions
+        ? questions.filter((q) => q.goalId === selectedGoal.id)
+        : [],
   };
 }
 export default connect(mapStateToProps)(EvaluationPage);

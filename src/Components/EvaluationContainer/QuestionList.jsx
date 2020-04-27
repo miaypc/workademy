@@ -7,7 +7,7 @@ const Container = styled.div`
   text-align: center;
 `;
 
-function QuestionList() {
+function QuestionList({ questions }) {
   return <Container></Container>;
 }
 
