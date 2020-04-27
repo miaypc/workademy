@@ -5,6 +5,7 @@ import AddNewContentButton from "../../Components/AddNewContentButton";
 import ContentContainer from "../../Components/ContentContainer/ContentContainer";
 // import CourseSummaryButton from "../../Components/CourseSummaryButton";
 import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
+import QuestionSelect from "../../Components/Select/QuestionSelect";
 import { NavigationButton } from "../../Components/styleButton";
 import {
   ResponsiveYellowButton,
@@ -27,6 +28,12 @@ function ContentPage(props) {
   const [hint, setHint] = useState(null);
   const [text, setText] = useState("");
   const [textContents, setTextContents] = useState([]);
+  const [questionId, setQuestionId] = useState(10);
+
+  //for select
+  const handleSelectChange = (event) => {
+    setQuestionId(event.target.value);
+  };
 
   //for Text
   const handleTextChange = (event) => {
@@ -84,7 +91,11 @@ function ContentPage(props) {
 
   return (
     <RightSection>
-      <BlueTobBar>Question 1: Blended Learning is... </BlueTobBar>
+      {/* <BlueTobBar>Question 1: Blended Learning is... </BlueTobBar> */}
+      <QuestionSelect
+        handleSelectChange={handleSelectChange}
+        questionId={questionId}
+      />
       <ContentField>
         <ContentLeft>
           <ContentContainer
