@@ -12,10 +12,11 @@ const SideBarContainer = styled.div`
   flex-direction: column;
   position: fixed;
   max-width: 190px;
+  height: 100%;
   background-color: #f0f0f0;
-  @media only screen and (max-width: 500px) {
-    max-width: 140px;
-  }
+  /* @media only screen and (max-width: 500px) {
+    max-width: 150px;
+  } */
 `;
 
 const LogoSmall = styled.img`
