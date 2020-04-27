@@ -4,8 +4,11 @@ import { connect } from "react-redux";
 import "./EvaluationPage.scss";
 import { NavigationButton } from "../../Components/styleButton";
 import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
-import QAContainer from "../../Components/EvaluationContainer/QAContainer";
 import QuestionList from "../../Components/EvaluationContainer/QuestionList";
+import _Card from "@material-ui/core/Card";
+import Color from "../../Utils/Color";
+import QuestionTypes from "../../Components/EvaluationContainer/QuestionTypes";
+import Answers from "../../Components/EvaluationContainer/Answers";
 
 const MainContent = styled.div`
   display: flex;
@@ -18,6 +21,21 @@ const SmallParagraph = styled.p`
   display: flex;
   justify-content: flex-end;
   padding-right: 10px;
+`;
+
+const Card = styled(_Card)`
+  width: 75%;
+
+  margin-left: 1%;
+  border: 5px solid ${Color.mainNavy};
+  display: flex;
+  flex-direction: column;
+`;
+const Text = styled.div`
+  color: ${Color.mainNavy};
+  font-size: 1.5em;
+  text-align: center;
+  margin: 10px;
 `;
 
 function EvaluationPage(props) {
@@ -65,18 +83,24 @@ function EvaluationPage(props) {
     <RightSection>
       <BlueTobBar>Goal 1: Define Blended Learning </BlueTobBar>
       <MainContent>
-        <QAContainer
-          setQuestionName={setQuestionName}
-          questionName={questionName}
-          qType={qType}
-          answers={answers}
-          setAnswers={setAnswers}
-          setCorrectAnswer={setCorrectAnswer}
-          correctAnswer={correctAnswer}
-          setQType={setQType}
-          addQuestion={addQuestion}
-          showErrorMessage={showErrorMessage}
-        ></QAContainer>
+        <Card>
+          <QuestionTypes
+            qType={qType}
+            setQType={setQType}
+            setQuestionName={setQuestionName}
+            questionName={questionName}
+          />
+          <Text>Answer Choices</Text>
+          <Answers
+            qType={qType}
+            addQuestion={addQuestion}
+            answers={answers}
+            setAnswers={setAnswers}
+            setCorrectAnswer={setCorrectAnswer}
+            correctAnswer={correctAnswer}
+          />
+          {showErrorMessage()}
+        </Card>
         <QuestionList></QuestionList>
       </MainContent>
       <ButtonsContainer>
