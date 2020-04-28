@@ -5,11 +5,8 @@ import AddNewContentButton from "../../Components/AddNewContentButton";
 import ContentContainer from "../../Components/ContentContainer/ContentContainer";
 // import CourseSummaryButton from "../../Components/CourseSummaryButton";
 import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
+import QuestionSelect from "../../Components/Select/QuestionSelect";
 import { NavigationButton } from "../../Components/styleButton";
-import {
-  ResponsiveYellowButton,
-  CenterButtonContainer,
-} from "../../Components/ResponsiveYellowButton";
 
 const ContentField = styled.div`
   display: flex;
@@ -27,6 +24,12 @@ function ContentPage(props) {
   const [hint, setHint] = useState(null);
   const [text, setText] = useState("");
   const [textContents, setTextContents] = useState([]);
+  const [questionId, setQuestionId] = useState(10);
+
+  //for select
+  const handleSelectChange = (event) => {
+    setQuestionId(event.target.value);
+  };
 
   //for Text
   const handleTextChange = (event) => {
@@ -49,9 +52,11 @@ function ContentPage(props) {
 
   const handleValueSubmit = (event) => {
     event.preventDefault();
-    if (!link) {
-      setError("Please provide a link");
-    } else if (!link.includes("http")) {
+    if (
+      !link.match(
+        /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/
+      )
+    ) {
       setError("Please provide a valid link");
     } else {
       handleCreateContent(link);
@@ -82,7 +87,11 @@ function ContentPage(props) {
 
   return (
     <RightSection>
-      <BlueTobBar>Question 1: Blended Learning is... </BlueTobBar>
+      {/* <BlueTobBar>Question 1: Blended Learning is... </BlueTobBar> */}
+      <QuestionSelect
+        handleSelectChange={handleSelectChange}
+        questionId={questionId}
+      />
       <ContentField>
         <ContentLeft>
           <ContentContainer
@@ -109,17 +118,13 @@ function ContentPage(props) {
           />
         </ol>
       </ContentField>
-      <CenterButtonContainer>
-        <ResponsiveYellowButton onClick={props.nextStep}>
-          Summary
-        </ResponsiveYellowButton>
-      </CenterButtonContainer>
+
       <ButtonsContainer>
         <NavigationButton onClick={props.previousStep}>
           Previous Step
         </NavigationButton>
-        <NavigationButton onClick={() => props.goToStep(3)}>
-          add new goal
+        <NavigationButton onClick={() => props.goToStep(2)}>
+          Next Step
         </NavigationButton>
       </ButtonsContainer>
     </RightSection>
