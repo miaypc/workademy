@@ -7,10 +7,6 @@ import ContentContainer from "../../Components/ContentContainer/ContentContainer
 import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
 import QuestionSelect from "../../Components/Select/QuestionSelect";
 import { NavigationButton } from "../../Components/styleButton";
-import {
-  ResponsiveYellowButton,
-  CenterButtonContainer,
-} from "../../Components/ResponsiveYellowButton";
 
 const ContentField = styled.div`
   display: flex;
@@ -122,17 +118,13 @@ function ContentPage(props) {
           />
         </ol>
       </ContentField>
-      <CenterButtonContainer>
-        <ResponsiveYellowButton onClick={props.nextStep}>
-          Summary
-        </ResponsiveYellowButton>
-      </CenterButtonContainer>
+
       <ButtonsContainer>
         <NavigationButton onClick={props.previousStep}>
           Previous Step
         </NavigationButton>
-        <NavigationButton onClick={() => props.goToStep(3)}>
-          add new goal
+        <NavigationButton onClick={() => props.goToStep(2)}>
+          Next Step
         </NavigationButton>
       </ButtonsContainer>
     </RightSection>
