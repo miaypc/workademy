@@ -8,6 +8,10 @@ import AddNewGoalButton from "../../Components/AddNewGoalButton";
 import { ButtonsContainer, GoalsPage } from "../StylePages";
 import Pensil from "../../Components/Images/Pensil.svg";
 import GoalsContainer from "../../Components/GoalsContainer";
+import {
+  ResponsiveYellowButton,
+  CenterButtonContainer,
+} from "../../Components/ResponsiveYellowButton";
 
 //Styles
 const Header = styled.div`
@@ -68,6 +72,13 @@ function NewGoalPage(props) {
       <ButtonsContainer>
         <AddNewGoalButton onClick={props.nextStep}></AddNewGoalButton>
       </ButtonsContainer>
+      {props.goals && (
+        <CenterButtonContainer>
+          <ResponsiveYellowButton onClick={() => props.goToStep(6)}>
+            Summary
+          </ResponsiveYellowButton>
+        </CenterButtonContainer>
+      )}
     </GoalsPage>
   );
 }
