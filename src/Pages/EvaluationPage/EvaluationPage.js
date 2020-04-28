@@ -29,3 +29,13 @@ export const Text = styled.div`
   text-align: center;
   margin: 10px;
 `;
+
+export const Symbol = styled.span`
+  padding: 5px;
+  margin: 5px;
+  display: flex;
+  align-content: center;
+  > img {
+    width: 25px;
+  }
+`;

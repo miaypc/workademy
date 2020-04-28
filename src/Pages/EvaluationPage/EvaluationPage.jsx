@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { MainContent, SmallParagraph, Card, Text } from "./EvaluationPage.js";
+import {
+  MainContent,
+  SmallParagraph,
+  Card,
+  Text,
+  Symbol,
+} from "./EvaluationPage.js";
 import { NavigationButton } from "../../Components/styleButton";
 import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
 import QuestionList from "../../Components/EvaluationContainer/QuestionList";
 import QuestionTypes from "../../Components/EvaluationContainer/QuestionTypes";
 import Answers from "../../Components/EvaluationContainer/Answers";
+import PensilWhite from "../../Components/Images/PensilWhite.svg";
 
 function EvaluationPage(props) {
   const [isErrorVisible, setIsErrorVisible] = useState(false); // Check if user filled all the fields if no - show error
@@ -14,12 +21,14 @@ function EvaluationPage(props) {
   const [answers, setAnswers] = useState(["", "", "", ""]); // Array with 4 answers or nothing for free text.
   const [correctAnswer, setCorrectAnswer] = useState([]); // Array of correct answers starting from 1 or nothing for free text
 
+  // Show error message in case user didn't provide some info.
   function showErrorMessage() {
     if (isErrorVisible) {
       return <SmallParagraph>Some info is missing</SmallParagraph>;
     }
   }
 
+  // Save question and answers that user provided to reducer
   function addQuestion() {
     if (
       !questionName ||
@@ -57,6 +66,9 @@ function EvaluationPage(props) {
     <RightSection>
       <BlueTobBar>
         Goal: {props.selectedGoal.verb + " " + props.selectedGoal.name}
+        <Symbol onClick={props.previousStep}>
+          <img src={PensilWhite}></img>
+        </Symbol>
       </BlueTobBar>
       <MainContent>
         <Card>
