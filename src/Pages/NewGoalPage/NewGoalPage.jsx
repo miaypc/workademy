@@ -64,6 +64,7 @@ function NewGoalPage(props) {
         </TextHeader>
       </Header>
       {props.goals && props.goals.map((goal) => <GoalsContainer goal={goal} />)}
+
       <ButtonsContainer>
         <AddNewGoalButton onClick={props.nextStep}></AddNewGoalButton>
       </ButtonsContainer>
