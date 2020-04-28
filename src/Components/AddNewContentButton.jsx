@@ -59,7 +59,9 @@ function AddNewContentButton({
               />
             </ContentTextField>
             <ContentDetails>
-              {renderContent ? renderContent(content) : content}
+              {renderContent
+                ? renderContent(content).slice(0, 30)
+                : content.slice(0, 30)}
             </ContentDetails>
           </div>
         );
