@@ -32,28 +32,29 @@ function CreateCoursePage() {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
   const history = useHistory();
+  if (!componentMounted) {
+    return <div />;
+  }
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalColor />
       <Toggle theme={theme} toggleTheme={toggleTheme} />
-      <div>
-        <TopGreyCorner />
-        <DownGreyCorner />
-        <CreateCourseWrapper>
-          <LogoBig src={theme === "dark" ? WhiteLogo : Logo} />
-          <CreateCourseHeader>
-            <TextHeaderMobile>
-              Welcome to the Workademy Course Builder!
-            </TextHeaderMobile>
-            <TextSmallHeaderMobile>
-              Start by clicking on the button below
-            </TextSmallHeaderMobile>
-            <div className="bottomButtons">
-              <NewClassButton onClick={() => history.push("/wizard")} />
-            </div>
-          </CreateCourseHeader>
-        </CreateCourseWrapper>
-      </div>
+      <TopGreyCorner />
+      <DownGreyCorner />
+      <CreateCourseWrapper>
+        <LogoBig src={theme === "dark" ? WhiteLogo : Logo} />
+        <CreateCourseHeader>
+          <TextHeaderMobile>
+            Welcome to the Workademy Course Builder!
+          </TextHeaderMobile>
+          <TextSmallHeaderMobile>
+            Start by clicking on the button below
+          </TextSmallHeaderMobile>
+          <div className="bottomButtons">
+            <NewClassButton onClick={() => history.push("/wizard")} />
+          </div>
+        </CreateCourseHeader>
+      </CreateCourseWrapper>
     </ThemeProvider>
   );
 }

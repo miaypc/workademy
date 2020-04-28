@@ -9,9 +9,6 @@ import { lightTheme, darkTheme } from "./Utils/Themes/Theme";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CreateCoursePage from "./Pages/CreateCoursePage/CreateCoursePage";
 
-
-
-
 function App() {
   const [theme, toggleTheme, componentMounted] = useDarkMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
