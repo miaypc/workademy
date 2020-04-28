@@ -27,18 +27,41 @@ const ButtonField = styled.div`
   margin: 10px;
 `;
 
-function Answers({ qType }) {
+function Answers({
+  qType,
+  addQuestion,
+  answers,
+  setAnswers,
+  setCorrectAnswer,
+  correctAnswer,
+}) {
   return (
     <Card>
-      {(qType === "single-choice" && <SingleChoice />) ||
-        (qType === "multiple-choice" && <MultipleChoice />) ||
+      {(qType === "single-choice" && (
+        <SingleChoice
+          setAnswers={setAnswers}
+          answers={answers}
+          setCorrectAnswer={setCorrectAnswer}
+          correctAnswer={correctAnswer}
+        />
+      )) ||
+        (qType === "multiple-choice" && (
+          <MultipleChoice
+            setAnswers={setAnswers}
+            answers={answers}
+            setCorrectAnswer={setCorrectAnswer}
+            correctAnswer={correctAnswer}
+          />
+        )) ||
         (qType === "free-text" && (
           <Text>We will ask user to submit a free form answer</Text>
         )) || <Text>Choose the question type</Text>}
 
       {qType && (
         <ButtonField>
-          <SaveButton type="submit">Save</SaveButton>
+          <SaveButton type="submit" onClick={addQuestion}>
+            Save
+          </SaveButton>
         </ButtonField>
       )}
     </Card>

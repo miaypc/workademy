@@ -43,6 +43,7 @@ function AddNewContentButton({
   ContentText,
   handleDeleteTextContent,
   textContents,
+  renderContent,
 }) {
   return (
     <div>
@@ -57,7 +58,11 @@ function AddNewContentButton({
                 src={Bin}
               />
             </ContentTextField>
-            <ContentDetails>{content.slice(0, 30)}</ContentDetails>
+            <ContentDetails>
+              {renderContent
+                ? renderContent(content).slice(0, 30)
+                : content.slice(0, 30)}
+            </ContentDetails>
           </div>
         );
       })}
