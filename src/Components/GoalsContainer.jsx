@@ -32,7 +32,7 @@ const ThreeDotsContainer = styled.img`
   cursor: pointer;
 `;
 
-function GoalContainer(goal) {
+function GoalsContainer({ goal }) {
   return (
     <Card>
       <Typography>{goal}</Typography>
@@ -41,4 +41,4 @@ function GoalContainer(goal) {
   );
 }
 
-export default GoalContainer;
+export default GoalsContainer;
