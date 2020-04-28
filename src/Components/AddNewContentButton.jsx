@@ -2,8 +2,7 @@ import React from "react";
 import Color from "../Utils/Color";
 import styled from "styled-components";
 import { SignButton } from "./styleButton";
-import Bin from "./Images/BinLighter1.svg";
-import BinWhite from "./Images/BinWhite.svg";
+import BinYellow from "../Components/Images/BinYellow.svg";
 
 const Li = styled.li`
   color: ${({ theme }) => theme.text};
@@ -33,7 +32,6 @@ function AddNewContentButton({
   ContentText,
   handleDeleteTextContent,
   textContents,
-  theme,
 }) {
   return (
     <div>
@@ -43,8 +41,7 @@ function AddNewContentButton({
             <Li>{ContentText} </Li>
             <ContentBin
               onClick={() => handleDeleteContent(content)}
-              // src={theme === "light" ? Bin : BinWhite}
-              src={({ theme }) => theme.Bin}
+              src={BinYellow}
             />
           </ContentTextField>
         );
@@ -55,8 +52,7 @@ function AddNewContentButton({
             <Li>Content </Li>
             <ContentBin
               onClick={() => handleDeleteTextContent(textContent)}
-              src={({ theme }) => theme.Bin}
-              // src={theme === "light" ? Bin : BinWhite}
+              src={BinYellow}
             />
           </ContentTextField>
         );

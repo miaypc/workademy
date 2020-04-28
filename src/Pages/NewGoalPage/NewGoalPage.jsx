@@ -6,16 +6,12 @@ import "./NewGoalPage.scss";
 import AddNewGoalButton from "../../Components/AddNewGoalButton";
 // importing styled components for page setup
 import { ButtonsContainer, GoalsPage } from "../StylePages";
-<<<<<<< HEAD
 import Pencil from "../../Components/Images/PencilBG.svg";
-=======
-import Pensil from "../../Components/Images/Pensil.svg";
 import GoalsContainer from "../../Components/GoalsContainer";
 import {
   ResponsiveYellowButton,
   CenterButtonContainer,
 } from "../../Components/ResponsiveYellowButton";
->>>>>>> 2f7d0b9fd77931498c7c9c952a6014f99af37fcf
 
 //Styles
 const Header = styled.div`
@@ -32,7 +28,6 @@ const Header = styled.div`
 
 const SmallText = styled.div`
   font-size: 20px;
-
   font-weight: bold;
   color: ${({ theme }) => theme.text};
   padding-right: 10px;

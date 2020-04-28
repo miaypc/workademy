@@ -11,10 +11,14 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
 const FormHelperText = styled(_FormHelperText)`
-  display: flex;
-  justify-content: center;
+  && {
+    color: ${({ theme }) => theme.text};
+  }
+  > div {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const Select = styled(_Select)`

@@ -1,6 +1,4 @@
 import Color from "../Color";
-import Bin from "../../Components/Images/Bin.svg";
-import BinWhite from "../../Components/Images/BinWhite.svg";
 
 export const lightTheme = {
   body: `${Color.mainWhite}`,
@@ -9,8 +7,6 @@ export const lightTheme = {
   ButtonText: `${Color.mainWhite}`,
   VerbText: `${Color.mainNavy}`,
   toggleBorder: `${Color.mainBlue}`,
-  Bin: `${Bin}`,
-  FormHelperText: "#000000",
 };
 
 export const darkTheme = {
@@ -20,6 +16,5 @@ export const darkTheme = {
   ButtonText: `${Color.mainNavy}`,
   VerbText: `${Color.mainWhite}`,
   toggleBorder: `${Color.mainYellow}`,
-  Bin: `${BinWhite}`,
   FormHelperText: `${Color.mainWhite}`,
 };
