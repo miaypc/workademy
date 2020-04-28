@@ -1,7 +1,6 @@
 import React from "react";
 import Color from "../Utils/Color";
 import styled from "styled-components";
-import { SignButton } from "./styleButton";
 import Bin from "./Images/Bin.svg";
 
 const Li = styled.li`
@@ -9,8 +8,8 @@ const Li = styled.li`
   font-size: 25px;
   text-align: center;
   font-weight: bold;
-
-  margin: 1em 0.5em 1em 0;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 `;
 
 const ContentBin = styled.img`
@@ -25,40 +24,57 @@ const ContentTextField = styled.div`
   flex-direction: row;
 `;
 
+const ContentList = styled.div`
+  color: ${Color.mainNavy};
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1em;
+`;
+
+const ContentDetails = styled.p`
+  color: ${Color.mainNavy};
+  font-size: 15px;
+`;
+
 function AddNewContentButton({
   contents,
   handleDeleteContent,
-  handlePlusSubmit,
   ContentText,
   handleDeleteTextContent,
   textContents,
 }) {
   return (
     <div>
+      <ContentList>Here is the list of your {ContentText}</ContentList>
       {contents.map((content) => {
         return (
-          <ContentTextField>
-            <Li>{ContentText} </Li>
-            <ContentBin
-              onClick={() => handleDeleteContent(content)}
-              src={Bin}
-            />
-          </ContentTextField>
+          <div>
+            <ContentTextField>
+              <Li>{ContentText} </Li>
+              <ContentBin
+                onClick={() => handleDeleteContent(content)}
+                src={Bin}
+              />
+            </ContentTextField>
+            <ContentDetails>{content}</ContentDetails>
+          </div>
         );
       })}
       {textContents.map((textContent) => {
         return (
-          <ContentTextField>
-            <Li>Content </Li>
-            <ContentBin
-              onClick={() => handleDeleteTextContent(textContent)}
-              src={Bin}
-            />
-          </ContentTextField>
+          <div>
+            <ContentTextField>
+              <Li>{ContentText} </Li>
+              <ContentBin
+                onClick={() => handleDeleteTextContent(textContent)}
+                src={Bin}
+              />
+            </ContentTextField>
+            <ContentDetails>{textContent.slice(0, 30)}</ContentDetails>
+          </div>
         );
       })}
-
-      <SignButton onClick={handlePlusSubmit}>+</SignButton>
     </div>
   );
 }
