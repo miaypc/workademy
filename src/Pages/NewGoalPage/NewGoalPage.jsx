@@ -7,6 +7,11 @@ import AddNewGoalButton from "../../Components/AddNewGoalButton";
 // importing styled components for page setup
 import { ButtonsContainer, GoalsPage } from "../StylePages";
 import Pensil from "../../Components/Images/Pensil.svg";
+import GoalsContainer from "../../Components/GoalsContainer";
+import {
+  ResponsiveYellowButton,
+  CenterButtonContainer,
+} from "../../Components/ResponsiveYellowButton";
 
 //Styles
 const Header = styled.div`
@@ -62,10 +67,18 @@ function NewGoalPage(props) {
           </Symbol>
         </TextHeader>
       </Header>
+      {props.goals && props.goals.map((goal) => <GoalsContainer goal={goal} />)}
 
       <ButtonsContainer>
         <AddNewGoalButton onClick={props.nextStep}></AddNewGoalButton>
       </ButtonsContainer>
+      {props.goals && (
+        <CenterButtonContainer>
+          <ResponsiveYellowButton onClick={() => props.goToStep(6)}>
+            Summary
+          </ResponsiveYellowButton>
+        </CenterButtonContainer>
+      )}
     </GoalsPage>
   );
 }
@@ -73,6 +86,7 @@ function NewGoalPage(props) {
 function mapStateToProps(state) {
   return {
     courseName: state.course.courseName,
+    goals: state.course.goals,
   };
 }
 
