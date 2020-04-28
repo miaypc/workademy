@@ -57,7 +57,7 @@ function AddNewContentButton({
                 src={Bin}
               />
             </ContentTextField>
-            <ContentDetails>{content}</ContentDetails>
+            <ContentDetails>{content.slice(0, 30)}</ContentDetails>
           </div>
         );
       })}
