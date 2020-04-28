@@ -58,6 +58,14 @@ function EvaluationPage(props) {
       setCorrectAnswer([]);
     }
   }
+  const deleteQuestion = (question) => {
+    props.dispatch({
+      type: "DELETE_QUESTION",
+      id: question.id,
+    });
+
+    // setContents(contents.filter((element) => element !== link));
+  };
 
   if (!props.selectedGoal) {
     return ""; // TODO  redirect to new goal page
@@ -89,7 +97,10 @@ function EvaluationPage(props) {
           />
           {showErrorMessage()}
         </Card>
-        <QuestionList questions={props.questions}></QuestionList>
+        <QuestionList
+          questions={props.questions}
+          deleteQuestion={deleteQuestion}
+        ></QuestionList>
       </MainContent>
       <ButtonsContainer>
         <NavigationButton onClick={props.previousStep}>

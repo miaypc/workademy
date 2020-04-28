@@ -8,13 +8,10 @@ const Container = styled.div`
   text-align: center;
 `;
 
-function QuestionList({ questions }) {
+function QuestionList({ questions, deleteQuestion }) {
   // for others
 
   // for add content on the side
-  const handleDeleteQuestion = () => {
-    // setContents(contents.filter((element) => element !== link));
-  };
 
   const handlePlusSubmit = () => {
     // setHint("Please add a content");
@@ -33,12 +30,10 @@ function QuestionList({ questions }) {
       <ol>
         <AddNewContentButton
           contents={questions}
-          handleDeleteContent={handleDeleteQuestion}
+          handleDeleteContent={deleteQuestion}
           handlePlusSubmit={handlePlusSubmit}
-          ContentText="Question"
-          handleDeleteTextContent={() => {
-            return;
-          }}
+          ContentText={"Question"}
+          handleDeleteTextContent={() => {}}
           textContents={[]}
         />
       </ol>
