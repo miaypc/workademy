@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { DragDropContext } from "react-beautiful-dnd";
 // importing styled components for page setup
 import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
 import ModuleSelect from "../../Components/Select/ModuleSelect";
@@ -11,10 +12,30 @@ import {
 } from "../../Components/ResponsiveYellowButton";
 import { NavigationButton } from "../../Components/styleButton";
 import { Device } from "../../Utils/Device";
+import { useState } from "react";
+
 const LecturesContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+  // This object should be removed after connecting redux. For now I use it to check if drag and drop works
+  const oneGoal = {
+    lectures: {
+    'lecture-1': {id='lecture-1', question='some question here'},
+    'lecture-2': {id='lecture-1', question='some question here'},
+    'lecture-3': {id='lecture-1', question='some question here'},
+  },
+  columns: {
+    'column-1':{
+      id: 'column-1',
+      title: 'To Do',
+      lectureIds: ['lecture-1', 'lecture-2', 'lecture-3']
+    }
+  },
+  columnOrder: ['column-1'],
+}
+
 
 function CourseSummaryPage(props) {
   const [goalId, setGoalId] = React.useState(10);
@@ -22,15 +43,22 @@ function CourseSummaryPage(props) {
   const handleChange = (event) => {
     setGoalId(event.target.value);
   };
+
+
+
   return (
     <RightSection>
       <BlueTobBar>This is how your course can look like</BlueTobBar>
       <ModuleSelect handleChange={handleChange} goalId={goalId}></ModuleSelect>
-      <LecturesContainer>
-        <Lecture></Lecture>
-        <Lecture></Lecture>
-        <Lecture></Lecture>
-      </LecturesContainer>
+      {/* Drag and drop section where user can move content */}
+      <DragDropContext>
+        <LecturesContainer>
+          <Lecture></Lecture>
+          {/* <Lecture></Lecture>
+          <Lecture></Lecture> */}
+          {oneGoal.columnOrder.map()}
+        </LecturesContainer>
+      </DragDropContext>
       <CenterButtonContainer>
         <ResponsiveYellowButton onClick={props.nextStep}>
           Publish your course
