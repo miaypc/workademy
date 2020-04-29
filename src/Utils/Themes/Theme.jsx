@@ -12,7 +12,7 @@ export const lightTheme = {
   ButtonText: `${Color.mainWhite}`,
   NavButtonBody: `${Color.mainNavy}`,
   VerbText: `${Color.mainNavy}`,
-  InputText: "#000000",
+  InputText: `${Color.mainNavy}`,
   toggleBorder: `${Color.mainBlue}`,
 };
 

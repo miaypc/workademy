@@ -34,7 +34,7 @@ const Header = styled.div`
 const SmallText = styled.div`
   font-size: 20px;
   font-weight: bold;
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.InputText};
   padding-right: 10px;
   @media (max-width: 650px) {
     font-size: 15px;
@@ -55,7 +55,7 @@ const TextHeader = styled.div`
 const Symbol = styled.span`
   padding: 15px;
 
-  > img {
+  img {
     width: 25px;
   }
 `;
