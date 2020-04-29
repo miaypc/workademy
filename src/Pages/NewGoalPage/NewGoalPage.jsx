@@ -4,14 +4,19 @@ import { connect } from "react-redux";
 import Color from "../../Utils/Color";
 import "./NewGoalPage.scss";
 import AddNewGoalButton from "../../Components/AddNewGoalButton";
+import { lightTheme, darkTheme } from "../../Utils/Themes/Theme";
+import { useDarkMode } from "../../Utils/Themes/UseDarkMode";
 // importing styled components for page setup
 import { ButtonsContainer, GoalsPage } from "../StylePages";
-import Pencil from "../../Components/Images/PencilBG.svg";
+// import Pencil from "../../Components/Images/PencilBG.svg";
+import Pensil from "../../Components/Images/Pensil.svg";
+import PensilWhite from "../../Components/Images/PensilWhite.svg";
 import GoalsContainer from "../../Components/GoalsContainer";
 import {
   ResponsiveYellowButton,
   CenterButtonContainer,
 } from "../../Components/ResponsiveYellowButton";
+import { ThemeProvider } from "styled-components";
 
 //Styles
 const Header = styled.div`
@@ -56,6 +61,8 @@ const Symbol = styled.span`
 `;
 
 function NewGoalPage(props) {
+  const [theme] = useDarkMode();
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
   function createNewGoal() {
     props.dispatch({
       type: "SELECT_GOAL",
@@ -67,15 +74,16 @@ function NewGoalPage(props) {
     <GoalsPage>
       <Header>
         <SmallText>Course name:</SmallText>
-        <TextHeader>
-          {props.courseName}
-          <Symbol onClick={props.previousStep}>
-            <img src={Pencil}></img>
-          </Symbol>
-        </TextHeader>
+        <ThemeProvider theme={themeMode}>
+          <TextHeader>
+            {props.courseName}
+            <Symbol onClick={props.previousStep}>
+              <img src={theme === "dark" ? Pensil : PensilWhite} />
+            </Symbol>
+          </TextHeader>
+        </ThemeProvider>
       </Header>
       {props.goals && props.goals.map((goal) => <GoalsContainer goal={goal} />)}
-
       <ButtonsContainer>
         <AddNewGoalButton onClick={createNewGoal}></AddNewGoalButton>
       </ButtonsContainer>

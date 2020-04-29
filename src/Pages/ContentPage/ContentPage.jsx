@@ -6,6 +6,7 @@ import ContentContainer from "../../Components/ContentContainer/ContentContainer
 import { RightSection, ButtonsContainer } from "../StylePages";
 import QuestionSelect from "../../Components/Select/QuestionSelect";
 import { NavigationButton } from "../../Components/styleButton";
+import { connect } from "react-redux";
 
 const ContentField = styled.div`
   display: flex;
@@ -78,10 +79,10 @@ function ContentPage(props) {
 
   return (
     <RightSection>
-      {/* <BlueTobBar>Question 1: Blended Learning is... </BlueTobBar> */}
       <QuestionSelect
         handleSelectChange={handleSelectChange}
         questionId={questionId}
+        questions={props.questions}
       />
       <ContentField>
         <ContentLeft>
@@ -120,4 +121,9 @@ function ContentPage(props) {
   );
 }
 
-export default ContentPage;
+function mapStateToProps(state) {
+  return {
+    questions: state.course.questions,
+  };
+}
+export default connect(mapStateToProps)(ContentPage);

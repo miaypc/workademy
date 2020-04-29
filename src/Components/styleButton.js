@@ -23,7 +23,7 @@ const VerbsButton = styled(Button)`
 `;
 
 const NavigationButton = styled(Button)`
-  background: ${({ theme }) => theme.ButtonBody};
+  background: ${({ theme }) => theme.NavButtonBody};
   color: ${({ theme }) => theme.ButtonText};
   font-size: 0.9em;
   padding: 0.7em 0.7em;
