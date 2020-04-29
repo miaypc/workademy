@@ -13,6 +13,7 @@ import {
   TextSmallHeader,
   RightSection,
 } from "../StylePages";
+import { useEffect } from "react";
 
 function DefineGoalPage(props) {
   const [isErrorVisible, setIsErrorVisible] = useState(false);
@@ -20,6 +21,16 @@ function DefineGoalPage(props) {
   // TODO get values from selected goal if not empty
   const [selectedVerbs, setSelectedVerbs] = useState();
   const [goalName, setGoalName] = useState();
+
+  useEffect(() => {
+    if (props.selectedGoal) {
+      setSelectedVerbs(props.selectedGoal.verb);
+      setGoalName(props.selectedGoal.name);
+    } else {
+      setSelectedVerbs("");
+      setGoalName("");
+    }
+  }, [props.selectedGoal]);
 
   function showErrorMessage() {
     if (isErrorVisible) {
