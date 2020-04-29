@@ -7,7 +7,7 @@ import ThreeDots from "./Images/ThreeDots.svg";
 
 const Card = styled(_Card)`
   && {
-    background-color: ${Color.mainNavy};
+    background: ${({ theme }) => theme.ButtonBody};
   }
   padding: 2em;
   width: 68%;
@@ -23,7 +23,7 @@ const Card = styled(_Card)`
 `;
 
 const Typography = styled(_Typography)`
-  color: ${Color.mainWhite};
+  color: ${({ theme }) => theme.ButtonText};
   font-size: 15px;
 `;
 

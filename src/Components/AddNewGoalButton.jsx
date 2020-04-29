@@ -12,6 +12,7 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   padding: 0.7em;
+
   background: ${({ theme }) => theme.ButtonBody};
   color: ${({ theme }) => theme.ButtonText};
   cursor: pointer;

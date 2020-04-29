@@ -6,6 +6,7 @@ export const lightTheme = {
   ButtonBody: `${Color.mainNavy}`,
   ButtonText: `${Color.mainWhite}`,
   VerbText: `${Color.mainNavy}`,
+  InputText: "#000000",
   toggleBorder: `${Color.mainBlue}`,
 };
 
@@ -15,6 +16,7 @@ export const darkTheme = {
   ButtonBody: `${Color.mainWhiteGrey}`,
   ButtonText: `${Color.mainNavy}`,
   VerbText: `${Color.mainWhite}`,
+  InputText: `${Color.mainWhite}`,
   toggleBorder: `${Color.mainYellow}`,
   FormHelperText: `${Color.mainWhite}`,
 };
