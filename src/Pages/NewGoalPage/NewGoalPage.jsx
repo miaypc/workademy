@@ -56,6 +56,13 @@ const Symbol = styled.span`
 `;
 
 function NewGoalPage(props) {
+  function createNewGoal() {
+    props.dispatch({
+      type: "SELECT_GOAL",
+      goal: null,
+    });
+    props.nextStep();
+  }
   return (
     <GoalsPage>
       <Header>
@@ -70,7 +77,7 @@ function NewGoalPage(props) {
       {props.goals && props.goals.map((goal) => <GoalsContainer goal={goal} />)}
 
       <ButtonsContainer>
-        <AddNewGoalButton onClick={props.nextStep}></AddNewGoalButton>
+        <AddNewGoalButton onClick={createNewGoal}></AddNewGoalButton>
       </ButtonsContainer>
       {props.goals && (
         <CenterButtonContainer>
@@ -87,6 +94,7 @@ function mapStateToProps(state) {
   return {
     courseName: state.course.courseName,
     goals: state.course.goals,
+    selectedGoal: state.course.selectedGoal,
   };
 }
 

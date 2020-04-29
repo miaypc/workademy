@@ -27,6 +27,11 @@ export default function (state = {}, action) {
         selectedGoal: updatedGoal,
       };
     }
+    case "SELECT_GOAL":
+      return {
+        ...state,
+        selectedGoal: action.goal,
+      };
     case "CREATE_QUESTION": {
       let lastId = (state.lastId || 0) + 1;
       return {

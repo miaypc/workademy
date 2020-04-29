@@ -35,7 +35,7 @@ const ThreeDotsContainer = styled.img`
 function GoalsContainer({ goal }) {
   return (
     <Card>
-      <Typography>{goal.verb + "" + goal.name}</Typography>
+      <Typography>{goal.verb + " " + goal.name}</Typography>
       <ThreeDotsContainer src={ThreeDots} />
     </Card>
   );
