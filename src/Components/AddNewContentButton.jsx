@@ -1,12 +1,8 @@
 import React from "react";
 import Color from "../Utils/Color";
 import styled from "styled-components";
-<<<<<<< HEAD
 import { SignButton } from "./styleButton";
 import BinYellow from "../Components/Images/BinYellow.svg";
-=======
-import Bin from "./Images/Bin.svg";
->>>>>>> 20c1b91d424a23a9ea2a9e7bb0950886ddf26fd2
 
 const Li = styled.li`
   color: ${({ theme }) => theme.text};
@@ -55,21 +51,12 @@ function AddNewContentButton({
       <ContentList>Here is the list of your {ContentText}</ContentList>
       {contents.map((content) => {
         return (
-<<<<<<< HEAD
-          <ContentTextField>
-            <Li>{ContentText} </Li>
-            <ContentBin
-              onClick={() => handleDeleteContent(content)}
-              src={BinYellow}
-            />
-          </ContentTextField>
-=======
           <div>
             <ContentTextField>
               <Li>{ContentText} </Li>
               <ContentBin
                 onClick={() => handleDeleteContent(content)}
-                src={Bin}
+                src={BinYellow}
               />
             </ContentTextField>
             <ContentDetails>
@@ -78,31 +65,20 @@ function AddNewContentButton({
                 : content.slice(0, 30)}
             </ContentDetails>
           </div>
->>>>>>> 20c1b91d424a23a9ea2a9e7bb0950886ddf26fd2
         );
       })}
       {textContents.map((textContent) => {
         return (
-<<<<<<< HEAD
-          <ContentTextField>
-            <Li>Content </Li>
-            <ContentBin
-              onClick={() => handleDeleteTextContent(textContent)}
-              src={BinYellow}
-            />
-          </ContentTextField>
-=======
           <div>
             <ContentTextField>
               <Li>{ContentText} </Li>
               <ContentBin
                 onClick={() => handleDeleteTextContent(textContent)}
-                src={Bin}
+                src={BinYellow}
               />
             </ContentTextField>
             <ContentDetails>{textContent.slice(0, 30)}</ContentDetails>
           </div>
->>>>>>> 20c1b91d424a23a9ea2a9e7bb0950886ddf26fd2
         );
       })}
     </div>
