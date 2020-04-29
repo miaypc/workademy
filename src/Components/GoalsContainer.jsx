@@ -27,13 +27,8 @@ const Card = styled(_Card)`
 `;
 
 const Typography = styled(_Typography)`
-<<<<<<< HEAD
-  color: ${({ theme }) => theme.ButtonText};
-  font-size: 15px;
-=======
   color: ${Color.mainWhite};
   font-size: 20px;
->>>>>>> f92d3651c8c94954c44e6e4ec3570705db3f0a6a
 `;
 
 const MoreIcon = styled(_MoreIcon)`
