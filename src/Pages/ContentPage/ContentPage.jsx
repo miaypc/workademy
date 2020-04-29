@@ -3,8 +3,7 @@ import "./style.js";
 import styled from "styled-components";
 import AddNewContentButton from "../../Components/AddNewContentButton";
 import ContentContainer from "../../Components/ContentContainer/ContentContainer";
-// import CourseSummaryButton from "../../Components/CourseSummaryButton";
-import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
+import { RightSection, ButtonsContainer } from "../StylePages";
 import QuestionSelect from "../../Components/Select/QuestionSelect";
 import { NavigationButton } from "../../Components/styleButton";
 
@@ -21,7 +20,6 @@ function ContentPage(props) {
   const [contents, setContents] = useState([]);
   const [link, setLink] = useState("");
   const [error, setError] = useState(null);
-  const [hint, setHint] = useState(null);
   const [text, setText] = useState("");
   const [textContents, setTextContents] = useState([]);
   const [questionId, setQuestionId] = useState(10);
@@ -78,13 +76,6 @@ function ContentPage(props) {
     setTextContents(textContents.filter((element) => element !== text));
   };
 
-  const handlePlusSubmit = () => {
-    setHint("Please add a content");
-    setInterval(() => {
-      setHint("");
-    }, 3000);
-  };
-
   return (
     <RightSection>
       {/* <BlueTobBar>Question 1: Blended Learning is... </BlueTobBar> */}
@@ -100,7 +91,6 @@ function ContentPage(props) {
             handleValueChange={handleValueChange}
             link={link}
             error={error}
-            hint={hint}
             handleTextSubmit={handleTextSubmit}
             handleTextChange={handleTextChange}
             text={text}
@@ -111,7 +101,6 @@ function ContentPage(props) {
           <AddNewContentButton
             contents={contents}
             handleDeleteContent={handleDeleteContent}
-            handlePlusSubmit={handlePlusSubmit}
             ContentText="Content"
             handleDeleteTextContent={handleDeleteTextContent}
             textContents={textContents}
