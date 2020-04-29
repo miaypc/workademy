@@ -15,7 +15,7 @@ const Card = styled(_Card)`
 `;
 const Text = styled.div`
   font-size: 20px;
-  color: ${({ theme }) => theme.text};
+  color: ${Color.mainNavy};
   text-align: center;
 `;
 

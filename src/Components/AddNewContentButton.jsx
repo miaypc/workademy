@@ -26,7 +26,7 @@ const ContentTextField = styled.div`
 `;
 
 const ContentList = styled.div`
-  color: ${Color.mainNavy};
+  color: ${({ theme }) => theme.text};
   font-size: 25px;
   text-align: center;
   font-weight: bold;
@@ -34,7 +34,7 @@ const ContentList = styled.div`
 `;
 
 const ContentDetails = styled.p`
-  color: ${Color.mainNavy};
+  color: ${({ theme }) => theme.text};
   font-size: 15px;
 `;
 
