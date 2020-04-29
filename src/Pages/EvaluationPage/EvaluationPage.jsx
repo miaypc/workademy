@@ -6,7 +6,7 @@ import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
 import QuestionList from "../../Components/EvaluationContainer/QuestionList";
 import QuestionTypes from "../../Components/EvaluationContainer/QuestionTypes";
 import Answers from "../../Components/EvaluationContainer/Answers";
-import PencilBG from "../../Components/Images/PencilBG.svg";
+import PensilWhite from "../../Components/Images/PensilWhite.svg";
 
 function EvaluationPage(props) {
   const [isErrorVisible, setIsErrorVisible] = useState(false); // Check if user filled all the fields if no - show error
@@ -69,7 +69,7 @@ function EvaluationPage(props) {
       <BlueTobBar>
         Goal: {props.selectedGoal.verb + " " + props.selectedGoal.name}
         <Symbol onClick={props.previousStep}>
-          <img src={PencilBG}></img>
+          <img src={PensilWhite}></img>
         </Symbol>
       </BlueTobBar>
       <MainContent>

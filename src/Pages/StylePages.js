@@ -38,6 +38,8 @@ export const BlueTobBar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: ${Color.mainNavy};
+  color: ${Color.mainWhite};
 `;
 
 export const ButtonsContainer = styled.div`
