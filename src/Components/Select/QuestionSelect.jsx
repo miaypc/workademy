@@ -36,7 +36,7 @@ function QuestionSelect({ questionId, handleSelectChange, questions }) {
         <Select value={questionId} onChange={handleSelectChange}>
           {questions &&
             questions.map((question) => (
-              <MenuItem value={10}>
+              <MenuItem value={10 * question.id}>
                 Question {question.id}: {question.name}
               </MenuItem>
             ))}
