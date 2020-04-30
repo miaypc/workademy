@@ -10,9 +10,21 @@ import {
   CenterButtonContainer,
 } from "../../Components/ResponsiveYellowButton";
 import { NavigationButton } from "../../Components/styleButton";
+import Color from "../../Utils/Color";
+
 const LecturesContainer = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const SummaryBlueTobBar = styled.div`
+  height: 70px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${Color.mainNavy};
+  color: ${Color.mainWhite};
 `;
 
 function CourseSummaryPage(props) {
@@ -23,7 +35,9 @@ function CourseSummaryPage(props) {
   };
   return (
     <RightSection>
-      <BlueTobBar>This is how your course can look like</BlueTobBar>
+      <SummaryBlueTobBar>
+        This is how your course can look like
+      </SummaryBlueTobBar>
       <ModuleSelect handleChange={handleChange} goalId={goalId}></ModuleSelect>
       <LecturesContainer>
         <Lecture></Lecture>

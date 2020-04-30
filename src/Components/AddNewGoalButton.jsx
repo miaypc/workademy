@@ -12,7 +12,6 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   padding: 0.7em;
-
   background: ${({ theme }) => theme.ButtonBody};
   color: ${({ theme }) => theme.ButtonText};
   cursor: pointer;
@@ -22,14 +21,16 @@ const Button = styled.button`
   max-width: 600px;
   font-weight: bold;
 
+
   @media ${Device.tablet} {
     padding: 1em 1.5em;
     font-size: 1.5em;
     border-radius: 10px;
-    background-image: url(${require(`../Components/Images/Plus.svg`)});
-    background-position: right 20px top 8px;
-    background-size: 9%;
-    background-repeat: no-repeat;
+    background-image: url("${({ theme }) => theme.Plus}");
+  background-position: right 20px top 8px;
+  background-size: 9%;
+  background-repeat: no-repeat;
+    
   }
 `;
 

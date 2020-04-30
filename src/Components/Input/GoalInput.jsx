@@ -8,7 +8,8 @@ import styled from "styled-components";
 
 const TextField = styled(_TextField)`
   > div {
-    color: ${({ theme }) => theme.InputText};
+    color: "#6B6B6B";
+    background-color: #e8e8e8;
   }
 `;
 

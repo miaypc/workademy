@@ -21,6 +21,7 @@ const theme = createMuiTheme({
         "&$focused": {
           color: "#FCB536",
         },
+        fontSize: "16px",
       },
     },
   },
@@ -34,8 +35,8 @@ const Container = styled.div`
 
 function CourseName({ onChange, value }) {
   return (
-    <Container>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <Container>
         <TextField
           id="outlined-textarea"
           label="Course Name"
@@ -45,8 +46,8 @@ function CourseName({ onChange, value }) {
           value={value}
           onChange={onChange}
         />
-      </ThemeProvider>
-    </Container>
+      </Container>
+    </ThemeProvider>
   );
 }
 

@@ -27,7 +27,7 @@ const Select = styled(_Select)`
   > div {
     color: ${Color.mainNavy};
   }
-  background-color: ${Color.mainYellow};
+  background-color: ${({ theme }) => theme.ModuleSelect};
 `;
 
 function ModuleSelect({ goalId, handleChange }) {

@@ -11,6 +11,7 @@ export const GlobalColor = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
+    max-width: 100vw
 
   }`;
 
@@ -38,8 +39,9 @@ export const BlueTobBar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${Color.mainNavy};
-  color: ${Color.mainWhite};
+  background: ${({ theme }) => theme.HeaderBackground};
+  color: ${({ theme }) => theme.HeaderText};
+  box-shadow: 1px;
 `;
 
 export const ButtonsContainer = styled.div`

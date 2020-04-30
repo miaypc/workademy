@@ -30,7 +30,7 @@ const Select = styled(_Select)`
     justify-content: center;
   }
 
-  background-color: ${Color.mainNavy};
+  background-color: ${({ theme }) => theme.HeaderBackground};
 `;
 
 function QuestionSelect({ questionId, handleSelectChange, questions }) {

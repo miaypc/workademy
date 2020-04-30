@@ -1,9 +1,8 @@
 import Color from "../Color";
 import Pensil from "../../Components/Images/Pensil.svg";
 import PensilWhite from "../../Components/Images/PensilWhite.svg";
-
-export const PensilLight = `${Pensil}`;
-export const PensilDark = `${PensilWhite}`;
+import Plus from "../../Components/Images/Plus.svg";
+import PlusDark from "../../Components/Images/PlusDark.svg";
 
 export const lightTheme = {
   body: `${Color.mainWhite}`,
@@ -14,6 +13,12 @@ export const lightTheme = {
   VerbText: `${Color.mainNavy}`,
   InputText: `${Color.mainNavy}`,
   toggleBorder: `${Color.mainBlue}`,
+  HeaderBackground: `${Color.mainNavy}`,
+  HeaderText: `${Color.mainWhite}`,
+  ModuleSelect: `${Color.mainYellow}`,
+  Pensil: `${Pensil}`,
+  Plus: `${Plus}`,
+  PensilReverse: `${PensilWhite}`,
 };
 
 export const darkTheme = {
@@ -26,4 +31,10 @@ export const darkTheme = {
   InputText: `${Color.mainWhite}`,
   toggleBorder: `${Color.mainYellow}`,
   FormHelperText: `${Color.mainWhite}`,
+  HeaderBackground: `${Color.mainWhiteGrey}`,
+  HeaderText: `${Color.mainNavy}`,
+  ModuleSelect: `${Color.mainWhiteGrey}`,
+  Pensil: `${PensilWhite}`,
+  PensilReverse: `${Pensil}`,
+  Plus: `${PlusDark}`,
 };
