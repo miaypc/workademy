@@ -87,7 +87,7 @@ function ContentPage(props) {
     }
   };
 
-  // for add content on the side
+  // for delete content on the side
   const handleDeleteContent = (link) => {
     setContents(contents.filter((element) => element !== link));
     props.dispatch({
