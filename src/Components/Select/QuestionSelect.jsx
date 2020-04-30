@@ -35,9 +35,9 @@ function QuestionSelect({ questionId, handleSelectChange, questions }) {
       <FormControl variant="outlined" fullWidth>
         <Select value={questionId} onChange={handleSelectChange}>
           {questions &&
-            questions.map((question) => (
-              <MenuItem value={10 * question.id}>
-                Question {question.id}: {question.name}
+            questions.map((question, index) => (
+              <MenuItem value={question.id}>
+                Question {index + 1}: {question.name}
               </MenuItem>
             ))}
         </Select>

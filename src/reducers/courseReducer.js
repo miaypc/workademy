@@ -57,6 +57,27 @@ export default function (state = {}, action) {
           (question) => question.id !== action.id
         ),
       };
+
+    case "CREATE_CONTENT": {
+      let lastId = (state.lastId || 0) + 1;
+      return {
+        ...state,
+        lastId,
+        contents: [
+          ...(state.contents || []),
+          {
+            id: lastId,
+            name: action.name,
+          },
+        ],
+      };
+    }
+
+    case "DELETE_CONTENT":
+      return {
+        ...state,
+        contents: state.contents.filter((content) => content.id !== action.id),
+      };
     default:
       return state;
   }

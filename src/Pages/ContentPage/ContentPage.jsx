@@ -23,7 +23,7 @@ function ContentPage(props) {
   const [error, setError] = useState(null);
   const [text, setText] = useState("");
   const [textContents, setTextContents] = useState([]);
-  const [questionId, setQuestionId] = useState(10);
+  const [questionId, setQuestionId] = useState(2);
 
   //for select
   const handleSelectChange = (event) => {
@@ -42,6 +42,10 @@ function ContentPage(props) {
   };
   const handleCreateText = (text) => {
     setTextContents([...textContents, text]);
+    props.dispatch({
+      type: "CREATE_CONTENT",
+      name: textContents,
+    });
   };
 
   // for others
@@ -66,15 +70,27 @@ function ContentPage(props) {
 
   const handleCreateContent = (link) => {
     setContents([...contents, link]);
+    props.dispatch({
+      type: "CREATE_CONTENT",
+      name: contents,
+    });
   };
 
   // for add content on the side
   const handleDeleteContent = (link) => {
     setContents(contents.filter((element) => element !== link));
+    props.dispatch({
+      type: "DELETE_CONTENT",
+      id: link.id,
+    });
   };
 
   const handleDeleteTextContent = (text) => {
     setTextContents(textContents.filter((element) => element !== text));
+    props.dispatch({
+      type: "DELETE_CONTENT",
+      id: text.id,
+    });
   };
 
   return (
@@ -124,6 +140,7 @@ function ContentPage(props) {
 function mapStateToProps(state) {
   return {
     questions: state.course.questions,
+    contents: state.course.contents,
   };
 }
 export default connect(mapStateToProps)(ContentPage);
