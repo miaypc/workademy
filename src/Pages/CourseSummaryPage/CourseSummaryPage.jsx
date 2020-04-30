@@ -19,46 +19,59 @@ const LecturesContainer = styled.div`
   flex-direction: column;
 `;
 
-  // This object should be removed after connecting redux. For now I use it to check if drag and drop works
-  const oneGoal = {
-    lectures: {
-    'lecture-1': {id='lecture-1', question='some question here'},
-    'lecture-2': {id='lecture-1', question='some question here'},
-    'lecture-3': {id='lecture-1', question='some question here'},
+// This object should be removed after connecting redux. For now I use it to check if drag and drop works
+const oneGoal = {
+  lectures: {
+    "lecture-1": { id: "lecture-1", question: "some question here" },
+    "lecture-2": { id: "lecture-2", question: "some question here" },
+    "lecture-3": { id: "lecture-3", question: "some question here" },
   },
   columns: {
-    'column-1':{
-      id: 'column-1',
-      title: 'To Do',
-      lectureIds: ['lecture-1', 'lecture-2', 'lecture-3']
-    }
+    "column-1": {
+      id: "column-1",
+      title: "To Do",
+      lectureIds: ["lecture-1", "lecture-2", "lecture-3"],
+    },
   },
-  columnOrder: ['column-1'],
-}
-
+  columnOrder: ["column-1"],
+};
 
 function CourseSummaryPage(props) {
+  const [summary, setSummary] = React.useState(oneGoal);
+
   const [goalId, setGoalId] = React.useState(10);
 
   const handleChange = (event) => {
     setGoalId(event.target.value);
   };
 
-
-
   return (
     <RightSection>
       <BlueTobBar>This is how your course can look like</BlueTobBar>
       <ModuleSelect handleChange={handleChange} goalId={goalId}></ModuleSelect>
       {/* Drag and drop section where user can move content */}
-      <DragDropContext>
-        <LecturesContainer>
-          <Lecture></Lecture>
-          {/* <Lecture></Lecture>
+
+      {/* <DragDropContext> */}
+      <LecturesContainer>
+        {summary.columnOrder.map((columnId) => {
+          const column = summary.columns[columnId];
+          const lectures = column.lectureIds.map(
+            (lecId) => summary.lectures[lecId]
+          );
+          return (
+            <Lecture
+              key={column.id}
+              column={column}
+              lectures={lectures}
+            ></Lecture>
+          );
+        })}
+
+        {/* <Lecture></Lecture>
           <Lecture></Lecture> */}
-          {oneGoal.columnOrder.map()}
-        </LecturesContainer>
-      </DragDropContext>
+        {/* {oneGoal.columnOrder.map()} */}
+      </LecturesContainer>
+      {/* </DragDropContext> */}
       <CenterButtonContainer>
         <ResponsiveYellowButton onClick={props.nextStep}>
           Publish your course
