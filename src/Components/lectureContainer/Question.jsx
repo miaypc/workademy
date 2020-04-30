@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { Draggable } from "react-beautiful-dnd";
 import Color from "../../Utils/Color";
 
 // styles
 const Container = styled.div`
+  margin: 2px;
   width: 25%;
   background-color: ${Color.mainWhite};
   color: ${Color.mainNavy};
@@ -22,11 +24,20 @@ const Text = styled.div`
   }
 `;
 
-function Question() {
+function Question(props) {
   return (
-    <Container>
-      <Text>Question</Text>
-    </Container>
+    <Draggable draggableId={props.question.id} index={props.index}>
+      {(provided) => (
+        <Container
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
+          {props.question.question}
+          {/* <Text>Question</Text> */}
+        </Container>
+      )}
+    </Draggable>
   );
 }
 

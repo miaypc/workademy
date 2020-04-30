@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Droppable } from "react-beautiful-dnd";
 import Color from "../../Utils/Color";
 import Content from "./Content";
 import Question from "./Question";
@@ -37,7 +38,7 @@ const ContentContainer = styled.div`
 `;
 const QuestionContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-around;
   align-items: center;
   text-align: center;
   flex-wrap: wrap;
@@ -46,11 +47,12 @@ const QuestionContainer = styled.div`
   padding: 5px;
   border-radius: 5px;
   background-color: ${Color.mainYellow};
-  height: 100px;
+  min-height: 100px;
 `;
 
 const QuizText = styled.div`
   font-weight: bold;
+  margin: 10px;
   font-size: 25px;
   color: ${Color.mainNavy};
   @media (max-width: 570px) {
@@ -58,7 +60,8 @@ const QuizText = styled.div`
   }
 `;
 
-function Lecture() {
+function Lecture(props) {
+  console.log(props.questions);
   return (
     <Container>
       <Text>Lecture 1</Text>
@@ -68,12 +71,22 @@ function Lecture() {
           <Content />
           <Content />
         </ContentContainer>
-        <QuestionContainer>
-          <QuizText>Quiz</QuizText>
-          <Question></Question>
-          <Question></Question>
-          <Question></Question>
-        </QuestionContainer>
+
+        <Droppable droppableId={props.column.id}>
+          {(provided) => (
+            <QuestionContainer
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+            >
+              <QuizText>Quiz</QuizText>
+
+              {props.questions.map((question, index) => (
+                <Question key={question.id} question={question} index={index} />
+              ))}
+              {provided.placeholder}
+            </QuestionContainer>
+          )}
+        </Droppable>
       </LectureContent>
     </Container>
   );
