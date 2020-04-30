@@ -78,7 +78,9 @@ export default function (state = {}, action) {
     case "DELETE_CONTENT":
       return {
         ...state,
-        contents: state.contents.filter((content) => content.id !== action.id),
+        contents: state.contents.filter(
+          (content) => content.value !== action.value
+        ),
       };
     default:
       return state;

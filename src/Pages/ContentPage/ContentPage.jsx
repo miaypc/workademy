@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.js";
 import styled from "styled-components";
 import AddNewContentButton from "../../Components/AddNewContentButton";
@@ -31,6 +31,7 @@ function ContentPage(props) {
   };
 
   //for Text
+
   const handleTextChange = (event) => {
     setText(event.target.value);
   };
@@ -50,6 +51,18 @@ function ContentPage(props) {
     });
   };
 
+  //using useEffect
+  // useEffect(() => {
+  //   handleTextChange();
+  //   handleCreateText();
+  //   handleTextSubmit();
+  // }, [questionId]);
+
+  // for others
+  const handleValueChange = (event) => {
+    setLink(event.target.value);
+  };
+
   const handleCreateContent = (link) => {
     setContents([...contents, link]);
     props.dispatch({
@@ -57,11 +70,6 @@ function ContentPage(props) {
       contentValue: link,
       questionId: questionId,
     });
-  };
-
-  // for others
-  const handleValueChange = (event) => {
-    setLink(event.target.value);
   };
 
   const handleValueSubmit = (event) => {
@@ -84,7 +92,7 @@ function ContentPage(props) {
     setContents(contents.filter((element) => element !== link));
     props.dispatch({
       type: "DELETE_CONTENT",
-      id: link.id,
+      value: link,
     });
   };
 
@@ -92,7 +100,7 @@ function ContentPage(props) {
     setTextContents(textContents.filter((element) => element !== text));
     props.dispatch({
       type: "DELETE_CONTENT",
-      id: text.id,
+      value: text,
     });
   };
 
