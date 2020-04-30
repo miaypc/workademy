@@ -67,7 +67,9 @@ export default function (state = {}, action) {
           ...(state.contents || []),
           {
             id: lastId,
-            name: action.name,
+            questionId: action.questionId,
+            type: action.contentType,
+            value: action.contentValue,
           },
         ],
       };

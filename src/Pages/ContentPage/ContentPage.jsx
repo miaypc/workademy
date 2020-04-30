@@ -40,11 +40,22 @@ function ContentPage(props) {
     handleCreateText(text);
     setText("");
   };
+
   const handleCreateText = (text) => {
     setTextContents([...textContents, text]);
     props.dispatch({
       type: "CREATE_CONTENT",
-      name: textContents,
+      contentValue: text,
+      questionId: questionId,
+    });
+  };
+
+  const handleCreateContent = (link) => {
+    setContents([...contents, link]);
+    props.dispatch({
+      type: "CREATE_CONTENT",
+      contentValue: link,
+      questionId: questionId,
     });
   };
 
@@ -66,14 +77,6 @@ function ContentPage(props) {
       setLink("");
       setError(null);
     }
-  };
-
-  const handleCreateContent = (link) => {
-    setContents([...contents, link]);
-    props.dispatch({
-      type: "CREATE_CONTENT",
-      name: contents,
-    });
   };
 
   // for add content on the side
