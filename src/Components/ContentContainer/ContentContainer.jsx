@@ -7,7 +7,6 @@ import Color from "../../Utils/Color";
 import ContentType from "./ContentType";
 import types from "./Type";
 import { ReactTinyLink } from "react-tiny-link";
-import { HintMessage } from "../../Pages/StylePages";
 import _Box from "@material-ui/core/Box";
 import _Typography from "@material-ui/core/Typography";
 
@@ -37,7 +36,6 @@ function ContentContainer({
   error,
   handleValueSubmit,
   handleValueChange,
-  hint,
   handleTextSubmit,
   handleTextChange,
   text,
@@ -59,7 +57,6 @@ function ContentContainer({
           handleSelectType={handleSelectType}
           selectedType={selectedType}
         />
-        {hint && <HintMessage>{hint}</HintMessage>}
         <ContentInput
           selectedType={selectedType}
           handleValueSubmit={handleValueSubmit}

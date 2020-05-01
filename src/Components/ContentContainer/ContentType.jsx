@@ -9,7 +9,8 @@ const Box = styled(_Box)`
   padding: 2%;
   margin: 5%;
   display: flex;
-  justify-content: center;
+  // justify-content: center;
+  justify-content: space-evenly;
 `;
 
 function ContentType({ types, handleSelectType, selectedType }) {

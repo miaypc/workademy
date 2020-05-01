@@ -68,10 +68,12 @@ const ContentButton = styled(VerbsButton)`
   font-size: 1.2em;
   border-radius: 1px;
   margin-left: 3%;
-  padding: 0.8em 0.8em;
+  //padding: 0.8em 0.8em;
+  padding: 0.8em 2em;
   @media (max-width: 800px) {
     font-size: 0.8em;
-    padding: 0.6em 0.6em;
+    //padding: 0.6em 0.6em;
+    padding: 0.6em 1em;
   }
 `;
 
