@@ -120,6 +120,9 @@ function CourseSummaryPage(props) {
     return;
   };
 
+  const questionsById = props.questions.reduce((acc, question) => {
+    return { ...acc, [question.id]: question };
+  }, {});
   return (
     <RightSection>
       <BlueTobBar>This is how your course can look like</BlueTobBar>
@@ -133,17 +136,15 @@ function CourseSummaryPage(props) {
       <LecturesContainer>
         {/* // onDragStart // onDragUpdate */}
         <DragDropContext onDragEnd={onDragEnd}>
-          {summary.columnOrder.map((columnId) => {
-            const column = summary.columns[columnId];
-            const questions = column.questionsId.map(
-              (qId) => summary.questions[qId]
+          {props.lectures.map((lecture, index) => {
+            const questions = lecture.questions.map(
+              (qId) => questionsById[qId]
             );
-            console.log(column, "here is column");
-            console.log(questions, "here are questions");
             return (
               <Lecture
-                key={column.id}
-                column={column}
+                key={lecture.id}
+                lecture={lecture}
+                index={index}
                 questions={questions}
               ></Lecture>
             );
@@ -166,9 +167,12 @@ function CourseSummaryPage(props) {
 }
 
 function mapStateToProps(state) {
-  const { goals } = state.course;
+  const { goals, lectures, questions, contents } = state.course;
   return {
-    goals: goals,
+    goals,
+    lectures,
+    questions,
+    contents,
   };
 }
 export default connect(mapStateToProps)(CourseSummaryPage);

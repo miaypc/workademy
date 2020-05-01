@@ -86,7 +86,17 @@ export default function (state = {}, action) {
         questions: state.questions.filter(
           (question) => question.id !== action.id
         ),
-        // TODO update lectures
+        lectures: state.lectures.map((lecture) =>
+          lecture.questions.includes(action.id)
+            ? {
+                ...lecture,
+                questions: lecture.questions.filter((id) => id !== action.id),
+              }
+            : lecture
+        ),
+        contents: (state.contents || []).filter(
+          (content) => content.questionId !== action.id
+        ),
       };
 
     case "CREATE_CONTENT": {
@@ -117,5 +127,3 @@ export default function (state = {}, action) {
       return state;
   }
 }
-
-// (a, b) => a > b? a:b

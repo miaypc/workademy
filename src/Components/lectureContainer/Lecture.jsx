@@ -61,10 +61,9 @@ const QuizText = styled.div`
 `;
 
 function Lecture(props) {
-  console.log(props.questions);
   return (
     <Container>
-      <Text>Lecture 1</Text>
+      <Text>Lecture {props.index + 1}</Text>
       <LectureContent>
         <ContentContainer>
           <Content />
@@ -72,7 +71,10 @@ function Lecture(props) {
           <Content />
         </ContentContainer>
 
-        <Droppable droppableId={props.column.id} direction="horizontal">
+        <Droppable
+          droppableId={String(props.lecture.id)}
+          direction="horizontal"
+        >
           {(provided) => (
             <QuestionContainer
               ref={provided.innerRef}

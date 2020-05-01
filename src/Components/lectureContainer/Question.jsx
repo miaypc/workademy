@@ -26,14 +26,14 @@ const Text = styled.div`
 
 function Question(props) {
   return (
-    <Draggable draggableId={props.question.id} index={props.index}>
+    <Draggable draggableId={String(props.question.id)} index={props.index}>
       {(provided) => (
         <Container
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          {props.question.question}
+          {props.question.name}
           {/* <Text>Question</Text> */}
         </Container>
       )}
