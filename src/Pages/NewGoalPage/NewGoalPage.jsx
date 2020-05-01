@@ -6,7 +6,6 @@ import "./NewGoalPage.scss";
 import AddNewGoalButton from "../../Components/AddNewGoalButton";
 // importing styled components for page setup
 import { ButtonsContainer, GoalsPage } from "../StylePages";
-import Pensil from "../../Components/Images/Pensil.svg";
 import GoalsContainer from "../../Components/GoalsContainer";
 import {
   ResponsiveYellowButton,
@@ -28,9 +27,8 @@ const Header = styled.div`
 
 const SmallText = styled.div`
   font-size: 20px;
-
   font-weight: bold;
-  color: ${Color.mainNavy};
+  color: ${({ theme }) => theme.InputText};
   padding-right: 10px;
   @media (max-width: 650px) {
     font-size: 15px;
@@ -38,21 +36,30 @@ const SmallText = styled.div`
 `;
 
 const TextHeader = styled.div`
+  display: flex;
+  flex-direction: row;
   font-size: 40px;
-  // text-align: center;
-
+  text-align: center;
+  padding: 20px;
   font-weight: bold;
-  color: ${Color.mainNavy};
+  color: ${({ theme }) => theme.text};
   @media (max-width: 650px) {
     font-size: 30px;
   }
 `;
 
-const Symbol = styled.span`
+const Symbol = styled.span` 
+display: flex;
+flex-direction: column;
+align-content: center;
+max-width: 30px; 
   padding: 15px;
-  > img {
-    width: 25px;
-  }
+  height: 25px;
+  background-image: url("${({ theme }) => theme.Pensil}");
+  position: relative;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 10px; 
 `;
 
 function NewGoalPage(props) {
@@ -63,19 +70,17 @@ function NewGoalPage(props) {
     });
     props.nextStep();
   }
+
   return (
     <GoalsPage>
       <Header>
         <SmallText>Course name:</SmallText>
         <TextHeader>
           {props.courseName}
-          <Symbol onClick={props.previousStep}>
-            <img src={Pensil}></img>
-          </Symbol>
+          <Symbol onClick={props.previousStep}></Symbol>
         </TextHeader>
       </Header>
       {props.goals && props.goals.map((goal) => <GoalsContainer goal={goal} />)}
-
       <ButtonsContainer>
         <AddNewGoalButton onClick={createNewGoal}></AddNewGoalButton>
       </ButtonsContainer>

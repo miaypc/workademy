@@ -10,6 +10,10 @@ import { ReactTinyLink } from "react-tiny-link";
 import _Box from "@material-ui/core/Box";
 import _Typography from "@material-ui/core/Typography";
 
+const TextBlueHeader = styled(TextSmallHeader)`
+  color: ${Color.mainNavy};
+`;
+
 const Card = styled(_Card)`
   width: 95%;
   margin-top: 5%;
@@ -46,7 +50,7 @@ function ContentContainer({
   return (
     <div>
       <Card>
-        <TextSmallHeader>Related Content</TextSmallHeader>
+        <TextBlueHeader>Related Content</TextBlueHeader>
 
         <ContentType
           types={types}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { MainContent, SmallParagraph, Card, Text, Symbol } from "./style.js";
+import { MainContent, SmallParagraph, Card, Text, Symbol } from "./style.jsx";
 import { NavigationButton } from "../../Components/styleButton";
 import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
 import QuestionList from "../../Components/EvaluationContainer/QuestionList";
