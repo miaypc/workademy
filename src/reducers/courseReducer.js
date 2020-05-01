@@ -1,3 +1,5 @@
+const maxQuestionsPerLecture = 3;
+
 export default function (state = {}, action) {
   switch (action.type) {
     case "CREATE_DESCRIPTION":
@@ -34,21 +36,48 @@ export default function (state = {}, action) {
       };
     case "CREATE_QUESTION": {
       let lastId = (state.lastId || 0) + 1;
-      let lastLecture = state.lectures || [];
+      const question = {
+        id: lastId,
+        goalId: action.goalId,
+        name: action.name,
+        questionType: action.questionType,
+        answers: action.answers,
+        correct: action.correct,
+      };
+      let lectures;
+      //lectures = [{},{},{}]
+      let goalLectures = (state.lectures || []).filter(
+        (lecture) => lecture.goalId === action.goalId
+      );
+
+      const isGoalLecturesEmpty = !goalLectures.length;
+      const isLastLectureFull =
+        goalLectures.length &&
+        goalLectures[goalLectures.length - 1].questions.length >=
+          maxQuestionsPerLecture;
+      if (isGoalLecturesEmpty || isLastLectureFull) {
+        lastId += 1;
+        lectures = [
+          ...(state.lectures || []),
+          { id: lastId, goalId: action.goalId, questions: [question.id] },
+        ];
+      } else {
+        const lastLecture = goalLectures[goalLectures.length - 1];
+        lectures = state.lectures.map((lecture) =>
+          lecture.id === lastLecture.id
+            ? {
+                ...lastLecture,
+                questions: [...lastLecture.questions, question.id],
+              }
+            : lecture
+        );
+      }
+
       return {
         ...state,
         lastId,
-        questions: [
-          ...(state.questions || []),
-          {
-            id: lastId,
-            goalId: action.goalId,
-            name: action.name,
-            questionType: action.questionType,
-            answers: action.answers,
-            correct: action.correct,
-          },
-        ],
+        questions: [...(state.questions || []), question],
+        lectures,
       };
     }
     case "DELETE_QUESTION":
@@ -57,6 +86,7 @@ export default function (state = {}, action) {
         questions: state.questions.filter(
           (question) => question.id !== action.id
         ),
+        // TODO update lectures
       };
 
     case "CREATE_CONTENT": {
