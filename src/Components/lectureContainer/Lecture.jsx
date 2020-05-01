@@ -72,7 +72,7 @@ function Lecture(props) {
           <Content />
         </ContentContainer>
 
-        <Droppable droppableId={props.column.id}>
+        <Droppable droppableId={props.column.id} direction="horizontal">
           {(provided) => (
             <QuestionContainer
               ref={provided.innerRef}
