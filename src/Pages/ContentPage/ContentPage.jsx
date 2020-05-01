@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import "./style.js";
 import styled from "styled-components";
 import AddNewContentButton from "../../Components/AddNewContentButton";
@@ -18,12 +18,23 @@ const ContentLeft = styled.div`
 `;
 
 function ContentPage(props) {
-  const [contents, setContents] = useState([]);
-  const [link, setLink] = useState("");
   const [error, setError] = useState(null);
+  const [link, setLink] = useState("");
   const [text, setText] = useState("");
-  const [textContents, setTextContents] = useState([]);
   const [questionId, setQuestionId] = useState(2);
+  const [contents, textContents] = useMemo(() => {
+    const links = [];
+    const texts = [];
+    (props.contents || []).forEach((item) => {
+      if (item.questionId !== questionId) return;
+      if (item.type === "link") {
+        links.push(item.value);
+      } else {
+        texts.push(item.value);
+      }
+    });
+    return [links, texts];
+  }, [props.contents, questionId]);
 
   //for select
   const handleSelectChange = (event) => {
@@ -43,20 +54,13 @@ function ContentPage(props) {
   };
 
   const handleCreateText = (text) => {
-    setTextContents([...textContents, text]);
     props.dispatch({
       type: "CREATE_CONTENT",
       contentValue: text,
       questionId: questionId,
+      contentType: "text",
     });
   };
-
-  //using useEffect
-  // useEffect(() => {
-  //   handleTextChange();
-  //   handleCreateText();
-  //   handleTextSubmit();
-  // }, [questionId]);
 
   // for others
   const handleValueChange = (event) => {
@@ -64,11 +68,11 @@ function ContentPage(props) {
   };
 
   const handleCreateContent = (link) => {
-    setContents([...contents, link]);
     props.dispatch({
       type: "CREATE_CONTENT",
       contentValue: link,
       questionId: questionId,
+      contentType: "link",
     });
   };
 
@@ -89,7 +93,7 @@ function ContentPage(props) {
 
   // for delete content on the side
   const handleDeleteContent = (link) => {
-    setContents(contents.filter((element) => element !== link));
+    //setContents(contents.filter((element) => element !== link));
     props.dispatch({
       type: "DELETE_CONTENT",
       value: link,
@@ -97,7 +101,7 @@ function ContentPage(props) {
   };
 
   const handleDeleteTextContent = (text) => {
-    setTextContents(textContents.filter((element) => element !== text));
+    //setTextContents(textContents.filter((element) => element !== text));
     props.dispatch({
       type: "DELETE_CONTENT",
       value: text,
