@@ -36,6 +36,8 @@ const SmallText = styled.div`
 `;
 
 const TextHeader = styled.div`
+  display: flex;
+  flex-direction: row;
   font-size: 40px;
   text-align: center;
   padding: 20px;
@@ -47,13 +49,17 @@ const TextHeader = styled.div`
 `;
 
 const Symbol = styled.span` 
+display: flex;
+flex-direction: column;
+align-content: center;
+max-width: 30px; 
   padding: 15px;
   height: 25px;
   background-image: url("${({ theme }) => theme.Pensil}");
-  position: sticky;
+  position: relative;
   background-size: 100%;
   background-repeat: no-repeat;
-  margin: 5px; 
+  margin: 10px; 
 `;
 
 function NewGoalPage(props) {

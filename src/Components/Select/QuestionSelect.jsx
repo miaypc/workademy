@@ -24,13 +24,14 @@ const FormHelperText = styled(_FormHelperText)`
 const Select = styled(_Select)`
   > div {
     color: ${Color.mainWhite};
+    border-bottom: 1.8px solid ${Color.mainWhite};
     font-size: 20px;
     padding: 1.5em;
     display: flex;
     justify-content: center;
   }
 
-  background-color: ${({ theme }) => theme.HeaderBackground};
+  background: ${Color.mainNavy};
 `;
 
 function QuestionSelect({ questionId, handleSelectChange, questions }) {

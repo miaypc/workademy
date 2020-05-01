@@ -18,7 +18,6 @@ export const lightTheme = {
   ModuleSelect: `${Color.mainYellow}`,
   Pensil: `${Pensil}`,
   Plus: `${Plus}`,
-  PensilReverse: `${PensilWhite}`,
 };
 
 export const darkTheme = {
@@ -35,6 +34,5 @@ export const darkTheme = {
   HeaderText: `${Color.mainNavy}`,
   ModuleSelect: `${Color.mainWhiteGrey}`,
   Pensil: `${PensilWhite}`,
-  PensilReverse: `${Pensil}`,
   Plus: `${PlusDark}`,
 };

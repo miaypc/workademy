@@ -15,6 +15,14 @@ const TextField = styled(_TextField)`
 
 const theme = createMuiTheme({
   overrides: {
+    MuiOutlinedInput: {
+      root: {
+        color: "#303030",
+        "&$focused": {
+          color: "#303030",
+        },
+      },
+    },
     MuiInputLabel: {
       root: {
         color: "#6B6B6B",

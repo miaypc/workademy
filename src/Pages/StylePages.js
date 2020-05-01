@@ -39,9 +39,12 @@ export const BlueTobBar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${({ theme }) => theme.HeaderBackground};
-  color: ${({ theme }) => theme.HeaderText};
-  box-shadow: 1px;
+  background: ${Color.mainNavy};
+  color: ${Color.mainWhite};
+  border-bottom: 1.8px solid ${Color.mainWhite};
+  /* background: ${({ theme }) => theme.HeaderBackground};
+  color: ${({ theme }) => theme.HeaderText}; */
+  
 `;
 
 export const ButtonsContainer = styled.div`
