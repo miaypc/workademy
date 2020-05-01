@@ -34,6 +34,7 @@ export default function (state = {}, action) {
       };
     case "CREATE_QUESTION": {
       let lastId = (state.lastId || 0) + 1;
+      let lastLecture = state.lectures || [];
       return {
         ...state,
         lastId,

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { DragDropContext } from "react-beautiful-dnd";
+import { connect } from "react-redux";
 // importing styled components for page setup
 import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
 import ModuleSelect from "../../Components/Select/ModuleSelect";
@@ -57,7 +58,7 @@ const oneGoal = {
 function CourseSummaryPage(props) {
   const [summary, setSummary] = React.useState(oneGoal);
 
-  const [goalId, setGoalId] = React.useState(10);
+  const [goalId, setGoalId] = React.useState(props.goals && props.goals[0].id);
 
   const handleChange = (event) => {
     setGoalId(event.target.value);
@@ -122,7 +123,11 @@ function CourseSummaryPage(props) {
   return (
     <RightSection>
       <BlueTobBar>This is how your course can look like</BlueTobBar>
-      <ModuleSelect handleChange={handleChange} goalId={goalId}></ModuleSelect>
+      <ModuleSelect
+        handleChange={handleChange}
+        goalId={goalId}
+        goals={props.goals}
+      ></ModuleSelect>
       {/* Drag and drop section where user can move content */}
 
       <LecturesContainer>
@@ -160,4 +165,10 @@ function CourseSummaryPage(props) {
   );
 }
 
-export default CourseSummaryPage;
+function mapStateToProps(state) {
+  const { goals } = state.course;
+  return {
+    goals: goals,
+  };
+}
+export default connect(mapStateToProps)(CourseSummaryPage);

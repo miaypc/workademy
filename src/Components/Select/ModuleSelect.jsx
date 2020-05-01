@@ -20,14 +20,16 @@ const Select = styled(_Select)`
   background-color: ${Color.mainYellow};
 `;
 
-function ModuleSelect({ goalId, handleChange }) {
+function ModuleSelect({ goalId, handleChange, goals }) {
   return (
     <Container>
       <FormControl variant="outlined" fullWidth>
         <Select value={goalId} onChange={handleChange}>
-          <MenuItem value={10}>Module 1: Goal here</MenuItem>
-          <MenuItem value={20}>Module 2: Goal here</MenuItem>
-          <MenuItem value={30}>Module 3: Goal here</MenuItem>
+          {goals.map((goal, index) => (
+            <MenuItem value={goal.id} key={goal.id}>
+              Module {index + 1}: {goal.verb} {goal.name}
+            </MenuItem>
+          ))}
         </Select>
         <FormHelperText>Click to select another goal</FormHelperText>
       </FormControl>
