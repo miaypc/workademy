@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "./style.js";
 import styled from "styled-components";
 import AddNewContentButton from "../../Components/AddNewContentButton";
@@ -6,6 +6,7 @@ import ContentContainer from "../../Components/ContentContainer/ContentContainer
 import { RightSection, ButtonsContainer } from "../StylePages";
 import QuestionSelect from "../../Components/Select/QuestionSelect";
 import { NavigationButton } from "../../Components/styleButton";
+import { connect } from "react-redux";
 
 const ContentField = styled.div`
   display: flex;
@@ -17,12 +18,23 @@ const ContentLeft = styled.div`
 `;
 
 function ContentPage(props) {
-  const [contents, setContents] = useState([]);
-  const [link, setLink] = useState("");
   const [error, setError] = useState(null);
+  const [link, setLink] = useState("");
   const [text, setText] = useState("");
-  const [textContents, setTextContents] = useState([]);
-  const [questionId, setQuestionId] = useState(10);
+  const [questionId, setQuestionId] = useState(2);
+  const [contents, textContents] = useMemo(() => {
+    const links = [];
+    const texts = [];
+    (props.contents || []).forEach((item) => {
+      if (item.questionId !== questionId) return;
+      if (item.type === "link") {
+        links.push(item.value);
+      } else {
+        texts.push(item.value);
+      }
+    });
+    return [links, texts];
+  }, [props.contents, questionId]);
 
   //for select
   const handleSelectChange = (event) => {
@@ -30,6 +42,7 @@ function ContentPage(props) {
   };
 
   //for Text
+
   const handleTextChange = (event) => {
     setText(event.target.value);
   };
@@ -39,13 +52,28 @@ function ContentPage(props) {
     handleCreateText(text);
     setText("");
   };
+
   const handleCreateText = (text) => {
-    setTextContents([...textContents, text]);
+    props.dispatch({
+      type: "CREATE_CONTENT",
+      contentValue: text,
+      questionId: questionId,
+      contentType: "text",
+    });
   };
 
   // for others
   const handleValueChange = (event) => {
     setLink(event.target.value);
+  };
+
+  const handleCreateContent = (link) => {
+    props.dispatch({
+      type: "CREATE_CONTENT",
+      contentValue: link,
+      questionId: questionId,
+      contentType: "link",
+    });
   };
 
   const handleValueSubmit = (event) => {
@@ -63,25 +91,29 @@ function ContentPage(props) {
     }
   };
 
-  const handleCreateContent = (link) => {
-    setContents([...contents, link]);
-  };
-
-  // for add content on the side
+  // for delete content on the side
   const handleDeleteContent = (link) => {
-    setContents(contents.filter((element) => element !== link));
+    //setContents(contents.filter((element) => element !== link));
+    props.dispatch({
+      type: "DELETE_CONTENT",
+      value: link,
+    });
   };
 
   const handleDeleteTextContent = (text) => {
-    setTextContents(textContents.filter((element) => element !== text));
+    //setTextContents(textContents.filter((element) => element !== text));
+    props.dispatch({
+      type: "DELETE_CONTENT",
+      value: text,
+    });
   };
 
   return (
     <RightSection>
-      {/* <BlueTobBar>Question 1: Blended Learning is... </BlueTobBar> */}
       <QuestionSelect
         handleSelectChange={handleSelectChange}
         questionId={questionId}
+        questions={props.questions}
       />
       <ContentField>
         <ContentLeft>
@@ -120,4 +152,10 @@ function ContentPage(props) {
   );
 }
 
-export default ContentPage;
+function mapStateToProps(state) {
+  return {
+    questions: state.course.questions,
+    contents: state.course.contents,
+  };
+}
+export default connect(mapStateToProps)(ContentPage);

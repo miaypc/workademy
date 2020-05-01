@@ -29,14 +29,17 @@ const Select = styled(_Select)`
   background-color: ${Color.mainNavy};
 `;
 
-function QuestionSelect({ questionId, handleSelectChange }) {
+function QuestionSelect({ questionId, handleSelectChange, questions }) {
   return (
     <Container>
       <FormControl variant="outlined" fullWidth>
         <Select value={questionId} onChange={handleSelectChange}>
-          <MenuItem value={10}>Question 1: Question here</MenuItem>
-          <MenuItem value={20}>Question 2: Question here</MenuItem>
-          <MenuItem value={30}>Question 3: Question here</MenuItem>
+          {questions &&
+            questions.map((question, index) => (
+              <MenuItem value={question.id}>
+                Question {index + 1}: {question.name}
+              </MenuItem>
+            ))}
         </Select>
         <FormHelperText>Click to select another question</FormHelperText>
       </FormControl>
