@@ -69,8 +69,8 @@ function ContentContainer({
 
         {textContents.map((textContent) => {
           return (
-            <LinkField>
-              <Typography> {textContent}</Typography>
+            <LinkField key={textContent.id}>
+              <Typography> {textContent.value}</Typography>
             </LinkField>
           );
         })}
@@ -78,11 +78,12 @@ function ContentContainer({
           {contents.map((content) => {
             return (
               <ReactTinyLink
+                key={content.id}
                 cardSize="small"
                 showGraphic={true}
                 maxLine={2}
                 minLine={1}
-                url={content}
+                url={content.value}
               />
             );
           })}

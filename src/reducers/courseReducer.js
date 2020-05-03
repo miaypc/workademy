@@ -62,7 +62,7 @@ export default function (state = {}, action) {
         id: lastId,
         goalId: action.goalId,
         name: action.name,
-        questionType: action.questionType,
+        type: action.questionType,
         answers: action.answers,
         correct: action.correct,
       };
@@ -164,9 +164,7 @@ export default function (state = {}, action) {
     case "DELETE_CONTENT":
       return {
         ...state,
-        contents: state.contents.filter(
-          (content) => content.value !== action.value
-        ),
+        contents: state.contents.filter((content) => content.id !== action.id),
       };
     default:
       return state;

@@ -13,6 +13,7 @@ import {
 } from "../../Components/ResponsiveYellowButton";
 import { NavigationButton } from "../../Components/styleButton";
 import Color from "../../Utils/Color";
+import createCourseJSON from "../../createCourseJSON";
 
 const LecturesContainer = styled.div`
   display: flex;
@@ -74,9 +75,15 @@ function CourseSummaryPage(props) {
           ...acc,
           [content.questionId]: [...(acc[content.questionId] || []), content],
         };
-      }),
+      }, {}),
     [props.contents]
   );
+
+  //make JSON
+  const publishCourse = () => {
+    console.log(JSON.stringify(createCourseJSON(props), null, 2));
+  };
+
   return (
     <RightSection>
       <SummaryBlueTobBar>
@@ -116,7 +123,7 @@ function CourseSummaryPage(props) {
       </LecturesContainer>
 
       <CenterButtonContainer>
-        <ResponsiveYellowButton onClick={props.nextStep}>
+        <ResponsiveYellowButton onClick={publishCourse}>
           Publish your course
         </ResponsiveYellowButton>
       </CenterButtonContainer>
@@ -130,12 +137,6 @@ function CourseSummaryPage(props) {
 }
 
 function mapStateToProps(state) {
-  const { goals, lectures, questions, contents } = state.course;
-  return {
-    goals,
-    lectures,
-    questions,
-    contents,
-  };
+  return state.course;
 }
 export default connect(mapStateToProps)(CourseSummaryPage);

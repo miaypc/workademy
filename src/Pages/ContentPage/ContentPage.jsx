@@ -28,10 +28,10 @@ function ContentPage(props) {
     const texts = [];
     (props.contents || []).forEach((item) => {
       if (item.questionId !== questionId) return;
-      if (item.type === "link") {
-        links.push(item.value);
+      if (item.type === "URL") {
+        links.push(item);
       } else {
-        texts.push(item.value);
+        texts.push(item);
       }
     });
     return [links, texts];
@@ -53,7 +53,6 @@ function ContentPage(props) {
     setText(event.target.value);
   };
   const handleTextSubmit = (event) => {
-    console.log(text);
     event.preventDefault();
     handleCreateText(text);
     setText("");
@@ -64,7 +63,7 @@ function ContentPage(props) {
       type: "CREATE_CONTENT",
       contentValue: text,
       questionId: questionId,
-      contentType: "text",
+      contentType: "HTML",
     });
   };
 
@@ -78,7 +77,7 @@ function ContentPage(props) {
       type: "CREATE_CONTENT",
       contentValue: link,
       questionId: questionId,
-      contentType: "link",
+      contentType: "URL",
     });
   };
 
@@ -98,19 +97,11 @@ function ContentPage(props) {
   };
 
   // for delete content on the side
-  const handleDeleteContent = (link) => {
+  const handleDeleteContent = (content) => {
     //setContents(contents.filter((element) => element !== link));
     props.dispatch({
       type: "DELETE_CONTENT",
-      value: link,
-    });
-  };
-
-  const handleDeleteTextContent = (text) => {
-    //setTextContents(textContents.filter((element) => element !== text));
-    props.dispatch({
-      type: "DELETE_CONTENT",
-      value: text,
+      id: content.id,
     });
   };
 
@@ -140,7 +131,7 @@ function ContentPage(props) {
             contents={contents}
             handleDeleteContent={handleDeleteContent}
             ContentText="Content"
-            handleDeleteTextContent={handleDeleteTextContent}
+            handleDeleteTextContent={handleDeleteContent}
             textContents={textContents}
           />
         </ol>

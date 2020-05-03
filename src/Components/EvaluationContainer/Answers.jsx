@@ -37,7 +37,7 @@ function Answers({
 }) {
   return (
     <Card>
-      {(qType === "single-choice" && (
+      {(qType === "SingleChoice" && (
         <SingleChoice
           setAnswers={setAnswers}
           answers={answers}
@@ -45,7 +45,7 @@ function Answers({
           correctAnswer={correctAnswer}
         />
       )) ||
-        (qType === "multiple-choice" && (
+        (qType === "MultipleChoice" && (
           <MultipleChoice
             setAnswers={setAnswers}
             answers={answers}
@@ -53,7 +53,7 @@ function Answers({
             correctAnswer={correctAnswer}
           />
         )) ||
-        (qType === "free-text" && (
+        (qType === "FreeText" && (
           <Text>We will ask user to submit a free form answer</Text>
         )) || <Text>Choose the question type</Text>}
 
