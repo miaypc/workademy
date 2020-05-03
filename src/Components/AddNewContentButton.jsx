@@ -1,10 +1,11 @@
 import React from "react";
 import Color from "../Utils/Color";
 import styled from "styled-components";
-import Bin from "./Images/Bin.svg";
+import { SignButton } from "./styleButton";
+import BinYellow from "../Components/Images/BinYellow.svg";
 
 const Li = styled.li`
-  color: ${Color.mainNavy};
+  color: ${({ theme }) => theme.Buttontext};
   font-size: 25px;
   text-align: center;
   font-weight: bold;
@@ -25,7 +26,7 @@ const ContentTextField = styled.div`
 `;
 
 const ContentList = styled.div`
-  color: ${Color.mainNavy};
+  color: ${({ theme }) => theme.text};
   font-size: 25px;
   text-align: center;
   font-weight: bold;
@@ -33,7 +34,7 @@ const ContentList = styled.div`
 `;
 
 const ContentDetails = styled.p`
-  color: ${Color.mainNavy};
+  color: ${({ theme }) => theme.text};
   font-size: 15px;
 `;
 
@@ -55,7 +56,7 @@ function AddNewContentButton({
               <Li>{ContentText} </Li>
               <ContentBin
                 onClick={() => handleDeleteContent(content)}
-                src={Bin}
+                src={BinYellow}
               />
             </ContentTextField>
             <ContentDetails>
@@ -73,7 +74,7 @@ function AddNewContentButton({
               <Li>{ContentText} </Li>
               <ContentBin
                 onClick={() => handleDeleteTextContent(textContent)}
-                src={Bin}
+                src={BinYellow}
               />
             </ContentTextField>
             <ContentDetails>{textContent.slice(0, 30)}</ContentDetails>

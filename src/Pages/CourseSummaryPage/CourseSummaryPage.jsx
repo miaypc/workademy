@@ -12,8 +12,7 @@ import {
   CenterButtonContainer,
 } from "../../Components/ResponsiveYellowButton";
 import { NavigationButton } from "../../Components/styleButton";
-import { Device } from "../../Utils/Device";
-import { useState } from "react";
+import Color from "../../Utils/Color";
 
 const LecturesContainer = styled.div`
   display: flex;
@@ -54,6 +53,15 @@ const oneGoal = {
   },
   columnOrder: ["column-1", "column-2", "column-3"],
 };
+const SummaryBlueTobBar = styled.div`
+  height: 70px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${Color.mainNavy};
+  color: ${Color.mainWhite};
+`;
 
 function CourseSummaryPage(props) {
   const [summary, setSummary] = React.useState(oneGoal);
@@ -125,7 +133,10 @@ function CourseSummaryPage(props) {
   }, {});
   return (
     <RightSection>
-      <BlueTobBar>This is how your course can look like</BlueTobBar>
+      <SummaryBlueTobBar>
+        This is how your course can look like
+      </SummaryBlueTobBar>
+
       <ModuleSelect
         handleChange={handleChange}
         goalId={goalId}

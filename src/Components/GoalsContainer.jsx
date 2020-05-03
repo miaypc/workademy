@@ -10,7 +10,7 @@ import Menu from "@material-ui/core/Menu";
 
 const Card = styled(_Card)`
   && {
-    background-color: ${Color.mainNavy};
+    background: ${({ theme }) => theme.ButtonBody};
   }
   padding: 1.5em;
   width: 68%;
@@ -27,12 +27,12 @@ const Card = styled(_Card)`
 `;
 
 const Typography = styled(_Typography)`
-  color: ${Color.mainWhite};
+  color: ${({ theme }) => theme.ButtonText};
   font-size: 20px;
 `;
 
 const MoreIcon = styled(_MoreIcon)`
-  color: ${Color.mainWhite};
+  color: ${({ theme }) => theme.ButtonText};
 `;
 
 function GoalsContainer({ goal }) {

@@ -17,7 +17,6 @@ export const SmallParagraph = styled.p`
 
 export const Card = styled(_Card)`
   width: 75%;
-
   margin-left: 1%;
   border: 5px solid ${Color.mainNavy};
   display: flex;
