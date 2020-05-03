@@ -35,13 +35,12 @@ const ContentContainer = styled.div`
   justify-content: space-around;
   text-align: center;
   flex-wrap: wrap;
+  margin: 0 auto;
+  width: 90%;
 `;
 const QuestionContainer = styled.div`
   display: flex;
-  // justify-content: space-around;
-  align-items: center;
-  text-align: center;
-  flex-wrap: wrap;
+  flex-direction: column;
   width: 90%;
   margin: 0 auto;
   padding: 5px;
@@ -71,10 +70,7 @@ function Lecture(props) {
           ))}
         </ContentContainer>
 
-        <Droppable
-          droppableId={String(props.lecture.id)}
-          direction="horizontal"
-        >
+        <Droppable droppableId={String(props.lecture.id)}>
           {(provided) => (
             <QuestionContainer
               ref={provided.innerRef}

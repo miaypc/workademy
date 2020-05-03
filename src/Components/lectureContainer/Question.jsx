@@ -6,10 +6,10 @@ import Color from "../../Utils/Color";
 // styles
 const Container = styled.div`
   margin: 2px;
-  width: 25%;
+  padding: 10px;
   background-color: ${Color.mainWhite};
   color: ${Color.mainNavy};
-  height: 50px;
+  min-height: 50px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
