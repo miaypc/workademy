@@ -97,6 +97,12 @@ function CourseSummaryPage(props) {
   const questionsById = props.questions.reduce((acc, question) => {
     return { ...acc, [question.id]: question };
   }, {});
+  const contentsByQuestionId = props.contents.reduce((acc, content) => {
+    return {
+      ...acc,
+      [content.questionId]: [...(acc[content.questionId] || []), content],
+    };
+  });
   return (
     <RightSection>
       <SummaryBlueTobBar>
@@ -117,12 +123,16 @@ function CourseSummaryPage(props) {
             const questions = lecture.questions.map(
               (qId) => questionsById[qId]
             );
+            const contents = lecture.questions.flatMap(
+              (qId) => contentsByQuestionId[qId]
+            );
             return (
               <Lecture
                 key={lecture.id}
                 lecture={lecture}
                 index={index}
                 questions={questions}
+                contents={contents}
               ></Lecture>
             );
           })}

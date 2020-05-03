@@ -66,9 +66,9 @@ function Lecture(props) {
       <Text>Lecture {props.index + 1}</Text>
       <LectureContent>
         <ContentContainer>
-          <Content />
-          <Content />
-          <Content />
+          {props.contents.map(() => (
+            <Content />
+          ))}
         </ContentContainer>
 
         <Droppable
