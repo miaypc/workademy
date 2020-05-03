@@ -60,19 +60,26 @@ function CourseSummaryPage(props) {
 
   const questionsById = React.useMemo(
     () =>
-      props.questions.reduce((acc, question) => {
-        return { ...acc, [question.id]: question };
-      }, {}),
+      props.questions
+        ? props.questions.reduce((acc, question) => {
+            return { ...acc, [question.id]: question };
+          }, {})
+        : {},
     [props.questions]
   );
   const contentsByQuestionId = React.useMemo(
     () =>
-      props.contents.reduce((acc, content) => {
-        return {
-          ...acc,
-          [content.questionId]: [...(acc[content.questionId] || []), content],
-        };
-      }, {}),
+      props.contents
+        ? props.contents.reduce((acc, content) => {
+            return {
+              ...acc,
+              [content.questionId]: [
+                ...(acc[content.questionId] || []),
+                content,
+              ],
+            };
+          }, {})
+        : {},
     [props.contents]
   );
 
@@ -97,25 +104,26 @@ function CourseSummaryPage(props) {
       <LecturesContainer>
         {/* // onDragStart // onDragUpdate */}
         <DragDropContext onDragEnd={onDragEnd}>
-          {props.lectures
-            .filter((lecture) => lecture.goalId === goalId)
-            .map((lecture, index) => {
-              const questions = lecture.questions.map(
-                (qId) => questionsById[qId]
-              );
-              const contents = lecture.questions.flatMap(
-                (qId) => contentsByQuestionId[qId] || []
-              );
-              return (
-                <Lecture
-                  key={lecture.id}
-                  lecture={lecture}
-                  index={index}
-                  questions={questions}
-                  contents={contents}
-                ></Lecture>
-              );
-            })}
+          {props.lectures &&
+            props.lectures
+              .filter((lecture) => lecture.goalId === goalId)
+              .map((lecture, index) => {
+                const questions = lecture.questions.map(
+                  (qId) => questionsById[qId]
+                );
+                const contents = lecture.questions.flatMap(
+                  (qId) => contentsByQuestionId[qId] || []
+                );
+                return (
+                  <Lecture
+                    key={lecture.id}
+                    lecture={lecture}
+                    index={index}
+                    questions={questions}
+                    contents={contents}
+                  ></Lecture>
+                );
+              })}
         </DragDropContext>
       </LecturesContainer>
 

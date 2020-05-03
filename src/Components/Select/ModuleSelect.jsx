@@ -35,11 +35,12 @@ function ModuleSelect({ goalId, handleChange, goals }) {
     <Container>
       <FormControl variant="outlined" fullWidth>
         <Select value={goalId} onChange={handleChange}>
-          {goals.map((goal, index) => (
-            <MenuItem value={goal.id} key={goal.id}>
-              Module {index + 1}: {goal.verb} {goal.name}
-            </MenuItem>
-          ))}
+          {goals &&
+            goals.map((goal, index) => (
+              <MenuItem value={goal.id} key={goal.id}>
+                Module {index + 1}: {goal.verb} {goal.name}
+              </MenuItem>
+            ))}
         </Select>
         <FormHelperText>Click to select another goal</FormHelperText>
       </FormControl>

@@ -23,6 +23,7 @@ function ContentPage(props) {
   const [link, setLink] = useState("");
   const [text, setText] = useState("");
   const [questionId, setQuestionId] = useState("");
+  const [goalQuestions, setGoalQuestions] = useState([]);
   const [contents, textContents] = useMemo(() => {
     const links = [];
     const texts = [];
@@ -38,10 +39,21 @@ function ContentPage(props) {
   }, [props.contents, questionId]);
 
   useEffect(() => {
-    setQuestionId(
-      props.questions && props.questions.length ? props.questions[0].id : ""
+    if (!props.questions || !props.selectedGoal) {
+      setQuestionId("");
+      setGoalQuestions([]);
+      return;
+    }
+    const firstQuestion = props.questions.find(
+      (question) => question.goalId === props.selectedGoal.id
     );
-  }, [props.questions]);
+
+    setGoalQuestions(
+      props.questions.filter((q) => q.goalId === props.selectedGoal.id)
+    );
+    setQuestionId(firstQuestion ? firstQuestion.id : "");
+  }, [props.questions, props.selectedGoal]);
+
   //for select
   const handleSelectChange = (event) => {
     setQuestionId(event.target.value);
@@ -110,7 +122,7 @@ function ContentPage(props) {
       <QuestionSelect
         handleSelectChange={handleSelectChange}
         questionId={questionId}
-        questions={props.questions}
+        questions={goalQuestions}
       />
       <ContentField>
         <ContentLeft>
@@ -153,10 +165,7 @@ function mapStateToProps(state) {
   const { selectedGoal, questions } = state.course;
   return {
     selectedGoal: selectedGoal,
-    questions:
-      selectedGoal && questions
-        ? questions.filter((q) => q.goalId === selectedGoal.id)
-        : [],
+    questions,
     contents: state.course.contents,
   };
 }
