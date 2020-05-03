@@ -66,7 +66,9 @@ const SummaryBlueTobBar = styled.div`
 function CourseSummaryPage(props) {
   const [summary, setSummary] = React.useState(oneGoal);
 
-  const [goalId, setGoalId] = React.useState(props.goals && props.goals[0].id);
+  const [goalId, setGoalId] = React.useState(
+    props.goals && props.goals.length && props.goals[0].id
+  );
 
   const handleChange = (event) => {
     setGoalId(event.target.value);

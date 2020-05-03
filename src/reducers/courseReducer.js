@@ -34,6 +34,28 @@ export default function (state = {}, action) {
         ...state,
         selectedGoal: action.goal,
       };
+    case "DELETE_GOAL": {
+      const goalQuestionIds = state.questions
+        .filter((question) => question.goalId === action.id)
+        .map((question) => question.id);
+      return {
+        ...state,
+        goals: state.goals.filter((goal) => goal.id !== action.id),
+        selectedGoal:
+          state.selectedGoal && state.selectedGoal.id === action.id
+            ? null
+            : state.selectedGoal,
+        questions: state.questions.filter(
+          (question) => question.goalId !== action.id
+        ),
+        lectures: state.lectures.filter(
+          (lecture) => lecture.goalId !== action.id
+        ),
+        contents: state.contents.filter(
+          (content) => !goalQuestionIds.includes(content.questionId)
+        ),
+      };
+    }
     case "CREATE_QUESTION": {
       let lastId = (state.lastId || 0) + 1;
       const question = {

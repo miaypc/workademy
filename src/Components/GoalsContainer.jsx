@@ -35,7 +35,7 @@ const MoreIcon = styled(_MoreIcon)`
   color: ${({ theme }) => theme.ButtonText};
 `;
 
-function GoalsContainer({ goal }) {
+function GoalsContainer({ goal, handleEdit, handleDelete, handleEvaluation }) {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -64,9 +64,30 @@ function GoalsContainer({ goal }) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem>Edit</MenuItem>
-        <MenuItem>Delete</MenuItem>
-        <MenuItem>Evaluation</MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose();
+            handleEdit(goal);
+          }}
+        >
+          Edit
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose();
+            handleDelete(goal);
+          }}
+        >
+          Delete
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose();
+            handleEvaluation(goal);
+          }}
+        >
+          Evaluation
+        </MenuItem>
       </Menu>
     </Card>
   );
