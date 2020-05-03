@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { DragDropContext } from "react-beautiful-dnd";
 import { connect } from "react-redux";
@@ -19,40 +19,6 @@ const LecturesContainer = styled.div`
   flex-direction: column;
 `;
 
-// This object should be removed after connecting redux. For now I use it to check if drag and drop works
-const oneGoal = {
-  questions: {
-    "question-1": { id: "question-1", question: "first question here" },
-    "question-2": { id: "question-2", question: "second question here" },
-    "question-3": { id: "question-3", question: "third question here" },
-    "question-4": { id: "question-4", question: "third question here" },
-    "question-5": { id: "question-5", question: "third question here" },
-  },
-  columns: {
-    "column-1": {
-      id: "column-1",
-      title: "Lecture 1",
-      questionsId: [
-        "question-1",
-        "question-2",
-        "question-3",
-        "question-4",
-        "question-5",
-      ],
-    },
-    "column-2": {
-      id: "column-2",
-      title: "Lecture 2",
-      questionsId: [],
-    },
-    "column-3": {
-      id: "column-3",
-      title: "Lecture 3",
-      questionsId: [],
-    },
-  },
-  columnOrder: ["column-1", "column-2", "column-3"],
-};
 const SummaryBlueTobBar = styled.div`
   height: 70px;
   font-size: 25px;
@@ -64,11 +30,11 @@ const SummaryBlueTobBar = styled.div`
 `;
 
 function CourseSummaryPage(props) {
-  const [summary, setSummary] = React.useState(oneGoal);
+  const [goalId, setGoalId] = React.useState("");
 
-  const [goalId, setGoalId] = React.useState(
-    props.goals && props.goals.length && props.goals[0].id
-  );
+  useEffect(() => {
+    setGoalId(props.goals && props.goals.length ? props.goals[0].id : "");
+  }, [props.goals]);
 
   const handleChange = (event) => {
     setGoalId(event.target.value);
@@ -94,15 +60,23 @@ function CourseSummaryPage(props) {
     });
   };
 
-  const questionsById = props.questions.reduce((acc, question) => {
-    return { ...acc, [question.id]: question };
-  }, {});
-  const contentsByQuestionId = props.contents.reduce((acc, content) => {
-    return {
-      ...acc,
-      [content.questionId]: [...(acc[content.questionId] || []), content],
-    };
-  });
+  const questionsById = React.useMemo(
+    () =>
+      props.questions.reduce((acc, question) => {
+        return { ...acc, [question.id]: question };
+      }, {}),
+    [props.questions]
+  );
+  const contentsByQuestionId = React.useMemo(
+    () =>
+      props.contents.reduce((acc, content) => {
+        return {
+          ...acc,
+          [content.questionId]: [...(acc[content.questionId] || []), content],
+        };
+      }),
+    [props.contents]
+  );
   return (
     <RightSection>
       <SummaryBlueTobBar>

@@ -7,6 +7,7 @@ import { RightSection, ButtonsContainer } from "../StylePages";
 import QuestionSelect from "../../Components/Select/QuestionSelect";
 import { NavigationButton } from "../../Components/styleButton";
 import { connect } from "react-redux";
+import { useEffect } from "react";
 
 const ContentField = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ function ContentPage(props) {
   const [error, setError] = useState(null);
   const [link, setLink] = useState("");
   const [text, setText] = useState("");
-  const [questionId, setQuestionId] = useState(2);
+  const [questionId, setQuestionId] = useState("");
   const [contents, textContents] = useMemo(() => {
     const links = [];
     const texts = [];
@@ -36,6 +37,11 @@ function ContentPage(props) {
     return [links, texts];
   }, [props.contents, questionId]);
 
+  useEffect(() => {
+    setQuestionId(
+      props.questions && props.questions.length ? props.questions[0].id : ""
+    );
+  }, [props.questions]);
   //for select
   const handleSelectChange = (event) => {
     setQuestionId(event.target.value);
@@ -153,8 +159,13 @@ function ContentPage(props) {
 }
 
 function mapStateToProps(state) {
+  const { selectedGoal, questions } = state.course;
   return {
-    questions: state.course.questions,
+    selectedGoal: selectedGoal,
+    questions:
+      selectedGoal && questions
+        ? questions.filter((q) => q.goalId === selectedGoal.id)
+        : [],
     contents: state.course.contents,
   };
 }
