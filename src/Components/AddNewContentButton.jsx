@@ -1,7 +1,5 @@
 import React from "react";
-import Color from "../Utils/Color";
 import styled from "styled-components";
-import { SignButton } from "./styleButton";
 import BinYellow from "../Components/Images/BinYellow.svg";
 
 const Li = styled.li`
@@ -51,7 +49,7 @@ function AddNewContentButton({
       <ContentList>Here is the list of your {ContentText}</ContentList>
       {contents.map((content) => {
         return (
-          <div>
+          <div key={content}>
             <ContentTextField>
               <Li>{ContentText} </Li>
               <ContentBin

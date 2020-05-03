@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // Dependencies
 import { useHistory } from "react-router-dom";

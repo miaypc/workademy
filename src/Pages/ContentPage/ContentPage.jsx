@@ -86,7 +86,7 @@ function ContentPage(props) {
     event.preventDefault();
     if (
       !link.match(
-        /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/
+        /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-/]))?/
       )
     ) {
       setError("Please provide a valid link");

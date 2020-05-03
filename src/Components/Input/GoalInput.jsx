@@ -1,7 +1,6 @@
 import React from "react";
 //Material UI input field
 import _TextField from "@material-ui/core/TextField";
-import Color from "../../Utils/Color";
 
 // Styled-components
 import styled from "styled-components";
@@ -31,7 +30,6 @@ function GoalInput({ selectedVerbs, value, onChange }) {
       <Verb>{selectedVerbs ? selectedVerbs : ""}</Verb>
       <TextField
         required
-        id="standard-required outlined-basic"
         label="Goal name"
         variant="outlined"
         style={{ width: "50%" }}

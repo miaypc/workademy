@@ -66,8 +66,8 @@ function Lecture(props) {
       <Text>Lecture {props.index + 1}</Text>
       <LectureContent>
         <ContentContainer>
-          {props.contents.map(() => (
-            <Content />
+          {props.contents.map((content) => (
+            <Content key={content.id} />
           ))}
         </ContentContainer>
 

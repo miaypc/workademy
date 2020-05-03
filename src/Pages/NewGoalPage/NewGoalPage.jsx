@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import Color from "../../Utils/Color";
 import "./NewGoalPage.scss";
 import AddNewGoalButton from "../../Components/AddNewGoalButton";
 // importing styled components for page setup
@@ -104,6 +103,7 @@ function NewGoalPage(props) {
       {props.goals &&
         props.goals.map((goal) => (
           <GoalsContainer
+            key={goal.id}
             goal={goal}
             handleEdit={handleEdit}
             handleDelete={handleDelete}

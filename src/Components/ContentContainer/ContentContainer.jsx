@@ -7,7 +7,6 @@ import Color from "../../Utils/Color";
 import ContentType from "./ContentType";
 import types from "./Type";
 import { ReactTinyLink } from "react-tiny-link";
-import _Box from "@material-ui/core/Box";
 import _Typography from "@material-ui/core/Typography";
 
 const TextBlueHeader = styled(TextSmallHeader)`

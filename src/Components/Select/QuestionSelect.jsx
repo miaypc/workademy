@@ -41,7 +41,7 @@ function QuestionSelect({ questionId, handleSelectChange, questions }) {
         <Select value={questionId} onChange={handleSelectChange}>
           {questions &&
             questions.map((question, index) => (
-              <MenuItem value={question.id}>
+              <MenuItem value={question.id} key={question.id}>
                 Question {index + 1}: {question.name}
               </MenuItem>
             ))}

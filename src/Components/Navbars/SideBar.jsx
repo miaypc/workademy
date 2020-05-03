@@ -1,7 +1,6 @@
 import React from "react";
 import Logo from "../Images/Logo.svg";
 import styled from "styled-components";
-import { Device } from "../../Utils/Device";
 import ProgressBar from "./ProgressBar";
 import { LeftBar } from "../../Pages/StylePages";
 

@@ -20,7 +20,7 @@ function DefineGoalPage(props) {
 
   // TODO get values from selected goal if not empty
   const [selectedVerbs, setSelectedVerbs] = useState();
-  const [goalName, setGoalName] = useState();
+  const [goalName, setGoalName] = useState("");
 
   useEffect(() => {
     if (props.selectedGoal) {

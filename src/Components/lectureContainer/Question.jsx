@@ -16,13 +16,6 @@ const Container = styled.div`
   align-content: center;
   flex-direction: column;
 `;
-const Text = styled.div`
-  padding: 3px;
-  text-align: center;
-  @media (max-width: 570px) {
-    font-size: 10px;
-  }
-`;
 
 function Question(props) {
   return (
@@ -34,7 +27,6 @@ function Question(props) {
           ref={provided.innerRef}
         >
           {props.question.name}
-          {/* <Text>Question</Text> */}
         </Container>
       )}
     </Draggable>

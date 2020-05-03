@@ -69,7 +69,7 @@ function EvaluationPage(props) {
       <BlueTobBar>
         Goal: {props.selectedGoal.verb + " " + props.selectedGoal.name}
         <Symbol onClick={props.previousStep}>
-          <img src={PensilWhite}></img>
+          <img src={PensilWhite} alt="edit goal" />
         </Symbol>
       </BlueTobBar>
       <MainContent>

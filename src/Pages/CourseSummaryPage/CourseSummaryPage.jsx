@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { DragDropContext } from "react-beautiful-dnd";
 import { connect } from "react-redux";
 // importing styled components for page setup
-import { RightSection, ButtonsContainer, BlueTobBar } from "../StylePages";
+import { RightSection, ButtonsContainer } from "../StylePages";
 import ModuleSelect from "../../Components/Select/ModuleSelect";
 import "./CourseSummaryPage.scss";
 import Lecture from "../../Components/lectureContainer/Lecture";
@@ -100,7 +100,7 @@ function CourseSummaryPage(props) {
                 (qId) => questionsById[qId]
               );
               const contents = lecture.questions.flatMap(
-                (qId) => contentsByQuestionId[qId]
+                (qId) => contentsByQuestionId[qId] || []
               );
               return (
                 <Lecture

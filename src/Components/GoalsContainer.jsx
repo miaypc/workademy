@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Color from "../Utils/Color";
 import styled from "styled-components";
 import _Card from "@material-ui/core/Card";
 import _Typography from "@material-ui/core/Typography";
@@ -51,7 +50,7 @@ function GoalsContainer({ goal, handleEdit, handleDelete, handleEvaluation }) {
       <Typography>{goal.verb + " " + goal.name}</Typography>
       <IconButton
         edge="end"
-        size="large"
+        size="medium"
         aria-label="display more actions"
         onClick={handleClick}
       >

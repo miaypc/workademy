@@ -6,7 +6,7 @@ import { GlobalColor } from "./Pages/StylePages";
 import Toggle from "./Components/Toggle/Toggle";
 import { useDarkMode } from "./Utils/Themes/UseDarkMode";
 import { lightTheme, darkTheme } from "./Utils/Themes/Theme";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CreateCoursePage from "./Pages/CreateCoursePage/CreateCoursePage";
 
 function App() {
@@ -32,7 +32,6 @@ function App() {
         </Router>
       </ThemeProvider>
     </div>
-
   );
 }
 
