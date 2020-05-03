@@ -85,49 +85,13 @@ function CourseSummaryPage(props) {
     ) {
       return;
     }
-    const start = summary.columns[source.droppableId];
-    const finish = summary.columns[destination.droppableId];
 
-    if (start === finish) {
-      const newQuestionId = Array.from(start.questionsId);
-      newQuestionId.splice(source.index, 1);
-      newQuestionId.splice(destination.index, 0, draggableId);
-      const newColumn = {
-        ...start,
-        questionsId: newQuestionId,
-      };
-      const newState = {
-        ...summary,
-        columns: {
-          ...summary.columns,
-          [newColumn.id]: newColumn,
-        },
-      };
-      setSummary(newState);
-      return;
-    }
-    const startQuestionsId = Array.from(start.questionsId);
-    startQuestionsId.splice(source.index, 1);
-    const newStart = {
-      ...start,
-      questionsId: startQuestionsId,
-    };
-    const finishQuestionsId = Array.from(finish.questionsId);
-    finishQuestionsId.splice(destination.index, 0, draggableId);
-    const newFinish = {
-      ...finish,
-      questionsId: finishQuestionsId,
-    };
-    const newState = {
-      ...summary,
-      columns: {
-        ...summary.columns,
-        [newStart.id]: newStart,
-        [newFinish.id]: newFinish,
-      },
-    };
-    setSummary(newState);
-    return;
+    props.dispatch({
+      type: "MOVE_QUESTION",
+      questionId: +draggableId,
+      sourceLectureId: +source.droppableId,
+      destinationLectureId: +destination.droppableId,
+    });
   };
 
   const questionsById = props.questions.reduce((acc, question) => {

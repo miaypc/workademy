@@ -120,7 +120,30 @@ export default function (state = {}, action) {
           (content) => content.questionId !== action.id
         ),
       };
-
+    case "MOVE_QUESTION": {
+      const { questionId, sourceLectureId, destinationLectureId } = action;
+      return {
+        ...state,
+        lectures: state.lectures.map((lecture) => {
+          switch (lecture.id) {
+            case sourceLectureId:
+              return {
+                ...lecture,
+                questions: lecture.questions.filter(
+                  (question) => question !== questionId
+                ),
+              };
+            case destinationLectureId:
+              return {
+                ...lecture,
+                questions: [...lecture.questions, questionId],
+              };
+            default:
+              return lecture;
+          }
+        }),
+      };
+    }
     case "CREATE_CONTENT": {
       let lastId = (state.lastId || 0) + 1;
       return {
