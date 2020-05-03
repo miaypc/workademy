@@ -119,23 +119,25 @@ function CourseSummaryPage(props) {
       <LecturesContainer>
         {/* // onDragStart // onDragUpdate */}
         <DragDropContext onDragEnd={onDragEnd}>
-          {props.lectures.map((lecture, index) => {
-            const questions = lecture.questions.map(
-              (qId) => questionsById[qId]
-            );
-            const contents = lecture.questions.flatMap(
-              (qId) => contentsByQuestionId[qId]
-            );
-            return (
-              <Lecture
-                key={lecture.id}
-                lecture={lecture}
-                index={index}
-                questions={questions}
-                contents={contents}
-              ></Lecture>
-            );
-          })}
+          {props.lectures
+            .filter((lecture) => lecture.goalId === goalId)
+            .map((lecture, index) => {
+              const questions = lecture.questions.map(
+                (qId) => questionsById[qId]
+              );
+              const contents = lecture.questions.flatMap(
+                (qId) => contentsByQuestionId[qId]
+              );
+              return (
+                <Lecture
+                  key={lecture.id}
+                  lecture={lecture}
+                  index={index}
+                  questions={questions}
+                  contents={contents}
+                ></Lecture>
+              );
+            })}
         </DragDropContext>
       </LecturesContainer>
 
