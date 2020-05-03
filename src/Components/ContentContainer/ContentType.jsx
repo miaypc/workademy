@@ -19,6 +19,7 @@ function ContentType({ types, handleSelectType, selectedType }) {
       {types.map((type) => {
         return (
           <ContentButton
+            key={type}
             style={{
               backgroundColor:
                 selectedType === type

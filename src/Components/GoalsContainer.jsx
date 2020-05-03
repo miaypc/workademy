@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Color from "../Utils/Color";
 import styled from "styled-components";
 import _Card from "@material-ui/core/Card";
 import _Typography from "@material-ui/core/Typography";
@@ -35,7 +34,7 @@ const MoreIcon = styled(_MoreIcon)`
   color: ${({ theme }) => theme.ButtonText};
 `;
 
-function GoalsContainer({ goal }) {
+function GoalsContainer({ goal, handleEdit, handleDelete, handleEvaluation }) {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -48,10 +47,10 @@ function GoalsContainer({ goal }) {
 
   return (
     <Card>
-      <Typography>{goal.verb + "" + goal.name}</Typography>
+      <Typography>{goal.verb + " " + goal.name}</Typography>
       <IconButton
         edge="end"
-        size="large"
+        size="medium"
         aria-label="display more actions"
         onClick={handleClick}
       >
@@ -64,9 +63,30 @@ function GoalsContainer({ goal }) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem>Edit</MenuItem>
-        <MenuItem>Delete</MenuItem>
-        <MenuItem>Evaluation</MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose();
+            handleEdit(goal);
+          }}
+        >
+          Edit
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose();
+            handleDelete(goal);
+          }}
+        >
+          Delete
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose();
+            handleEvaluation(goal);
+          }}
+        >
+          Evaluation
+        </MenuItem>
       </Menu>
     </Card>
   );

@@ -7,7 +7,6 @@ import Color from "../../Utils/Color";
 import ContentType from "./ContentType";
 import types from "./Type";
 import { ReactTinyLink } from "react-tiny-link";
-import _Box from "@material-ui/core/Box";
 import _Typography from "@material-ui/core/Typography";
 
 const TextBlueHeader = styled(TextSmallHeader)`
@@ -70,8 +69,8 @@ function ContentContainer({
 
         {textContents.map((textContent) => {
           return (
-            <LinkField>
-              <Typography> {textContent}</Typography>
+            <LinkField key={textContent.id}>
+              <Typography> {textContent.value}</Typography>
             </LinkField>
           );
         })}
@@ -79,11 +78,12 @@ function ContentContainer({
           {contents.map((content) => {
             return (
               <ReactTinyLink
+                key={content.id}
                 cardSize="small"
                 showGraphic={true}
                 maxLine={2}
                 minLine={1}
-                url={content}
+                url={content.value}
               />
             );
           })}

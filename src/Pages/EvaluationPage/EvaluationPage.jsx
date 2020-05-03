@@ -11,7 +11,7 @@ import PensilWhite from "../../Components/Images/PensilWhite.svg";
 function EvaluationPage(props) {
   const [isErrorVisible, setIsErrorVisible] = useState(false); // Check if user filled all the fields if no - show error
   const [questionName, setQuestionName] = useState();
-  const [qType, setQType] = useState(); //Three question types are possible: single-choice, multiple-choice, free-text
+  const [qType, setQType] = useState(); //Three question types are possible: SingleChoice, MultipleChoice, FreeText
   const [answers, setAnswers] = useState(["", "", "", ""]); // Array with 4 answers or nothing for free text.
   const [correctAnswer, setCorrectAnswer] = useState([]); // Array of correct answers starting from 1 or nothing for free text
 
@@ -27,7 +27,7 @@ function EvaluationPage(props) {
     if (
       !questionName ||
       !qType ||
-      (qType !== "free-text" &&
+      (qType !== "FreeText" &&
         (answers.some((answer) => answer === "") || !correctAnswer.length))
     ) {
       setIsErrorVisible(true);
@@ -39,7 +39,7 @@ function EvaluationPage(props) {
         goalId: props.selectedGoal.id,
         name: questionName,
         questionType: qType,
-        ...(qType !== "free-text" && {
+        ...(qType !== "FreeText" && {
           // We add answers and correct answer in case question-type is not a free text
           answers: answers,
           correct: correctAnswer,
@@ -69,7 +69,7 @@ function EvaluationPage(props) {
       <BlueTobBar>
         Goal: {props.selectedGoal.verb + " " + props.selectedGoal.name}
         <Symbol onClick={props.previousStep}>
-          <img src={PensilWhite}></img>
+          <img src={PensilWhite} alt="edit goal" />
         </Symbol>
       </BlueTobBar>
       <MainContent>

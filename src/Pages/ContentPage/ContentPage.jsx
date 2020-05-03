@@ -7,6 +7,7 @@ import { RightSection, ButtonsContainer } from "../StylePages";
 import QuestionSelect from "../../Components/Select/QuestionSelect";
 import { NavigationButton } from "../../Components/styleButton";
 import { connect } from "react-redux";
+import { useEffect } from "react";
 
 const ContentField = styled.div`
   display: flex;
@@ -21,20 +22,37 @@ function ContentPage(props) {
   const [error, setError] = useState(null);
   const [link, setLink] = useState("");
   const [text, setText] = useState("");
-  const [questionId, setQuestionId] = useState(2);
+  const [questionId, setQuestionId] = useState("");
+  const [goalQuestions, setGoalQuestions] = useState([]);
   const [contents, textContents] = useMemo(() => {
     const links = [];
     const texts = [];
     (props.contents || []).forEach((item) => {
       if (item.questionId !== questionId) return;
-      if (item.type === "link") {
-        links.push(item.value);
+      if (item.type === "URL") {
+        links.push(item);
       } else {
-        texts.push(item.value);
+        texts.push(item);
       }
     });
     return [links, texts];
   }, [props.contents, questionId]);
+
+  useEffect(() => {
+    if (!props.questions || !props.selectedGoal) {
+      setQuestionId("");
+      setGoalQuestions([]);
+      return;
+    }
+    const firstQuestion = props.questions.find(
+      (question) => question.goalId === props.selectedGoal.id
+    );
+
+    setGoalQuestions(
+      props.questions.filter((q) => q.goalId === props.selectedGoal.id)
+    );
+    setQuestionId(firstQuestion ? firstQuestion.id : "");
+  }, [props.questions, props.selectedGoal]);
 
   //for select
   const handleSelectChange = (event) => {
@@ -47,7 +65,6 @@ function ContentPage(props) {
     setText(event.target.value);
   };
   const handleTextSubmit = (event) => {
-    console.log(text);
     event.preventDefault();
     handleCreateText(text);
     setText("");
@@ -58,7 +75,7 @@ function ContentPage(props) {
       type: "CREATE_CONTENT",
       contentValue: text,
       questionId: questionId,
-      contentType: "text",
+      contentType: "HTML",
     });
   };
 
@@ -72,7 +89,7 @@ function ContentPage(props) {
       type: "CREATE_CONTENT",
       contentValue: link,
       questionId: questionId,
-      contentType: "link",
+      contentType: "URL",
     });
   };
 
@@ -80,7 +97,7 @@ function ContentPage(props) {
     event.preventDefault();
     if (
       !link.match(
-        /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/
+        /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-/]))?/
       )
     ) {
       setError("Please provide a valid link");
@@ -92,19 +109,11 @@ function ContentPage(props) {
   };
 
   // for delete content on the side
-  const handleDeleteContent = (link) => {
+  const handleDeleteContent = (content) => {
     //setContents(contents.filter((element) => element !== link));
     props.dispatch({
       type: "DELETE_CONTENT",
-      value: link,
-    });
-  };
-
-  const handleDeleteTextContent = (text) => {
-    //setTextContents(textContents.filter((element) => element !== text));
-    props.dispatch({
-      type: "DELETE_CONTENT",
-      value: text,
+      id: content.id,
     });
   };
 
@@ -113,7 +122,7 @@ function ContentPage(props) {
       <QuestionSelect
         handleSelectChange={handleSelectChange}
         questionId={questionId}
-        questions={props.questions}
+        questions={goalQuestions}
       />
       <ContentField>
         <ContentLeft>
@@ -134,7 +143,7 @@ function ContentPage(props) {
             contents={contents}
             handleDeleteContent={handleDeleteContent}
             ContentText="Content"
-            handleDeleteTextContent={handleDeleteTextContent}
+            handleDeleteTextContent={handleDeleteContent}
             textContents={textContents}
           />
         </ol>
@@ -153,8 +162,10 @@ function ContentPage(props) {
 }
 
 function mapStateToProps(state) {
+  const { selectedGoal, questions } = state.course;
   return {
-    questions: state.course.questions,
+    selectedGoal: selectedGoal,
+    questions,
     contents: state.course.contents,
   };
 }

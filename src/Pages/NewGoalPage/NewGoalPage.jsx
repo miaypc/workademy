@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import Color from "../../Utils/Color";
 import "./NewGoalPage.scss";
 import AddNewGoalButton from "../../Components/AddNewGoalButton";
 // importing styled components for page setup
@@ -70,6 +69,27 @@ function NewGoalPage(props) {
     });
     props.nextStep();
   }
+  const handleEdit = (goal) => {
+    props.dispatch({
+      type: "SELECT_GOAL",
+      goal: goal,
+    });
+    props.nextStep();
+  };
+  const handleDelete = (goal) => {
+    window.confirm("Do you really want to delete this goal?") &&
+      props.dispatch({
+        type: "DELETE_GOAL",
+        id: goal.id,
+      });
+  };
+  const handleEvaluation = (goal) => {
+    props.dispatch({
+      type: "SELECT_GOAL",
+      goal: goal,
+    });
+    props.goToStep(4);
+  };
 
   return (
     <GoalsPage>
@@ -80,7 +100,16 @@ function NewGoalPage(props) {
           <Symbol onClick={props.previousStep}></Symbol>
         </TextHeader>
       </Header>
-      {props.goals && props.goals.map((goal) => <GoalsContainer goal={goal} />)}
+      {props.goals &&
+        props.goals.map((goal) => (
+          <GoalsContainer
+            key={goal.id}
+            goal={goal}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
+            handleEvaluation={handleEvaluation}
+          />
+        ))}
       <ButtonsContainer>
         <AddNewGoalButton onClick={createNewGoal}></AddNewGoalButton>
       </ButtonsContainer>
@@ -99,7 +128,6 @@ function mapStateToProps(state) {
   return {
     courseName: state.course.courseName,
     goals: state.course.goals,
-    selectedGoal: state.course.selectedGoal,
   };
 }
 

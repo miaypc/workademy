@@ -1,7 +1,5 @@
 import React from "react";
-import Color from "../Utils/Color";
 import styled from "styled-components";
-import { SignButton } from "./styleButton";
 import BinYellow from "../Components/Images/BinYellow.svg";
 
 const Li = styled.li`
@@ -50,8 +48,11 @@ function AddNewContentButton({
     <div>
       <ContentList>Here is the list of your {ContentText}</ContentList>
       {contents.map((content) => {
+        const text = renderContent
+          ? renderContent(content).slice(0, 30)
+          : content.value.slice(0, 30);
         return (
-          <div>
+          <div key={content.id}>
             <ContentTextField>
               <Li>{ContentText} </Li>
               <ContentBin
@@ -59,17 +60,13 @@ function AddNewContentButton({
                 src={BinYellow}
               />
             </ContentTextField>
-            <ContentDetails>
-              {renderContent
-                ? renderContent(content).slice(0, 30)
-                : content.slice(0, 30)}
-            </ContentDetails>
+            <ContentDetails>{text}</ContentDetails>
           </div>
         );
       })}
       {textContents.map((textContent) => {
         return (
-          <div>
+          <div key={textContent.id}>
             <ContentTextField>
               <Li>{ContentText} </Li>
               <ContentBin
@@ -77,7 +74,7 @@ function AddNewContentButton({
                 src={BinYellow}
               />
             </ContentTextField>
-            <ContentDetails>{textContent.slice(0, 30)}</ContentDetails>
+            <ContentDetails>{textContent.value.slice(0, 30)}</ContentDetails>
           </div>
         );
       })}
