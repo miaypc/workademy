@@ -49,7 +49,6 @@ function AddNewContentButton({
     <div>
       <ContentList>Here is the list of your {ContentText}</ContentList>
       {contents.map((content) => {
-        console.log(contents);
         const text = renderContent
           ? renderContent(content).slice(0, 30)
           : content.value.slice(0, 30);
