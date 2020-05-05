@@ -25,10 +25,10 @@ const ContentTextField = styled.div`
 
 const ContentList = styled.div`
   color: ${({ theme }) => theme.text};
-  font-size: 25px;
+  font-size: 28px;
   text-align: center;
-  font-weight: bold;
-  margin-bottom: 1em;
+  font-weight: bolder;
+  margin-bottom: 0.8em;
 `;
 
 const ContentDetails = styled.p`
@@ -43,6 +43,7 @@ function AddNewContentButton({
   handleDeleteTextContent,
   textContents,
   renderContent,
+  renderType,
 }) {
   return (
     <div>
@@ -51,16 +52,17 @@ function AddNewContentButton({
         const text = renderContent
           ? renderContent(content).slice(0, 30)
           : content.value.slice(0, 30);
+        const type = renderType ? renderType(content) : content.type;
         return (
           <div key={content.id}>
             <ContentTextField>
-              <Li>{ContentText} </Li>
+              <Li>{text}</Li>
               <ContentBin
                 onClick={() => handleDeleteContent(content)}
                 src={BinYellow}
               />
             </ContentTextField>
-            <ContentDetails>{text}</ContentDetails>
+            <ContentDetails>{type}</ContentDetails>
           </div>
         );
       })}
@@ -68,13 +70,13 @@ function AddNewContentButton({
         return (
           <div key={textContent.id}>
             <ContentTextField>
-              <Li>{ContentText} </Li>
+              <Li>{textContent.value.slice(0, 30)}</Li>
               <ContentBin
                 onClick={() => handleDeleteTextContent(textContent)}
                 src={BinYellow}
               />
             </ContentTextField>
-            <ContentDetails>{textContent.value.slice(0, 30)}</ContentDetails>
+            <ContentDetails>Text</ContentDetails>
           </div>
         );
       })}

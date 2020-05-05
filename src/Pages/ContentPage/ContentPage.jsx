@@ -24,12 +24,13 @@ function ContentPage(props) {
   const [text, setText] = useState("");
   const [questionId, setQuestionId] = useState("");
   const [goalQuestions, setGoalQuestions] = useState([]);
+  const [selectedType, setSelectedType] = useState();
   const [contents, textContents] = useMemo(() => {
     const links = [];
     const texts = [];
     (props.contents || []).forEach((item) => {
       if (item.questionId !== questionId) return;
-      if (item.type === "URL") {
+      if (item.type !== "HTML") {
         links.push(item);
       } else {
         texts.push(item);
@@ -53,6 +54,10 @@ function ContentPage(props) {
     );
     setQuestionId(firstQuestion ? firstQuestion.id : "");
   }, [props.questions, props.selectedGoal]);
+
+  const handleSelectType = (type) => {
+    setSelectedType(type);
+  };
 
   //for select
   const handleSelectChange = (event) => {
@@ -89,7 +94,7 @@ function ContentPage(props) {
       type: "CREATE_CONTENT",
       contentValue: link,
       questionId: questionId,
-      contentType: "URL",
+      contentType: selectedType,
     });
   };
 
@@ -136,6 +141,9 @@ function ContentPage(props) {
             handleTextChange={handleTextChange}
             text={text}
             textContents={textContents}
+            selectedType={selectedType}
+            setSelectedType={setSelectedType}
+            handleSelectType={handleSelectType}
           />
         </ContentLeft>
         <ol>

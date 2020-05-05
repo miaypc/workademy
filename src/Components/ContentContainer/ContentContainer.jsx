@@ -39,13 +39,10 @@ function ContentContainer({
   handleTextChange,
   text,
   textContents,
+  selectedType,
+  setSelectedType,
+  handleSelectType,
 }) {
-  const [selectedType, setSelectedType] = useState();
-
-  const handleSelectType = (type) => {
-    setSelectedType(type);
-  };
-
   return (
     <div>
       <Card>
