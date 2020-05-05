@@ -33,7 +33,6 @@ export default function createCourseJSON(course) {
             .flatMap((qId) => contentsByQuestionId[qId] || [])
             .map((content) => ({
               "@type": "HTML",
-              url: content.type === "URL" ? content.value : undefined,
               html:
                 content.type === "HTML"
                   ? content.value
