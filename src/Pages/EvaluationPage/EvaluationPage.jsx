@@ -28,7 +28,8 @@ function EvaluationPage(props) {
       !questionName ||
       !qType ||
       (qType !== "FreeText" &&
-        (answers.some((answer) => answer === "") || !correctAnswer.length))
+        (answers.filter((answer) => answer === "").length > 2 ||
+          !correctAnswer.length))
     ) {
       setIsErrorVisible(true);
     } else {
