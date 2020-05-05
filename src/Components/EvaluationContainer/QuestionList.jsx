@@ -19,6 +19,7 @@ function QuestionList({ questions, deleteQuestion }) {
           handleDeleteTextContent={() => {}}
           textContents={[]}
           renderContent={(question) => question.name}
+          renderType={(question) => question.type}
         />
       </ol>
     </Container>
