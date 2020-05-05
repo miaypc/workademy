@@ -34,9 +34,11 @@ export default function createCourseJSON(course) {
           sections: lecture.questions
             .flatMap((qId) => contentsByQuestionId[qId] || [])
             .map((content) => ({
-              "@type": content.type,
-              url: content.type === "URL" ? content.value : undefined,
-              html: content.type === "HTML" ? content.value : undefined,
+              "@type": "HTML",
+              html:
+                content.type === "HTML"
+                  ? content.value
+                  : `<a href=\"${content.value}\">${content.type}</a>`,
             })),
         })),
     })),
