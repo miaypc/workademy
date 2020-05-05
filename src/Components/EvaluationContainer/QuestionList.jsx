@@ -4,7 +4,6 @@ import AddNewContentButton from "../AddNewContentButton";
 
 const Container = styled.div`
   display: flex;
-  text-align: center;
 `;
 
 function QuestionList({ questions, deleteQuestion }) {
