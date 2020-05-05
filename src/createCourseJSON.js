@@ -25,7 +25,9 @@ export default function createCourseJSON(course) {
             .map((question) => ({
               "@type": question.type,
               question: question.name,
-              answer: question.answers,
+              answer:
+                question.answers &&
+                question.answers.filter((answer) => answer !== ""),
               correctAnswer: question.correct,
             })),
           // sections:

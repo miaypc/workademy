@@ -1,17 +1,13 @@
 import React from "react";
-
-import _Card from "@material-ui/core/Card";
 import styled from "styled-components";
 import Color from "../../Utils/Color";
 import SingleChoice from "./AnswerTypes/SingleChoice";
 import MultipleChoice from "./AnswerTypes/MultipleChoice";
 import { SaveButton } from "../styleButton";
 
-const Card = styled(_Card)`
+const Container = styled.div`
   width: 90%;
   padding-left: 5%;
-
-  background-color: green;
 `;
 const Text = styled.div`
   font-size: 20px;
@@ -36,7 +32,7 @@ function Answers({
   correctAnswer,
 }) {
   return (
-    <Card>
+    <Container>
       {(qType === "SingleChoice" && (
         <SingleChoice
           setAnswers={setAnswers}
@@ -64,7 +60,7 @@ function Answers({
           </SaveButton>
         </ButtonField>
       )}
-    </Card>
+    </Container>
   );
 }
 
