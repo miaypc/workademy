@@ -71,69 +71,14 @@ function getSteps() {
   ];
 }
 
-export default function ProgressBar({ currentStep }) {
+export default function ProgressBar({ currentStep, goToStep }) {
   const classes = useStyles();
-  // const [activeStep, setActiveStep] = React.useState(currentStep);
   const activeStep = currentStep - 1;
-  const [completed, setCompleted] = React.useState({});
   const steps = getSteps();
 
-  const totalSteps = () => {
-    return steps.length;
-  };
-
-  const completedSteps = () => {
-    return Object.keys(completed).length;
-  };
-
-  const isLastStep = () => {
-    return activeStep === totalSteps() - 1;
-  };
-
-  const allStepsCompleted = () => {
-    return completedSteps() === totalSteps();
-  };
-
-  const handleNext = () => {
-    const newActiveStep =
-      isLastStep() && !allStepsCompleted()
-        ? // It's the last step, but not all steps have been completed,
-          // find the first step that has been completed
-          steps.findIndex((step, i) => !(i in completed))
-        : activeStep + 1;
-    // setActiveStep(newActiveStep);
-  };
-
-  // const handleBack = () => {
-  //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  // };
-
   const handleStep = (step) => () => {
-    // setActiveStep(step);
+    goToStep(step + 1);
   };
-
-  // const handleComplete = () => {
-  //   const newCompleted = completed;
-  //   newCompleted[activeStep] = true;
-  //   setCompleted(newCompleted);
-  //   handleNext();
-  // };
-
-  // const handleReset = () => {
-  //   setActiveStep(0);
-  //   setCompleted({});
-  // };
-  // const handleNext = () => {
-  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  // };
-
-  // const handleBack = () => {
-  //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  // };
-
-  // const handleReset = () => {
-  // setActiveStep(0);
-  // };
 
   return (
     <ThemeProvider theme={theme}>
@@ -145,17 +90,8 @@ export default function ProgressBar({ currentStep }) {
         >
           {steps.map((label, index) => (
             <Step key={label}>
-              <StepButton
-                onClick={handleStep(index)}
-                completed={completed[index]}
-              >
-                {label}
-              </StepButton>
-              {/* <StepLabel>{label}
-              </StepLabel> */}
-              <StepContent>
-                <div className={classes.actionsContainer}></div>
-              </StepContent>
+              <StepButton onClick={handleStep(index)}>{label}</StepButton>
+              <StepContent></StepContent>
             </Step>
           ))}
         </Stepper>

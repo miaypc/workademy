@@ -23,11 +23,11 @@ const LogoSmall = styled.img`
   max-width: 100%;
 `;
 
-const SideBar = ({ currentStep }) => (
+const SideBar = ({ currentStep, goToStep }) => (
   <LeftBar>
     <SideBarContainer>
       <LogoSmall src={Logo} />
-      <ProgressBar currentStep={currentStep} />
+      <ProgressBar currentStep={currentStep} goToStep={goToStep} />
     </SideBarContainer>
   </LeftBar>
 );
