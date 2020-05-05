@@ -4,7 +4,6 @@ import AddNewContentButton from "../AddNewContentButton";
 
 const Container = styled.div`
   display: flex;
-  text-align: center;
 `;
 
 function QuestionList({ questions, deleteQuestion }) {
@@ -19,6 +18,7 @@ function QuestionList({ questions, deleteQuestion }) {
           handleDeleteTextContent={() => {}}
           textContents={[]}
           renderContent={(question) => question.name}
+          renderType={(question) => question.type}
         />
       </ol>
     </Container>
