@@ -2,15 +2,17 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
+// import StepLabel from "@material-ui/core/StepLabel";
 import StepButton from "@material-ui/core/StepButton";
 import StepContent from "@material-ui/core/StepContent";
-import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
+  overrides: {
+    MuiButtonBase: {
+      tabindex: "-1",
+    },
+  },
   // I modified this theme here that comes originally from Material UI.
   palette: {
     primary: { main: "#253858" },
@@ -58,6 +60,12 @@ const useStyles = makeStyles((theme) => ({
   resetContainer: {
     padding: theme.spacing(3),
   },
+
+  // buttonBase: {
+  //   root: {
+  //     tabindex: "-1",
+  //   },
+  // },
 }));
 
 function getSteps() {
