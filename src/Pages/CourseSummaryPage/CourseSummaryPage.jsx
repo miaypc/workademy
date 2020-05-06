@@ -39,6 +39,10 @@ function CourseSummaryPage(props) {
 
   const handleChange = (event) => {
     setGoalId(event.target.value);
+    props.dispatch({
+      type: "SELECT_GOAL",
+      goal: props.goals.find((goal) => goal.id === event.target.value),
+    });
   };
 
   const onDragEnd = (result) => {

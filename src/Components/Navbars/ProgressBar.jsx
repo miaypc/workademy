@@ -2,17 +2,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
-// import StepLabel from "@material-ui/core/StepLabel";
+import StepLabel from "@material-ui/core/StepLabel";
 import StepButton from "@material-ui/core/StepButton";
 import StepContent from "@material-ui/core/StepContent";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
-  overrides: {
-    MuiButtonBase: {
-      tabindex: "-1",
-    },
-  },
   // I modified this theme here that comes originally from Material UI.
   palette: {
     primary: { main: "#253858" },
@@ -40,11 +35,13 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     minWidth: "50px",
     fontSize: "1em",
+    cursor: "pointer",
   },
 
   button: {
     marginTop: theme.spacing(1),
     marginRight: theme.spacing(1),
+
     active: {
       color: "#253858",
     },
@@ -98,8 +95,7 @@ export default function ProgressBar({ currentStep, goToStep }) {
         >
           {steps.map((label, index) => (
             <Step key={label}>
-              <StepButton onClick={handleStep(index)}>{label}</StepButton>
-              <StepContent></StepContent>
+              <StepLabel onClick={handleStep(index)}>{label}</StepLabel>
             </Step>
           ))}
         </Stepper>
